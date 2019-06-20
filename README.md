@@ -1,6 +1,6 @@
 # ACT FFXIV Kapture
 **Kapture** is an ACT plugin for FFXIV to capture your loot-related events including drops, rolls, and obtained items. 
-You can send them to discord, store them in log files, or send them to a REST endpoint.
+You can send them to discord, store them in log files, or send them to a REST endpoint. 
 
 #### Screenshots
 ![ui](./img/ui.png)
@@ -21,8 +21,8 @@ You can download Kapture from the  [release](https://github.com/kalilistic/ACT.F
 ## Setup
 1. Ensure your ACT and FFXIV ACT Plugins are up-to-date.
 2. Download the current version from the [release](https://github.com/kalilistic/ACT.FFXIV.Kapture/releases) page.
-3. [Unblock](https://blogs.msdn.microsoft.com/delay/p/unblockingdownloadedfile/) the zip file.
-4. Extract the zip file into your ACT installation folder.
+3. [Unblock](https://blogs.msdn.microsoft.com/delay/p/unblockingdownloadedfile/) the dll file.
+4. Extract the dll file into your ACT installation folder.
 5. Open ACT and select "Plugins" and then "Plugins Listing".
 6. Select browse and select the Kapture.dll.
 7. Select "Add/Enable Plugin".
@@ -47,9 +47,12 @@ You can download Kapture from the  [release](https://github.com/kalilistic/ACT.F
 * Kapture meta data (e.g. plugin version)
 * Event (e.g. type, player name)
 * Item data (ID, name, isHQ, quantity)
-* TerritoryID
-* Reporter (ID, Name, WorldID, ClassJobID)
-* Party Members (ID, Name, WorldID, ClassJobID)
+* TerritoryID**
+* Reporter (ID, Name, WorldID, ClassJobID)**
+* Party Members (ID, Name, WorldID, ClassJobID)**
+
+***These are disabled for now until an upcoming release. You'll see the field names in the JSON and CSV
+outputs but they'll be blank at this time.*
 
 ### Event Types
 * ADD_LOOT - Loot is added to the loot list.
@@ -68,6 +71,7 @@ You can download Kapture from the  [release](https://github.com/kalilistic/ACT.F
  ## Roadmap
  * Streamline build/release process.
  * Add support for new 2.x FFXIV ACT plugin.
+ * Re-enable support for enhanced data (e.g. party members).
  * Add support for additional loot events (e.g. buy/sell items).
  * Add support for filters (e.g. zone, item types).
  * Consider support for other non-combat events beyond loot.
