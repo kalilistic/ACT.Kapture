@@ -2,6 +2,8 @@
 **Kapture** is an ACT plugin for FFXIV to capture your loot-related events including drops, rolls, and obtained items. 
 You can send them to discord, store them in log files, or send them to a REST endpoint. 
 
+Questions? Come talk to us on [discord](https://discord.gg/ftn4k7x)!
+
 #### Screenshots
 ![ui](./img/ui.png)
 
@@ -40,7 +42,7 @@ You can download Kapture from the  [release](https://github.com/kalilistic/ACT.F
 * Send to HTTP Server - POST all captured loot events to a REST endpoint.
 
 ### Logging
-* All event logs are stored in the KaptureLogs directory in your ACT installation directory.
+* All event logs are stored in the KaptureLogs directory in your ACT AppData directory *(C:\Users\USERNAME\AppData\Roaming\Advanced Combat Tracker\KaptureLogs).*
 * Errors will be saved to Kapture.log in the KaptureLogs directory (please let me know!).
 
 ### Data
@@ -77,7 +79,7 @@ outputs but they'll be blank at this time.*
  * Consider support for other non-combat events beyond loot.
  
  ## Report Issue
-You can suggest improvements or report bugs [here](https://github.com/kalilistic/ACT.FFXIV.Kapture/issues).
+You can suggest improvements or report bugs on [github](https://github.com/kalilistic/ACT.FFXIV.Kapture/issues) or on our [discord server](https://discord.gg/ftn4k7x).
 
  ## Disclaimer
 Use of this program is at your own risk. Square Enix does not permit the use of any third party tools, even those which do not modify the game.
