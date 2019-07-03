@@ -47,16 +47,13 @@ You can download Kapture from the  [release](https://github.com/kalilistic/ACT.F
 
 ### Data
 * Kapture meta data (e.g. plugin version)
-* Event (e.g. type, player name)
+* Event (e.g. code, player name)
 * Item data (ID, name, isHQ, quantity)
-* TerritoryID**
-* Reporter (ID, Name, WorldID, ClassJobID)**
-* Party Members (ID, Name, WorldID, ClassJobID)**
+* Location data (TerritoryID, ZoneName)
+* Reporter (ID, Name, WorldID, ClassJobID)
+* Party Members (ID, Name, WorldID, ClassJobID)
 
-***These are disabled for now until an upcoming release. You'll see the field names in the JSON and CSV
-outputs but they'll be blank at this time.*
-
-### Event Types
+### Event Codes
 * ADD_LOOT - Loot is added to the loot list.
 * GREED_LOOT - Player rolls Greed on an item.
 * NEED_LOOT - Player rolls Need on an item.
@@ -71,9 +68,6 @@ outputs but they'll be blank at this time.*
 * [Saint Coinach](https://github.com/ufx/SaintCoinach)
 
  ## Roadmap
- * Streamline build/release process.
- * Add support for new 2.x FFXIV ACT plugin.
- * Re-enable support for enhanced data (e.g. party members).
  * Add support for additional loot events (e.g. buy/sell items).
  * Add support for filters (e.g. zone, item types).
  * Consider support for other non-combat events beyond loot.
