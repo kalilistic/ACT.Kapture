@@ -5,11 +5,13 @@ You can send them to discord, store them in log files, or send them to a REST en
 Questions? Come talk to us on [discord](https://discord.gg/ftn4k7x)!
 
 #### Screenshots
-![ui](./img/ui.png)
+![ui1](./img/ui1.png)
+
+![ui2](./img/ui2.png)
+
+![ui3](./img/ui3.png)
 
 ![discord](./img/discord.png)
-
-![json](./img/json.png)
 
 ## Prerequisites
 Please ensure the following are installed before using Kapture.
@@ -29,20 +31,20 @@ You can download Kapture from the  [release](https://github.com/kalilistic/ACT.F
 6. Select browse and select the Kapture.dll.
 7. Select "Add/Enable Plugin".
 8. Select "Kapture".
-9. Select your desired option (more details below) and URL if applicable.
-10. Select apply.
+9. Select apply.
 
 ## Using Kapture
 
 ### Actions
 * Send to Discord Webhook - Send simple loot message to a [discord web hook](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
-* Log to File (Simple) - Record simple loot message to log file.
-* Log to File (CSV) - Record all captured loot data to csv file.
-* Log to File (JSON) - Record all captured loot data to log file in json format.  
-* Send to HTTP Server - POST all captured loot events to a REST endpoint.
+* Save to Log File - Record simple loot message to log file (on by default).
+* Save to CSV File - Record all captured loot data to csv file.
+* Save to JSON File - Record all captured loot data to log file in json format.  
+* Send to REST Server - POST all captured loot events to a REST endpoint.
 
 ### Logging
-* All event logs are stored in the KaptureLogs directory in your ACT AppData directory *(C:\Users\USERNAME\AppData\Roaming\Advanced Combat Tracker\KaptureLogs).*
+* All event logs are stored in the KaptureLogs directory in your ACT AppData directory by default.
+* You can change where the logs are stored on the action screen.
 * Errors will be saved to Kapture.log in the KaptureLogs directory (please let me know!).
 
 ### Data
