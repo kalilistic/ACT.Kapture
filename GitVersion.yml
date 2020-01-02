@@ -1,0 +1,7 @@
+mode: Mainline
+next-version: 1.0.0
+assembly-informational-format: '{FullSemVer}'
+branches: {}
+ignore:
+  sha: []
+merge-message-formats: {}
