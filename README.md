@@ -1,81 +1,58 @@
-# ACT FFXIV Kapture
-**Kapture** is an ACT plugin for FFXIV to capture your loot-related events including drops, rolls, and obtained items. 
-You can send them to discord, store them in log files, or send them to a REST endpoint. 
+<h1 align="center">
+  <br><a href="https://github.com/kalilistic/kapture"><img src="img/bannerIcon.png" alt="Kapture"></a>
+  <br>Kapture<br>
+</h1>
+<h4 align="center">ACT FFXIV Plugin Loot Tracker.</h4>
 
-Questions? Come talk to us on [discord](https://discord.gg/ftn4k7x)!
+<p align="center">
+  <a href="https://github.com/kalilistic/kapture/releases/latest"><img src="https://img.shields.io/github/v/release/kalilistic/kapture"></a>
+  <a href="https://ci.appveyor.com/project/kalilistic/kapture/branch/master"><img src="https://img.shields.io/appveyor/ci/kalilistic/kapture"></a>
+  <a href="https://github.com/kalilistic/kapture/blob/master/LICENSE"><img src="https://img.shields.io/github/license/kalilistic/kapture?color=lightgrey"></a>
+  <a href="https://discord.gg/ftn4k7x"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg"></a>
+</p>
 
-#### Screenshots
-![ui1](./img/ui1.png)
+## Background
 
-![ui2](./img/ui2.png)
+Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send loot messages to discord, log them to your desktop, and more.
 
-![ui3](./img/ui3.png)
+## Demo
 
-![discord](./img/discord.png)
+![image](img/demo.gif)
 
-## Prerequisites
-Please ensure the following are installed before using Kapture.
-* [Microsoft .NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53344)
-* [Advanced Combat Tracker](https://advancedcombattracker.com/download.php)
-* [FFXIV_ACT_Plugin](https://github.com/ravahn/FFXIV_ACT_Plugin)
+## Key Features
 
-## Download
-You can download Kapture from the  [release](https://github.com/kalilistic/ACT.FFXIV.Kapture/releases) page.
+* Track your loot in Final Fantasy XIV.
+* Capture drops, obtained items, and rolls.
+* Capture your own loot, your party members, or even the whole alliance.
+* Filter by zones with presets (e.g. only high-end duties).
+* Filter by items with presets (e.g. filter out common items like gil or tomestones).
+* Log your loot in a basic log file or get fancier with csv/json.
+* Send your loot to your discord with an easy to [setup web hook](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks) (no discord bot needed).
+* Send your loot (enriched with other data) - to your HTTP server.
 
-## Setup
-1. Ensure your ACT and FFXIV ACT Plugins are up-to-date.
-2. Download the current version from the [release](https://github.com/kalilistic/ACT.FFXIV.Kapture/releases) page.
-3. [Unblock](https://blogs.msdn.microsoft.com/delay/p/unblockingdownloadedfile/) the dll file.
-4. Extract the dll file into your ACT installation folder.
-5. Open ACT and select "Plugins" and then "Plugins Listing".
-6. Select browse and select the Kapture.dll.
-7. Select "Add/Enable Plugin".
-8. Select "Kapture".
-9. Select apply.
 
-## Using Kapture
+## How To Install
 
-### Actions
-* Send to Discord Webhook - Send simple loot message to a [discord web hook](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
-* Save to Log File - Record simple loot message to log file (on by default).
-* Save to CSV File - Record all captured loot data to csv file.
-* Save to JSON File - Record all captured loot data to log file in json format.  
-* Send to REST Server - POST all captured loot events to a REST endpoint.
+1. Ensure your ACT and FFXIV ACT Plugin are up-to-date.
+2. Download the latest version from the [release](https://github.com/kalilistic/Kapture/releases/latest) page.
+3. Copy the Kapture.dll file into your ACT Plugins directory (usually C:\Users\yourname\AppData\Roaming\Advanced Combat Tracker\Plugins).
+4. Open ACT and select "Plugins" and then "Plugins Listing".
+5. Select browse and select the Kapture.dll.
+6. Select "Add/Enable Plugin".
+7. Select "Kapture".
+8. Select apply.
+9. You're good! Now check out the Kapture tab in ACT to customize your settings.
 
-### Logging
-* All event logs are stored in the KaptureLogs directory in your ACT AppData directory by default.
-* You can change where the logs are stored on the action screen.
-* Errors will be saved to Kapture.log in the KaptureLogs directory (please let me know!).
-
-### Data
-* Kapture meta data (e.g. plugin version)
-* Event (e.g. code, player name)
-* Item data (ID, name, isHQ, quantity)
-* Location data (TerritoryID, ZoneName)
-* Reporter (ID, Name, WorldID, ClassJobID)
-* Party Members (ID, Name, WorldID, ClassJobID)
-
-### Event Codes
-* ADD_LOOT - Loot is added to the loot list.
-* GREED_LOOT - Player rolls Greed on an item.
-* NEED_LOOT - Player rolls Need on an item.
-* OBTAIN_LOOT - Player obtains an item.
-* LOST_LOOT - No one rolls and an item drops to the floor.
-
-### Limitations
-* TerritoryID, Reporter, and Party Members are not available on imports.
-* Only English is supported at this time.
 
 ## Software Used
-* [Saint Coinach](https://github.com/ufx/SaintCoinach)
 
- ## Roadmap
- * Add support for additional loot events (e.g. buy/sell items).
- * Add support for filters (e.g. zone, item types).
- * Consider support for other non-combat events beyond loot.
- 
- ## Report Issue
-You can suggest improvements or report bugs on [github](https://github.com/kalilistic/ACT.FFXIV.Kapture/issues) or on our [discord server](https://discord.gg/ftn4k7x).
+* <a href="https://github.com/EQAditu/AdvancedCombatTracker">Advanced Combat Tracker</a>
+* <a href="https://github.com/ravahn/FFXIV_ACT_Plugin">FFXIV_ACT_Plugin</a>
+* <a href="https://github.com/kalilistic/Aetherbridge">Aetherbridge</a>
+* <a href="https://xivapi.com/docs/Icons">XIVAPI (for repo icon)</a>
 
- ## Disclaimer
-Use of this program is at your own risk. Square Enix does not permit the use of any third party tools, even those which do not modify the game.
+
+
+## How To Contribute
+
+Feel free to open an issue or submit a PR.
