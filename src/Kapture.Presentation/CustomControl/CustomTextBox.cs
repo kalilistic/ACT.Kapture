@@ -2,7 +2,7 @@
 
 namespace ACT_FFXIV_Kapture.Presentation.CustomControl
 {
-    public class CustomTextBox : TextBox
-    {
-    }
+	public class CustomTextBox : TextBox
+	{
+	}
 }
