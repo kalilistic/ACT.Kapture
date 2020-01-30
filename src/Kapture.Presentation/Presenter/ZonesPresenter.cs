@@ -8,12 +8,12 @@ namespace ACT_FFXIV_Kapture.Presentation
 {
 	public class ZonesPresenter
 	{
-		private readonly IContentService _contentService;
+		private readonly ContentService _contentService;
 		public Configuration Configuration;
 		public KaptureConfig KaptureConfig;
 		public Zones ZonesConfig;
 
-		public ZonesPresenter(ZonesView zonesView, IContentService contentService)
+		public ZonesPresenter(ZonesView zonesView, ContentService contentService)
 		{
 			ZonesView = zonesView;
 			_contentService = contentService;
