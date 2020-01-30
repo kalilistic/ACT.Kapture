@@ -8,11 +8,11 @@ namespace ACT_FFXIV_Kapture.Presentation
 {
 	public class ItemsPresenter
 	{
-		private readonly IItemService _itemService;
+		private readonly ItemService _itemService;
 		public Configuration Configuration;
 		public KaptureConfig KaptureConfig;
 
-		public ItemsPresenter(ItemsView itemsView, IItemService itemService)
+		public ItemsPresenter(ItemsView itemsView, ItemService itemService)
 		{
 			ItemsView = itemsView;
 

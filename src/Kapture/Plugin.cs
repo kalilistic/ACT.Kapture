@@ -108,7 +108,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			{
 				_logger?.Error(ex);
 				MessageBox.Show(PluginConstants.CriticalFailureMsg + Environment.NewLine +
-				                PluginConstants.ErrorPrefix + ex.Message);
+				                PluginConstants.ErrorPrefix + ex.StackTrace);
 				_pluginStatus.Text = PluginConstants.PluginStatusDisabledFailure;
 				ActGlobals.oFormActMain.PluginGetSelfData(this).cbEnabled.Checked = false;
 			}
@@ -116,11 +116,11 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 		public void DeInitPlugin()
 		{
-			if (_aetherbridge.GetCurrentLanguage().Id != Configuration.General.GameLanguageId)
+			if (_aetherbridge.LanguageService.GetCurrentLanguage().Id != Configuration.General.GameLanguageId)
 			{
 				KaptureConfig = KaptureConfig.GetInstance();
 				Configuration = (Configuration) KaptureConfig.ConfigManager.Config;
-				Configuration.General.GameLanguageId = _aetherbridge.GetCurrentLanguage().Id;
+				Configuration.General.GameLanguageId = _aetherbridge.LanguageService.GetCurrentLanguage().Id;
 				Configuration.Items.ItemPreset = ItemPreset.ExcludeCommonItems;
 				Configuration.Items.ItemsList = new List<string>();
 				Configuration.Zones.ZonePreset = ZonePreset.HighEndDuty;
@@ -137,7 +137,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_pluginStatus.Text = PluginConstants.PluginStatusDisabled;
 		}
 
-		private void ParseLootEvents(object sender, ILogLineEvent logLineEvent)
+		private void ParseLootEvents(object sender, LogLineEvent logLineEvent)
 		{
 			try
 			{
@@ -244,7 +244,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private void LogSimpleFormat(ILogLineEvent logLineEvent)
+		private void LogSimpleFormat(LogLineEvent logLineEvent)
 		{
 			var filePath = Path.Combine(Configuration.Logging.LogLocation,
 				"Kapture_" + KaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".log");
@@ -254,7 +254,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private void LogCsvFormat(ILogLineEvent logLineEvent)
+		private void LogCsvFormat(LogLineEvent logLineEvent)
 		{
 			var filePath = Path.Combine(Configuration.Logging.LogLocation,
 				"Kapture_" + KaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv");
@@ -272,7 +272,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private void LogJsonFormat(ILogLineEvent logLineEvent)
+		private void LogJsonFormat(LogLineEvent logLineEvent)
 		{
 			var filePath = Path.Combine(Configuration.Logging.LogLocation,
 				"Kapture_" + KaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".json");
@@ -283,7 +283,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private async Task SendToDiscordWebHook(ILogLineEvent logLineEvent)
+		private async Task SendToDiscordWebHook(LogLineEvent logLineEvent)
 		{
 			if (Configuration.Discord.Endpoint == null) return;
 			var json = "{\"content\": \"" + logLineEvent.LogMessage + "\"}";
@@ -298,7 +298,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private async Task SendRestCall(ILogLineEvent logLineEvent)
+		private async Task SendRestCall(LogLineEvent logLineEvent)
 		{
 			if (Configuration.HTTP.Endpoint == null) return;
 			var json = _serializer.Serialize(new object[] {logLineEvent, Configuration.HTTP.CustomJson});
