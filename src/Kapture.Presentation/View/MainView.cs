@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ACT_FFXIV_Kapture.Presentation.CustomControl;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -10,6 +11,14 @@ namespace ACT_FFXIV_Kapture.Presentation
 		{
 			InitializeComponent();
 			ViewPanel = (CustomPanel) Controls["viewPanel"];
+			generalButton.Text = Strings.General;
+			eventsButton.Text = Strings.Events;
+			itemsButton.Text = Strings.Items;
+			zonesButton.Text = Strings.Zones;
+			loggingButton.Text = Strings.Logging;
+			discordButton.Text = Strings.Discord;
+			httpButton.Text = Strings.HTTP;
+			aboutButton.Text = Strings.About;
 			generalButton.Click += GeneralBtn_Click;
 			eventsButton.Click += EventsBtn_Click;
 			itemsButton.Click += ItemsBtn_Click;

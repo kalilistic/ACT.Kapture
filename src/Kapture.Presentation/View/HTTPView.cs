@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -8,6 +9,10 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public HTTPView()
 		{
 			InitializeComponent();
+			http_HTTPEnabledCheckBox.Text = Strings.HTTPEnabled;
+			http_EndPointLabel.Text = Strings.Endpoint;
+			http_CustomJSONLabel.Text = Strings.CustomJSON;
+			http_UpdateButton.Text = Strings.Update;
 			http_HTTPEnabledCheckBox.CheckedChanged += HTTPEnabledCheckBox_Changed;
 			http_UpdateButton.Click += UpdateButton_Clicked;
 		}

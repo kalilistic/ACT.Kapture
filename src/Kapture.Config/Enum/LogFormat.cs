@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Config
 {
@@ -7,7 +8,7 @@ namespace ACT_FFXIV_Kapture.Config
 	{
 		private static readonly List<LogFormat> LogFormatList = new List<LogFormat>();
 
-		public static readonly LogFormat LogFile = new LogFormat("Log File");
+		public static readonly LogFormat LogFile = new LogFormat(Strings.LogFile);
 		public static readonly LogFormat CSV = new LogFormat("CSV");
 		public static readonly LogFormat JSON = new LogFormat("JSON");
 

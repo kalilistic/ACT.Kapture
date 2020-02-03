@@ -46,5 +46,11 @@
       <Version>0.1.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kapture.Resource\Kapture.Resource.csproj">
+      <Project>{91dfd900-0b26-4964-9dc7-3b522423159e}</Project>
+      <Name>Kapture.Resource</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -8,6 +9,9 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public DiscordView()
 		{
 			InitializeComponent();
+			discord_DiscordEnabledCheckBox.Text = Strings.DiscordEnabled;
+			discord_UpdateButton.Text = Strings.Update;
+			discord_WebhookLabel.Text = Strings.WebhookURL;
 			discord_DiscordEnabledCheckBox.CheckedChanged += DiscordEnabledCheckBox_Changed;
 			discord_UpdateButton.Click += UpdateButton_Clicked;
 		}

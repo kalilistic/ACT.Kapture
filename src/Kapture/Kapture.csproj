@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kapture.Config\Kapture.Config.csproj">
-      <Project>{F7947F66-24C0-4873-B35B-7FAD71EF8010}</Project>
+      <Project>{f7947f66-24c0-4873-b35b-7fad71ef8010}</Project>
       <Name>Kapture.Config</Name>
     </ProjectReference>
     <ProjectReference Include="..\Kapture.Presentation\Kapture.Presentation.csproj">
@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aetherbridge">
-      <Version>0.1.4</Version>
+      <Version>0.1.5</Version>
     </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>4.1.0</Version>

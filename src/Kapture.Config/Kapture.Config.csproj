@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IKaptureConfig.cs" />
@@ -44,6 +45,7 @@
     <Compile Include="Enum\LogFormat.cs" />
     <Compile Include="Enum\ZonePreset.cs" />
     <Compile Include="Model\Config.cs" />
+    <Compile Include="Model\XIVPlugin.cs" />
     <Compile Include="Model\Discord.cs" />
     <Compile Include="Model\Events.cs" />
     <Compile Include="Model\General.cs" />
@@ -69,6 +71,12 @@
     <PackageReference Include="StarkUserConfig">
       <Version>0.1.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kapture.Resource\Kapture.Resource.csproj">
+      <Project>{91dfd900-0b26-4964-9dc7-3b522423159e}</Project>
+      <Name>Kapture.Resource</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,7 +26,8 @@ namespace ACT_FFXIV_Kapture.Presentation
 		{
 			_aetherbridge = aetherbridge;
 			SetupMainView(mainView);
-			SetupSubViews();
+			var generalView = new GeneralView();
+			_generalPresenter = new GeneralPresenter(generalView);
 			SetupViewPanel();
 		}
 
@@ -49,43 +50,17 @@ namespace ACT_FFXIV_Kapture.Presentation
 			_mainView.AboutClicked += OpenAboutView;
 		}
 
-		private void SetupSubViews()
-		{
-			var generalView = new GeneralView();
-			_generalPresenter = new GeneralPresenter(generalView);
-
-			var eventsView = new EventsView();
-			_eventsPresenter = new EventsPresenter(eventsView);
-
-			var config = (Configuration) KaptureConfig.GetInstance().Config;
-			var itemsList = config.Items.ItemsList;
-			var itemsView = new ItemsView(itemsList);
-			_itemsPresenter = new ItemsPresenter(itemsView, _aetherbridge.ItemService);
-
-			var zonesList = new List<string>();
-			var zonesView = new ZonesView(zonesList);
-			_zonesPresenter = new ZonesPresenter(zonesView, _aetherbridge.ContentService);
-
-			var loggingView = new LoggingView();
-			_loggingPresenter = new LoggingPresenter(loggingView);
-
-			var discordView = new DiscordView();
-			_discordPresenter = new DiscordPresenter(discordView);
-
-			var httpView = new HTTPView();
-			_httpPresenter = new HTTPPresenter(httpView);
-
-			var aboutView = new AboutView();
-			_aboutPresenter = new AboutPresenter(aboutView);
-		}
-
 		private void UpdateViewPanel(Control userControl)
 		{
 			if (_viewPanel.Controls.Count > 0)
 			{
 				var oldView = _viewPanel.Controls[0] as UserControl;
 				if (oldView != null && oldView.Name.Equals(userControl.Name)) return;
-				if (oldView != null) _viewPanel.Controls.Remove(oldView);
+				if (oldView != null)
+				{
+					_viewPanel.Controls.Remove(oldView);
+					oldView.Dispose();
+				}
 			}
 
 			_viewPanel.Controls.Add(userControl);
@@ -93,41 +68,60 @@ namespace ACT_FFXIV_Kapture.Presentation
 
 		private void OpenGeneralView(object sender, EventArgs e)
 		{
+			var generalView = new GeneralView();
+			_generalPresenter = new GeneralPresenter(generalView);
 			UpdateViewPanel(_generalPresenter.GeneralView);
 		}
 
 		private void OpenEventsView(object sender, EventArgs e)
 		{
+			var eventsView = new EventsView();
+			_eventsPresenter = new EventsPresenter(eventsView);
 			UpdateViewPanel(_eventsPresenter.EventsView);
 		}
 
 		private void OpenItemsView(object sender, EventArgs e)
 		{
+			var config = (Configuration) KaptureConfig.GetInstance().Config;
+			var itemsList = config.Items.ItemsList;
+			var itemsView = new ItemsView(itemsList);
+			_itemsPresenter = new ItemsPresenter(itemsView, _aetherbridge.ItemService);
 			UpdateViewPanel(_itemsPresenter.ItemsView);
 		}
 
 		private void OpenZonesView(object sender, EventArgs e)
 		{
+			var zonesList = new List<string>();
+			var zonesView = new ZonesView(zonesList);
+			_zonesPresenter = new ZonesPresenter(zonesView, _aetherbridge.ContentService);
 			UpdateViewPanel(_zonesPresenter.ZonesView);
 		}
 
 		private void OpenLoggingView(object sender, EventArgs e)
 		{
+			var loggingView = new LoggingView();
+			_loggingPresenter = new LoggingPresenter(loggingView);
 			UpdateViewPanel(_loggingPresenter.LoggingView);
 		}
 
 		private void OpenDiscordView(object sender, EventArgs e)
 		{
+			var discordView = new DiscordView();
+			_discordPresenter = new DiscordPresenter(discordView);
 			UpdateViewPanel(_discordPresenter.DiscordView);
 		}
 
 		private void OpenHTTPView(object sender, EventArgs e)
 		{
+			var httpView = new HTTPView();
+			_httpPresenter = new HTTPPresenter(httpView);
 			UpdateViewPanel(_httpPresenter.HTTPView);
 		}
 
 		private void OpenAboutView(object sender, EventArgs e)
 		{
+			var aboutView = new AboutView();
+			_aboutPresenter = new AboutPresenter(aboutView);
 			UpdateViewPanel(_aboutPresenter.AboutView);
 		}
 	}

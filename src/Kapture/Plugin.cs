@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ACT_FFXIV_Aetherbridge;
@@ -67,14 +68,40 @@ namespace ACT_FFXIV_Kapture.Plugin
 				KaptureConfig.Initialize(_aetherbridge.GetAppDirectory());
 				KaptureConfig = KaptureConfig.GetInstance();
 				Configuration = (Configuration) KaptureConfig.ConfigManager.Config;
-				KaptureConfig.ConfigManager.LoadSettings();
+
+				// set language
+				var language = _aetherbridge.LanguageService.GetCurrentLanguage();
+				SetLanguage(language);
+
+				// load settings
+				if (language.Id == Configuration.XIVPlugin.LanguageId)
+				{
+					KaptureConfig.ConfigManager.LoadSettings();
+				}
+				else
+				{
+					var newConfig = new Configuration
+					{
+						General = Configuration.General,
+						Events = Configuration.Events,
+						Items = new Items(),
+						Zones = new Zones(),
+						Logging = new Logging(),
+						Discord = new Discord(),
+						HTTP = new HTTP(),
+						XIVPlugin = new XIVPlugin()
+					};
+					newConfig.XIVPlugin.LanguageId = language.Id;
+					KaptureConfig.GetInstance().Config = newConfig;
+					Configuration = newConfig;
+				}
 
 				// setup plugin service
 				_httpClient = new HttpClient();
 				KaptureVersion = Assembly.GetExecutingAssembly()
 					.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
 				PluginService.Initialize(_httpClient, KaptureVersion,
-					ActGlobals.oFormActMain.PluginGetSelfData(this).pluginFile.DirectoryName);
+					ActGlobals.oFormActMain.PluginGetSelfData(this).pluginFile.DirectoryName, language.Abbreviation);
 				PluginService.GetInstance().KaptureLog =
 					Path.Combine(_aetherbridge.GetAppDirectory(), PluginConstants.LogFileName);
 
@@ -100,7 +127,10 @@ namespace ACT_FFXIV_Kapture.Plugin
 				// update plugin status
 				_pluginStatus.Text = PluginConstants.PluginStatusEnabled;
 
-				// kick off update check
+				// add data based on language (async)
+				Task.Run(() => _aetherbridge.AddLanguage(Configuration.XIVPlugin.LanguageId));
+
+				// kick off update check (async)
 				Task.Run(() =>
 					PluginService.GetInstance().UpdatePlugin(Configuration.General.CheckForBetaEnabled, false));
 			}
@@ -116,17 +146,6 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 		public void DeInitPlugin()
 		{
-			if (_aetherbridge.LanguageService.GetCurrentLanguage().Id != Configuration.General.GameLanguageId)
-			{
-				KaptureConfig = KaptureConfig.GetInstance();
-				Configuration = (Configuration) KaptureConfig.ConfigManager.Config;
-				Configuration.General.GameLanguageId = _aetherbridge.LanguageService.GetCurrentLanguage().Id;
-				Configuration.Items.ItemPreset = ItemPreset.ExcludeCommonItems;
-				Configuration.Items.ItemsList = new List<string>();
-				Configuration.Zones.ZonePreset = ZonePreset.HighEndDuty;
-				Configuration.Zones.ZonesList = new List<string>();
-			}
-
 			KaptureConfig.ConfigManager.SaveSettings();
 			_aetherbridge.LogLineCaptured -= ParseLootEvents;
 			_aetherbridge.DeInit();
@@ -135,6 +154,21 @@ namespace ACT_FFXIV_Kapture.Plugin
 			PluginService.GetInstance().DeInit();
 			_httpClient.Dispose();
 			_pluginStatus.Text = PluginConstants.PluginStatusDisabled;
+		}
+
+		public void SetLanguage(Language language)
+		{
+			var cultureInfo = new CultureInfo(language.Abbreviation);
+			Thread.CurrentThread.CurrentUICulture = cultureInfo;
+			Thread.CurrentThread.CurrentCulture = cultureInfo;
+			typeof(PluginService).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
+				?.Invoke(null, null);
+			typeof(ItemPreset).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
+				?.Invoke(null, null);
+			typeof(LogFormat).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
+				?.Invoke(null, null);
+			typeof(ZonePreset).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
+				?.Invoke(null, null);
 		}
 
 		private void ParseLootEvents(object sender, LogLineEvent logLineEvent)

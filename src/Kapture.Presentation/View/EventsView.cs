@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -8,6 +9,12 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public EventsView()
 		{
 			InitializeComponent();
+			events_ItemAddedCheckBox.Text = Strings.ItemAdded;
+			events_ItemLostCheckBox.Text = Strings.ItemLost;
+			events_YouObtainCheckBox.Text = Strings.YouObtain;
+			events_TheyObtainCheckBox.Text = Strings.TheyObtain;
+			events_YouRollCheckBox.Text = Strings.YouRoll;
+			events_TheyRollCheckBox.Text = Strings.TheyRoll;
 			events_ItemAddedCheckBox.CheckedChanged += ItemAddedEnabledCheckBox_CheckedChanged;
 			events_ItemLostCheckBox.CheckedChanged += ItemLostEnabledCheckBox_CheckedChanged;
 			events_YouObtainCheckBox.CheckedChanged += YouObtainCheckBox_CheckedChanged;
