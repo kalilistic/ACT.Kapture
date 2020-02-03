@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ACT_FFXIV_Kapture.Config;
 using ACT_FFXIV_Kapture.Presentation.CustomControl;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -11,6 +12,11 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public ItemsView(List<string> list)
 		{
 			InitializeComponent();
+			items_AddItemLabel.Text = Strings.AddItem;
+			items_ItemFilterCheckBox.Text = Strings.FilterByItems;
+			items_PresetLabel.Text = Strings.Preset;
+			items_ItemIncludeRadioButton.Text = Strings.IncludeItems;
+			items_ItemExcludeRadioButton.Text = Strings.ExcludeItems;
 			items_ItemsListDataGridView.CreateDataTable(list);
 			items_ItemAddComboBox.SelectedValueChanged += ItemAddComboBox_SelectedValueChanged;
 			items_ItemsListDataGridView.CustomDataGridViewChanged += ItemsListDgv_Changed;

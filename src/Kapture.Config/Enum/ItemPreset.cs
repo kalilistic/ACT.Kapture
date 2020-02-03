@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Config
 {
@@ -7,8 +8,8 @@ namespace ACT_FFXIV_Kapture.Config
 	{
 		private static readonly List<ItemPreset> ItemPresetList = new List<ItemPreset>();
 
-		public static readonly ItemPreset ExcludeCommonItems = new ItemPreset("Common Items");
-		public static readonly ItemPreset Custom = new ItemPreset("Custom");
+		public static readonly ItemPreset ExcludeCommonItems = new ItemPreset(Strings.CommonItems);
+		public static readonly ItemPreset Custom = new ItemPreset(Strings.Custom);
 
 		public ItemPreset()
 		{

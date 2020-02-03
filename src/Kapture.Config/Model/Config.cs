@@ -13,6 +13,7 @@ namespace ACT_FFXIV_Kapture.Config
 			Logging = new Logging();
 			Discord = new Discord();
 			HTTP = new HTTP();
+			XIVPlugin = new XIVPlugin();
 		}
 
 		public General General { get; set; }
@@ -22,5 +23,6 @@ namespace ACT_FFXIV_Kapture.Config
 		public Logging Logging { get; set; }
 		public Discord Discord { get; set; }
 		public HTTP HTTP { get; set; }
+		public XIVPlugin XIVPlugin { get; set; }
 	}
 }

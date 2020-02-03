@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Advanced Combat Tracker, Version=3.4.5.266, Culture=neutral, PublicKeyToken=a946b61e93d97868, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Aetherbridge\lib\Advanced Combat Tracker.exe</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -131,6 +135,10 @@
       <Project>{f7947f66-24c0-4873-b35b-7fad71ef8010}</Project>
       <Name>Kapture.Config</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Kapture.Resource\Kapture.Resource.csproj">
+      <Project>{91dfd900-0b26-4964-9dc7-3b522423159e}</Project>
+      <Name>Kapture.Resource</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kapture.Service\Kapture.Service.csproj">
       <Project>{fde3f178-0406-4885-b469-15ce9478bcef}</Project>
       <Name>Kapture.Service</Name>
@@ -175,11 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aetherbridge">
-      <Version>0.1.4</Version>
+      <Version>0.1.5</Version>
     </PackageReference>
     <PackageReference Include="StarkUserConfig">
       <Version>0.1.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

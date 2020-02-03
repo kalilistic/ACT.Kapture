@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ACT_FFXIV_Kapture.Config;
 using ACT_FFXIV_Kapture.Presentation.CustomControl;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -11,6 +12,11 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public ZonesView(List<string> list)
 		{
 			InitializeComponent();
+			zones_AddZoneLabel.Text = Strings.AddZone;
+			zones_ZoneFilterCheckBox.Text = Strings.FilterByZones;
+			zones_PresetLabel.Text = Strings.Preset;
+			zones_ZoneIncludeRadioButton.Text = Strings.IncludeZones;
+			zones_ZoneExcludeRadioButton.Text = Strings.ExcludeZones;
 			zones_ZonesListDataGridView.CreateDataTable(list);
 			zones_ZoneAddComboBox.SelectedValueChanged += ZoneAddComboBox_SelectedValueChanged;
 			zones_ZonesListDataGridView.CustomDataGridViewChanged += ZonesListDgv_Changed;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ACT_FFXIV_Kapture.Config;
 using ACT_FFXIV_Kapture.Presentation.CustomControl;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -11,6 +12,11 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public LoggingView()
 		{
 			InitializeComponent();
+			logging_LoggingEnabledCheckBox.Text = Strings.LoggingEnabled;
+			logging_LogFormatLabel.Text = Strings.LogFormat;
+			logging_LogLocationLabel.Text = Strings.LogLocation;
+			logging_BrowseButton.Text = Strings.Browse;
+			logging_UpdateButton.Text = Strings.Update;
 			logging_LoggingEnabledCheckBox.CheckedChanged += LoggingEnabledCheckBox_Changed;
 			logging_LogFormatComboBox.SelectedValueChanged += LogFormatComboBox_Changed;
 			logging_UpdateButton.Click += UpdateButton_Clicked;
@@ -82,6 +88,10 @@ namespace ACT_FFXIV_Kapture.Presentation
 				LogLocation = fbd.SelectedPath;
 				LogLocationUpdated?.Invoke(sender, LogLocation);
 			}
+		}
+
+		private void logging_LogLocationTextBox_TextChanged(object sender, EventArgs e)
+		{
 		}
 	}
 }

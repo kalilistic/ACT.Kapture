@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -8,6 +9,9 @@ namespace ACT_FFXIV_Kapture.Presentation
 		public GeneralView()
 		{
 			InitializeComponent();
+			general_PluginEnabledCheckBox.Text = Strings.PluginEnabled;
+			general_LogImportsEnabledCheckBox.Text = Strings.LogImportsEnabled;
+			general_CheckForBetaVersionsCheckBox.Text = Strings.CheckForBeta;
 		}
 
 		public bool PluginEnabled

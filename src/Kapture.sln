@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture.Config", "Kapture.Config\Kapture.Config.csproj", "{F7947F66-24C0-4873-B35B-7FAD71EF8010}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture.Presentation", "Kapture.Presentation\Kapture.Presentation.csproj", "{5FBAE274-6A5C-46CD-B2E8-AC6C8720287E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture", "Kapture\Kapture.csproj", "{3AAF374B-DB93-446A-A172-86BBC1E427A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture.Service", "Kapture.Service\Kapture.Service.csproj", "{FDE3F178-0406-4885-B469-15CE9478BCEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture.Config", "Kapture.Config\Kapture.Config.csproj", "{F7947F66-24C0-4873-B35B-7FAD71EF8010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kapture.Resource", "Kapture.Resource\Kapture.Resource.csproj", "{91DFD900-0B26-4964-9DC7-3B522423159E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5FBAE274-6A5C-46CD-B2E8-AC6C8720287E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5FBAE274-6A5C-46CD-B2E8-AC6C8720287E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FBAE274-6A5C-46CD-B2E8-AC6C8720287E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{FDE3F178-0406-4885-B469-15CE9478BCEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDE3F178-0406-4885-B469-15CE9478BCEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDE3F178-0406-4885-B469-15CE9478BCEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7947F66-24C0-4873-B35B-7FAD71EF8010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DFD900-0B26-4964-9DC7-3B522423159E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DFD900-0B26-4964-9DC7-3B522423159E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DFD900-0B26-4964-9DC7-3B522423159E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DFD900-0B26-4964-9DC7-3B522423159E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
