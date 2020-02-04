@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace ACT_FFXIV_Kapture.Presentation.CustomControl
+namespace ACT_FFXIV_Kapture.Presentation
 {
 	public class CustomPanel : Panel
 	{

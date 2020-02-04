@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -41,9 +40,9 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.items_ItemIncludeRadioButton = new System.Windows.Forms.RadioButton();
 			this.items_PresetLabel = new System.Windows.Forms.Label();
 			this.items_ItemFilterCheckBox = new System.Windows.Forms.CheckBox();
-			this.items_ItemsListDataGridView = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomDataGridView();
-			this.items_ItemAddComboBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomComboBox();
-			this.items_ItemPresetComboBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomComboBox();
+			this.items_ItemsListDataGridView = new CustomDataGridView();
+			this.items_ItemAddComboBox = new CustomComboBox();
+			this.items_ItemPresetComboBox = new CustomComboBox();
 			this.items_ItemIncludeExcludePanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.items_ItemsListDataGridView)).BeginInit();
 			this.SuspendLayout();

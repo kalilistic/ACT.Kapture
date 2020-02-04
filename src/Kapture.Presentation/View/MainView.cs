@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using ACT_FFXIV_Kapture.Presentation.CustomControl;
 using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation

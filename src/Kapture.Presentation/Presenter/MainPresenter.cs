@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using ACT_FFXIV_Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
-using ACT_FFXIV_Kapture.Presentation.CustomControl;
 using Configuration = ACT_FFXIV_Kapture.Config.Config;
 
 namespace ACT_FFXIV_Kapture.Presentation

@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -32,7 +31,7 @@ namespace ACT_FFXIV_Kapture.Presentation
         private void InitializeComponent()
         {
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutView));
-			this.about_UpdateButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
+			this.about_UpdateButton = new CustomButton();
 			this.about_TitleLabel = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.about_VersionKeyLabel = new System.Windows.Forms.Label();
@@ -44,7 +43,7 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.about_SourceKeyLabel = new System.Windows.Forms.Label();
 			this.about_SupportValueLabel = new System.Windows.Forms.LinkLabel();
 			this.about_SupportKeyLabel = new System.Windows.Forms.Label();
-			this.about_ViewLogsButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
+			this.about_ViewLogsButton = new CustomButton();
 			this.about_LicenseValueLabel = new System.Windows.Forms.LinkLabel();
 			this.about_LicenseKeyLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();

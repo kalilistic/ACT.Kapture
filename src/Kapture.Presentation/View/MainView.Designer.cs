@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -31,15 +30,15 @@ namespace ACT_FFXIV_Kapture.Presentation
         /// </summary>
         private void InitializeComponent()
         {
-			this.discordButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.aboutButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.httpButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.loggingButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.zonesButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.itemsButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.viewPanel = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomPanel();
-			this.eventsButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.generalButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
+			this.discordButton = new CustomButton();
+			this.aboutButton = new CustomButton();
+			this.httpButton = new CustomButton();
+			this.loggingButton = new CustomButton();
+			this.zonesButton = new CustomButton();
+			this.itemsButton = new CustomButton();
+			this.viewPanel = new CustomPanel();
+			this.eventsButton = new CustomButton();
+			this.generalButton = new CustomButton();
 			this.SuspendLayout();
 			// 
 			// discordButton

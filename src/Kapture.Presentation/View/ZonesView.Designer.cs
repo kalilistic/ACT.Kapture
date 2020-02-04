@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -41,9 +40,9 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.zones_ZoneIncludeRadioButton = new System.Windows.Forms.RadioButton();
 			this.zones_PresetLabel = new System.Windows.Forms.Label();
 			this.zones_ZoneFilterCheckBox = new System.Windows.Forms.CheckBox();
-			this.zones_ZonesListDataGridView = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomDataGridView();
-			this.zones_ZoneAddComboBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomComboBox();
-			this.zones_ZonePresetComboBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomComboBox();
+			this.zones_ZonesListDataGridView = new CustomDataGridView();
+			this.zones_ZoneAddComboBox = new CustomComboBox();
+			this.zones_ZonePresetComboBox = new CustomComboBox();
 			this.zones_ZoneIncludeExcludePanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.zones_ZonesListDataGridView)).BeginInit();
 			this.SuspendLayout();

@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -33,10 +32,10 @@ namespace ACT_FFXIV_Kapture.Presentation
         {
 			this.http_HTTPEnabledCheckBox = new System.Windows.Forms.CheckBox();
 			this.http_EndPointLabel = new System.Windows.Forms.Label();
-			this.http_EndpointTextBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomTextBox();
+			this.http_EndpointTextBox = new CustomTextBox();
 			this.http_CustomJSONLabel = new System.Windows.Forms.Label();
-			this.http_CustomJsonTextBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomTextBox();
-			this.http_UpdateButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
+			this.http_CustomJsonTextBox = new CustomTextBox();
+			this.http_UpdateButton = new CustomButton();
 			this.SuspendLayout();
 			// 
 			// http_HTTPEnabledCheckBox

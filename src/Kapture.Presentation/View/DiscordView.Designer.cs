@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -33,8 +32,8 @@ namespace ACT_FFXIV_Kapture.Presentation
         {
 			this.discord_DiscordEnabledCheckBox = new System.Windows.Forms.CheckBox();
 			this.discord_WebhookLabel = new System.Windows.Forms.Label();
-			this.discord_EndpointTextBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomTextBox();
-			this.discord_UpdateButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
+			this.discord_EndpointTextBox = new CustomTextBox();
+			this.discord_UpdateButton = new CustomButton();
 			this.SuspendLayout();
 			// 
 			// discord_DiscordEnabledCheckBox

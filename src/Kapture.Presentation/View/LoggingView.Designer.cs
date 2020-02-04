@@ -1,5 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Presentation.CustomControl;
-using ACT_FFXIV_Kapture.Resource;
+﻿using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
@@ -34,10 +33,10 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.logging_LoggingEnabledCheckBox = new System.Windows.Forms.CheckBox();
 			this.logging_LogFormatLabel = new System.Windows.Forms.Label();
 			this.logging_LogLocationLabel = new System.Windows.Forms.Label();
-			this.logging_UpdateButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.logging_BrowseButton = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomButton();
-			this.logging_LogLocationTextBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomTextBox();
-			this.logging_LogFormatComboBox = new ACT_FFXIV_Kapture.Presentation.CustomControl.CustomComboBox();
+			this.logging_UpdateButton = new CustomButton();
+			this.logging_BrowseButton = new CustomButton();
+			this.logging_LogLocationTextBox = new CustomTextBox();
+			this.logging_LogFormatComboBox = new CustomComboBox();
 			this.SuspendLayout();
 			// 
 			// logging_LoggingEnabledCheckBox
