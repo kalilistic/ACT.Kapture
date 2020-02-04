@@ -121,16 +121,16 @@
     <value>Über</value>
   </data>
 	<data name="AddItem" xml:space="preserve">
-    <value>Fügen Sie Gegenstände hinzu</value>
+    <value>Gegenstände hinzufügen</value>
   </data>
 	<data name="AddZone" xml:space="preserve">
-    <value>Missionen hinzufügen</value>
+    <value>Zone hinzufügen</value>
   </data>
 	<data name="Author" xml:space="preserve">
     <value>Autor</value>
   </data>
 	<data name="Browse" xml:space="preserve">
-    <value>Durchsuche</value>
+    <value>Durchsuchen</value>
   </data>
 	<data name="CheckForBeta" xml:space="preserve">
     <value>Suchen Sie nach Beta-Versionen</value>
@@ -142,16 +142,16 @@
     <value>Benutzerdefiniertes JSON</value>
   </data>
 	<data name="DiscordEnabled" xml:space="preserve">
-    <value>Zwietracht aktiviert</value>
+    <value>Discord aktiviert</value>
   </data>
 	<data name="Endpoint" xml:space="preserve">
     <value>Endpunkt</value>
   </data>
 	<data name="Events" xml:space="preserve">
-    <value>Veranstaltungen</value>
+    <value>Events</value>
   </data>
 	<data name="ExcludeItems" xml:space="preserve">
-    <value>Elemente ausschließen</value>
+    <value>Gegenstände ausschließen</value>
   </data>
 	<data name="ExcludeZones" xml:space="preserve">
     <value>Zonen ausschließen</value>
@@ -160,7 +160,7 @@
     <value>Nach Gegenstände filtern</value>
   </data>
 	<data name="FilterByZones" xml:space="preserve">
-    <value>Filtern nach Missionen</value>
+    <value>Nach Zone filtern</value>
   </data>
 	<data name="General" xml:space="preserve">
     <value>Allgemein</value>
@@ -175,7 +175,7 @@
     <value>Gegenstände einschließen</value>
   </data>
 	<data name="IncludeZones" xml:space="preserve">
-    <value>Missionen einbeziehen</value>
+    <value>Zone einbeziehen</value>
   </data>
 	<data name="ItemLost" xml:space="preserve">
     <value>Gegenstand fiel auf den Boden</value>
@@ -214,7 +214,7 @@
     <value>Voreinstellung</value>
   </data>
 	<data name="Source" xml:space="preserve">
-    <value>Herkunftscode</value>
+    <value>Quelle</value>
   </data>
 	<data name="Support" xml:space="preserve">
     <value>Support</value>
@@ -283,7 +283,7 @@
 		<value>Update konnte nicht heruntergeladen werden. Bitte versuchen Sie es später noch einmal oder überprüfen Sie GitHub.</value>
 	</data>
 	<data name="PluginNeedRestart" xml:space="preserve">
-		<value>Kapture Plugin erfolgreich aktualisiert. Bitte starten Sie ACT neu. jetzt.</value>
+		<value>Kapture Plugin erfolgreich aktualisiert. Bitte starten Sie ACT jetzt neu.</value>
 	</data>
 	<data name="PluginUpdateAvailable" xml:space="preserve">
 		<value>Update für Kapture Plugin verfügbar. Möchten Sie es jetzt herunterladen?</value>
