@@ -4,22 +4,11 @@ using System.Windows.Forms;
 
 namespace ACT_FFXIV_Kapture.Presentation
 {
-	public sealed class CustomButton : Button
+	public sealed class CustomLabel : Label
 	{
-		public CustomButton()
+		public CustomLabel()
 		{
-			FlatStyle = FlatStyle.Flat;
-			BackColor = Color.Transparent;
-			FlatAppearance.MouseOverBackColor = Color.Transparent;
-			FlatAppearance.MouseDownBackColor = Color.Transparent;
-			FlatAppearance.BorderSize = 0;
 			ForeColor = Color.Blue;
-			SetStyle(ControlStyles.Selectable, false);
-			Size = new Size
-			{
-				Height = 23,
-				Width = 85
-			};
 		}
 
 		protected override void OnMouseLeave(EventArgs e)

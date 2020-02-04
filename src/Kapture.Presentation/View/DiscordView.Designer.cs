@@ -32,8 +32,8 @@ namespace ACT_FFXIV_Kapture.Presentation
         {
 			this.discord_DiscordEnabledCheckBox = new System.Windows.Forms.CheckBox();
 			this.discord_WebhookLabel = new System.Windows.Forms.Label();
-			this.discord_EndpointTextBox = new CustomTextBox();
-			this.discord_UpdateButton = new CustomButton();
+			this.discord_EndpointTextBox = new ACT_FFXIV_Kapture.Presentation.CustomTextBox();
+			this.discord_UpdateButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// discord_DiscordEnabledCheckBox
@@ -64,15 +64,12 @@ namespace ACT_FFXIV_Kapture.Presentation
 			// 
 			// discord_UpdateButton
 			// 
-			this.discord_UpdateButton.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.discord_UpdateButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.discord_UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.discord_UpdateButton.Location = new System.Drawing.Point(229, 82);
+			this.discord_UpdateButton.Location = new System.Drawing.Point(250, 80);
 			this.discord_UpdateButton.Name = "discord_UpdateButton";
-			this.discord_UpdateButton.Size = new System.Drawing.Size(97, 23);
-			this.discord_UpdateButton.TabIndex = 37;
+			this.discord_UpdateButton.Size = new System.Drawing.Size(75, 23);
+			this.discord_UpdateButton.TabIndex = 39;
 			this.discord_UpdateButton.Text = "Update";
-			this.discord_UpdateButton.UseVisualStyleBackColor = false;
+			this.discord_UpdateButton.UseVisualStyleBackColor = true;
 			// 
 			// DiscordView
 			// 
@@ -94,6 +91,6 @@ namespace ACT_FFXIV_Kapture.Presentation
         private System.Windows.Forms.CheckBox discord_DiscordEnabledCheckBox;
         private CustomTextBox discord_EndpointTextBox;
         private System.Windows.Forms.Label discord_WebhookLabel;
-        private CustomButton discord_UpdateButton;
-    }
+		private System.Windows.Forms.Button discord_UpdateButton;
+	}
 }

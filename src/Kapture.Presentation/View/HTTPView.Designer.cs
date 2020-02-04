@@ -32,10 +32,10 @@ namespace ACT_FFXIV_Kapture.Presentation
         {
 			this.http_HTTPEnabledCheckBox = new System.Windows.Forms.CheckBox();
 			this.http_EndPointLabel = new System.Windows.Forms.Label();
-			this.http_EndpointTextBox = new CustomTextBox();
+			this.http_EndpointTextBox = new ACT_FFXIV_Kapture.Presentation.CustomTextBox();
 			this.http_CustomJSONLabel = new System.Windows.Forms.Label();
-			this.http_CustomJsonTextBox = new CustomTextBox();
-			this.http_UpdateButton = new CustomButton();
+			this.http_CustomJsonTextBox = new ACT_FFXIV_Kapture.Presentation.CustomTextBox();
+			this.http_UpdateButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// http_HTTPEnabledCheckBox
@@ -83,15 +83,12 @@ namespace ACT_FFXIV_Kapture.Presentation
 			// 
 			// http_UpdateButton
 			// 
-			this.http_UpdateButton.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.http_UpdateButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.http_UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.http_UpdateButton.Location = new System.Drawing.Point(229, 283);
+			this.http_UpdateButton.Location = new System.Drawing.Point(250, 282);
 			this.http_UpdateButton.Name = "http_UpdateButton";
-			this.http_UpdateButton.Size = new System.Drawing.Size(97, 23);
-			this.http_UpdateButton.TabIndex = 36;
+			this.http_UpdateButton.Size = new System.Drawing.Size(75, 23);
+			this.http_UpdateButton.TabIndex = 40;
 			this.http_UpdateButton.Text = "Update";
-			this.http_UpdateButton.UseVisualStyleBackColor = false;
+			this.http_UpdateButton.UseVisualStyleBackColor = true;
 			// 
 			// HTTPView
 			// 
@@ -117,6 +114,6 @@ namespace ACT_FFXIV_Kapture.Presentation
         private System.Windows.Forms.Label http_EndPointLabel;
         private System.Windows.Forms.Label http_CustomJSONLabel;
         private CustomTextBox http_CustomJsonTextBox;
-        private CustomButton http_UpdateButton;
-    }
+		private System.Windows.Forms.Button http_UpdateButton;
+	}
 }

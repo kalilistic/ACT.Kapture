@@ -33,10 +33,10 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.logging_LoggingEnabledCheckBox = new System.Windows.Forms.CheckBox();
 			this.logging_LogFormatLabel = new System.Windows.Forms.Label();
 			this.logging_LogLocationLabel = new System.Windows.Forms.Label();
-			this.logging_UpdateButton = new CustomButton();
-			this.logging_BrowseButton = new CustomButton();
-			this.logging_LogLocationTextBox = new CustomTextBox();
-			this.logging_LogFormatComboBox = new CustomComboBox();
+			this.logging_LogLocationTextBox = new ACT_FFXIV_Kapture.Presentation.CustomTextBox();
+			this.logging_LogFormatComboBox = new ACT_FFXIV_Kapture.Presentation.CustomComboBox();
+			this.logging_BrowseButton = new System.Windows.Forms.Button();
+			this.logging_UpdateButton = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// logging_LoggingEnabledCheckBox
@@ -67,37 +67,12 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.logging_LogLocationLabel.TabIndex = 29;
 			this.logging_LogLocationLabel.Text = "Log Location";
 			// 
-			// logging_UpdateButton
-			// 
-			this.logging_UpdateButton.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.logging_UpdateButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.logging_UpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.logging_UpdateButton.Location = new System.Drawing.Point(205, 132);
-			this.logging_UpdateButton.Name = "logging_UpdateButton";
-			this.logging_UpdateButton.Size = new System.Drawing.Size(61, 23);
-			this.logging_UpdateButton.TabIndex = 31;
-			this.logging_UpdateButton.Text = "Update";
-			this.logging_UpdateButton.UseVisualStyleBackColor = false;
-			// 
-			// logging_BrowseButton
-			// 
-			this.logging_BrowseButton.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.logging_BrowseButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.logging_BrowseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.logging_BrowseButton.Location = new System.Drawing.Point(265, 132);
-			this.logging_BrowseButton.Name = "logging_BrowseButton";
-			this.logging_BrowseButton.Size = new System.Drawing.Size(61, 23);
-			this.logging_BrowseButton.TabIndex = 30;
-			this.logging_BrowseButton.Text = "Browse";
-			this.logging_BrowseButton.UseVisualStyleBackColor = false;
-			// 
 			// logging_LogLocationTextBox
 			// 
 			this.logging_LogLocationTextBox.Location = new System.Drawing.Point(3, 98);
 			this.logging_LogLocationTextBox.Name = "logging_LogLocationTextBox";
 			this.logging_LogLocationTextBox.Size = new System.Drawing.Size(322, 20);
 			this.logging_LogLocationTextBox.TabIndex = 28;
-			this.logging_LogLocationTextBox.TextChanged += new System.EventHandler(this.logging_LogLocationTextBox_TextChanged);
 			// 
 			// logging_LogFormatComboBox
 			// 
@@ -108,6 +83,24 @@ namespace ACT_FFXIV_Kapture.Presentation
 			this.logging_LogFormatComboBox.Name = "logging_LogFormatComboBox";
 			this.logging_LogFormatComboBox.Size = new System.Drawing.Size(126, 21);
 			this.logging_LogFormatComboBox.TabIndex = 27;
+			// 
+			// logging_BrowseButton
+			// 
+			this.logging_BrowseButton.Location = new System.Drawing.Point(169, 129);
+			this.logging_BrowseButton.Name = "logging_BrowseButton";
+			this.logging_BrowseButton.Size = new System.Drawing.Size(75, 23);
+			this.logging_BrowseButton.TabIndex = 32;
+			this.logging_BrowseButton.Text = "Browse";
+			this.logging_BrowseButton.UseVisualStyleBackColor = true;
+			// 
+			// logging_UpdateButton
+			// 
+			this.logging_UpdateButton.Location = new System.Drawing.Point(250, 129);
+			this.logging_UpdateButton.Name = "logging_UpdateButton";
+			this.logging_UpdateButton.Size = new System.Drawing.Size(75, 23);
+			this.logging_UpdateButton.TabIndex = 33;
+			this.logging_UpdateButton.Text = "Update";
+			this.logging_UpdateButton.UseVisualStyleBackColor = true;
 			// 
 			// LoggingView
 			// 
@@ -134,7 +127,7 @@ namespace ACT_FFXIV_Kapture.Presentation
         private System.Windows.Forms.Label logging_LogFormatLabel;
         private CustomTextBox logging_LogLocationTextBox;
         private System.Windows.Forms.Label logging_LogLocationLabel;
-        private CustomButton logging_BrowseButton;
-        private CustomButton logging_UpdateButton;
-    }
+		private System.Windows.Forms.Button logging_BrowseButton;
+		private System.Windows.Forms.Button logging_UpdateButton;
+	}
 }

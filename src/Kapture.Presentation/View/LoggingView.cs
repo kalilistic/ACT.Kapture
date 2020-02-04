@@ -88,9 +88,5 @@ namespace ACT_FFXIV_Kapture.Presentation
 				LogLocationUpdated?.Invoke(sender, LogLocation);
 			}
 		}
-
-		private void logging_LogLocationTextBox_TextChanged(object sender, EventArgs e)
-		{
-		}
 	}
 }

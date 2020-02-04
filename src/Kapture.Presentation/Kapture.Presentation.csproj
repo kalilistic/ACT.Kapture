@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomControl\CustomLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomControl\CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
