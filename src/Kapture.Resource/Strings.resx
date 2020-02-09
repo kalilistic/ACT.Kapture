@@ -126,8 +126,17 @@
 	<data name="AddZone" xml:space="preserve">
     <value>Add Zone</value>
   </data>
+	<data name="AdvancedFilters" xml:space="preserve">
+    <value>Advanced Filters</value>
+  </data>
+	<data name="Alliance" xml:space="preserve">
+    <value>Alliance</value>
+  </data>
 	<data name="Author" xml:space="preserve">
     <value>Author</value>
+  </data>
+	<data name="BattleLog" xml:space="preserve">
+    <value>Battle Log</value>
   </data>
 	<data name="Browse" xml:space="preserve">
     <value>Browse</value>
@@ -156,11 +165,17 @@
 	<data name="DiscordEnabled" xml:space="preserve">
     <value>Discord enabled</value>
   </data>
+	<data name="Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
 	<data name="Endpoint" xml:space="preserve">
     <value>Endpoint</value>
   </data>
 	<data name="Events" xml:space="preserve">
     <value>Events</value>
+  </data>
+	<data name="ExcludeCommonItems" xml:space="preserve">
+    <value>Exclude Common Items</value>
   </data>
 	<data name="ExcludeItems" xml:space="preserve">
     <value>Exclude Items</value>
@@ -174,6 +189,9 @@
 	<data name="FilterByZones" xml:space="preserve">
     <value>Filter by zones</value>
   </data>
+	<data name="Filters" xml:space="preserve">
+    <value>Filters</value>
+  </data>
 	<data name="General" xml:space="preserve">
     <value>General</value>
   </data>
@@ -182,6 +200,9 @@
   </data>
 	<data name="HighEndDuty" xml:space="preserve">
     <value>High-end Duty</value>
+  </data>
+	<data name="HighEndDutyOnly" xml:space="preserve">
+    <value>High-End Duty Only</value>
   </data>
 	<data name="HTTP" xml:space="preserve">
     <value>HTTP</value>
@@ -196,10 +217,16 @@
     <value>Include zones</value>
   </data>
 	<data name="ItemAdded" xml:space="preserve">
-    <value>Item added to loot list</value>
+    <value>Item added</value>
   </data>
 	<data name="ItemLost" xml:space="preserve">
-    <value>Item dropped to floor</value>
+    <value>Item lost</value>
+  </data>
+	<data name="ItemObtained" xml:space="preserve">
+    <value>Item obtained</value>
+  </data>
+	<data name="ItemRolled" xml:space="preserve">
+    <value>Item rolled on</value>
   </data>
 	<data name="Items" xml:space="preserve">
     <value>Items</value>
@@ -215,6 +242,12 @@
   </data>
 	<data name="License" xml:space="preserve">
     <value>License</value>
+  </data>
+	<data name="Log" xml:space="preserve">
+    <value>Log</value>
+  </data>
+	<data name="LogCleared" xml:space="preserve">
+    <value>Log file cleared.</value>
   </data>
 	<data name="LogFile" xml:space="preserve">
     <value>Log File</value>
@@ -234,8 +267,23 @@
 	<data name="LogLocation" xml:space="preserve">
     <value>Log Location</value>
   </data>
+	<data name="Main" xml:space="preserve">
+    <value>Main</value>
+  </data>
+	<data name="MessageLog" xml:space="preserve">
+    <value>Message Log</value>
+  </data>
 	<data name="MIT" xml:space="preserve">
     <value>MIT</value>
+  </data>
+	<data name="Mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+	<data name="Party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+	<data name="Players" xml:space="preserve">
+    <value>Players</value>
   </data>
 	<data name="PluginEnabled" xml:space="preserve">
     <value>Plugin enabled</value>
@@ -254,6 +302,9 @@
   </data>
 	<data name="Preset" xml:space="preserve">
     <value>Preset</value>
+  </data>
+	<data name="Self" xml:space="preserve">
+    <value>Self</value>
   </data>
 	<data name="Source" xml:space="preserve">
     <value>Source</value>

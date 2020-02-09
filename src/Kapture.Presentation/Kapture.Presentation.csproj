@@ -63,15 +63,10 @@
     <Compile Include="CustomControl\CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Presenter\EventsPresenter.cs" />
-    <Compile Include="Presenter\DiscordPresenter.cs" />
-    <Compile Include="Presenter\HTTPPresenter.cs" />
-    <Compile Include="Presenter\LoggingPresenter.cs" />
     <Compile Include="Presenter\AboutPresenter.cs" />
-    <Compile Include="Presenter\ZonesPresenter.cs" />
-    <Compile Include="Presenter\ItemsPresenter.cs" />
-    <Compile Include="Presenter\GeneralPresenter.cs" />
+    <Compile Include="Presenter\AdvancedPresenter.cs" />
     <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="Presenter\BasePresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -84,29 +79,11 @@
     <Compile Include="View\AboutView.Designer.cs">
       <DependentUpon>AboutView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\DiscordView.cs">
+    <Compile Include="View\BaseView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\DiscordView.Designer.cs">
-      <DependentUpon>DiscordView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\HTTPView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\HTTPView.Designer.cs">
-      <DependentUpon>HTTPView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\LoggingView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\LoggingView.Designer.cs">
-      <DependentUpon>LoggingView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\ZonesView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\ZonesView.Designer.cs">
-      <DependentUpon>ZonesView.cs</DependentUpon>
+    <Compile Include="View\BaseView.Designer.cs">
+      <DependentUpon>BaseView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainView.cs">
       <SubType>UserControl</SubType>
@@ -114,23 +91,11 @@
     <Compile Include="View\MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\GeneralView.cs">
+    <Compile Include="View\AdvancedView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\GeneralView.Designer.cs">
-      <DependentUpon>GeneralView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\EventsView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\EventsView.Designer.cs">
-      <DependentUpon>EventsView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\ItemsView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\ItemsView.Designer.cs">
-      <DependentUpon>ItemsView.cs</DependentUpon>
+    <Compile Include="View\AdvancedView.Designer.cs">
+      <DependentUpon>AdvancedView.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -155,27 +120,11 @@
     <EmbeddedResource Include="View\AboutView.resx">
       <DependentUpon>AboutView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\DiscordView.resx">
-      <DependentUpon>DiscordView.cs</DependentUpon>
+    <EmbeddedResource Include="View\AdvancedView.resx">
+      <DependentUpon>AdvancedView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\HTTPView.resx">
-      <DependentUpon>HTTPView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\LoggingView.resx">
-      <DependentUpon>LoggingView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ZonesView.resx">
-      <DependentUpon>ZonesView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\ItemsView.resx">
-      <DependentUpon>ItemsView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\GeneralView.resx">
-      <DependentUpon>GeneralView.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\EventsView.resx">
-      <DependentUpon>EventsView.cs</DependentUpon>
+    <EmbeddedResource Include="View\BaseView.resx">
+      <DependentUpon>BaseView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
@@ -186,7 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aetherbridge">
-      <Version>0.1.5</Version>
+      <Version>0.1.6</Version>
     </PackageReference>
     <PackageReference Include="StarkUserConfig">
       <Version>0.1.2</Version>

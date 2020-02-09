@@ -178,7 +178,7 @@
     <value>Zone einbeziehen</value>
   </data>
 	<data name="ItemLost" xml:space="preserve">
-    <value>Gegenstand fiel auf den Boden</value>
+    <value>Gegenstand fiel</value>
   </data>
 	<data name="Items" xml:space="preserve">
     <value>Gegenstände</value>
@@ -274,7 +274,7 @@
 		<value>MIT</value>
 	</data>
 	<data name="ItemAdded" xml:space="preserve">
-		<value>Gegenstand zur Beuteliste hinzugefügt</value>
+		<value>Gegenstand hinzugefügt</value>
 	</data>
 	<data name="PluginHaveLatest" xml:space="preserve">
 		<value>Sie haben bereits die neueste Version des Kapture-Plugins.</value>
@@ -287,5 +287,56 @@
 	</data>
 	<data name="PluginUpdateAvailable" xml:space="preserve">
 		<value>Update für Kapture Plugin verfügbar. Möchten Sie es jetzt herunterladen?</value>
+	</data>
+	<data name="AdvancedFilters" xml:space="preserve">
+		<value>Erweiterte Filter</value>
+	</data>
+	<data name="Alliance" xml:space="preserve">
+		<value>Allianz</value>
+	</data>
+	<data name="BattleLog" xml:space="preserve">
+		<value>Kampflog</value>
+	</data>
+	<data name="Enabled" xml:space="preserve">
+		<value>Aktiviert</value>
+	</data>
+	<data name="ExcludeCommonItems" xml:space="preserve">
+		<value>Allgemeine Elemente ausschließen</value>
+	</data>
+	<data name="Filters" xml:space="preserve">
+		<value>Filter</value>
+	</data>
+	<data name="HighEndDutyOnly" xml:space="preserve">
+		<value>High-End-Missionen Nur</value>
+	</data>
+	<data name="ItemObtained" xml:space="preserve">
+		<value>Gegenstand erhalten</value>
+	</data>
+	<data name="ItemRolled" xml:space="preserve">
+		<value>Gegenstand gerollt</value>
+	</data>
+	<data name="Log" xml:space="preserve">
+		<value>Log</value>
+	</data>
+	<data name="LogCleared" xml:space="preserve">
+		<value>Protokolldatei gelöscht.</value>
+	</data>
+	<data name="Main" xml:space="preserve">
+		<value>Main</value>
+	</data>
+	<data name="MessageLog" xml:space="preserve">
+		<value>Nachrichtenprotokoll</value>
+	</data>
+	<data name="Mode" xml:space="preserve">
+		<value>Modus</value>
+	</data>
+	<data name="Party" xml:space="preserve">
+		<value>Party</value>
+	</data>
+	<data name="Players" xml:space="preserve">
+		<value>Spieler</value>
+	</data>
+	<data name="Self" xml:space="preserve">
+		<value>Selbst</value>
 	</data>
 </root>

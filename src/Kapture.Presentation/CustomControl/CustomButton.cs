@@ -8,30 +8,25 @@ namespace ACT_FFXIV_Kapture.Presentation
 	{
 		public CustomButton()
 		{
+			BackColor = SystemColors.ControlLight;
 			FlatStyle = FlatStyle.Flat;
-			BackColor = Color.Transparent;
-			FlatAppearance.MouseOverBackColor = Color.Transparent;
-			FlatAppearance.MouseDownBackColor = Color.Transparent;
-			FlatAppearance.BorderSize = 0;
-			ForeColor = Color.Blue;
+			FlatAppearance.BorderSize = 1;
+			FlatAppearance.BorderColor = SystemColors.ControlDarkDark;
 			SetStyle(ControlStyles.Selectable, false);
-			Size = new Size
-			{
-				Height = 23,
-				Width = 85
-			};
+			AutoSize = true;
+			AutoSizeMode = AutoSizeMode.GrowAndShrink;
 		}
 
 		protected override void OnMouseLeave(EventArgs e)
 		{
 			base.OnMouseLeave(e);
-			Font = new Font(Font, FontStyle.Regular);
+			BackColor = SystemColors.ControlLight;
 		}
 
 		protected override void OnMouseEnter(EventArgs e)
 		{
 			base.OnMouseLeave(e);
-			Font = new Font(Font, FontStyle.Underline);
+			BackColor = SystemColors.ControlDark;
 		}
 	}
 }

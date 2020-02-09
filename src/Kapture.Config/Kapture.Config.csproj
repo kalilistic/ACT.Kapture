@@ -47,7 +47,7 @@
     <Compile Include="Model\Config.cs" />
     <Compile Include="Model\XIVPlugin.cs" />
     <Compile Include="Model\Discord.cs" />
-    <Compile Include="Model\Events.cs" />
+    <Compile Include="Model\Filters.cs" />
     <Compile Include="Model\General.cs" />
     <Compile Include="Model\HTTP.cs" />
     <Compile Include="Model\Items.cs" />

@@ -3,7 +3,7 @@
 	public class Logging
 	{
 		public bool LoggingEnabled { get; set; } = true;
-		public LogFormat LogFormat { get; set; } = LogFormat.LogFile;
+		public LogFormat LogFormat { get; set; } = LogFormat.BattleLog;
 		public string LogLocation { get; set; }
 	}
 }

@@ -8,7 +8,7 @@ namespace ACT_FFXIV_Kapture.Config
 		{
 			General = new General();
 			Items = new Items();
-			Events = new Events();
+			Filters = new Filters();
 			Zones = new Zones();
 			Logging = new Logging();
 			Discord = new Discord();
@@ -18,7 +18,7 @@ namespace ACT_FFXIV_Kapture.Config
 
 		public General General { get; set; }
 		public Items Items { get; set; }
-		public Events Events { get; set; }
+		public Filters Filters { get; set; }
 		public Zones Zones { get; set; }
 		public Logging Logging { get; set; }
 		public Discord Discord { get; set; }

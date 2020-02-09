@@ -8,7 +8,7 @@ namespace ACT_FFXIV_Kapture.Config
 	{
 		private static readonly List<LogFormat> LogFormatList = new List<LogFormat>();
 
-		public static readonly LogFormat LogFile = new LogFormat(Strings.LogFile);
+		public static readonly LogFormat BattleLog = new LogFormat(Strings.BattleLog);
 		public static readonly LogFormat CSV = new LogFormat("CSV");
 		public static readonly LogFormat JSON = new LogFormat("JSON");
 
