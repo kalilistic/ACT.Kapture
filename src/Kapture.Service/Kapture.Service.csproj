@@ -37,8 +37,8 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPluginService.cs" />
-    <Compile Include="PluginService.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="UpdateService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

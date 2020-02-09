@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace ACT_FFXIV_Kapture.Presentation.CustomControl
+namespace ACT_FFXIV_Kapture.Presentation
 {
 	public class CustomDataGridView : DataGridView
 	{

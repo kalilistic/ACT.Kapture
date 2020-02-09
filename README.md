@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://github.com/kalilistic/kapture/releases/latest"><img src="https://img.shields.io/github/v/release/kalilistic/kapture"></a>
-<img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/kalilistic/kapture?include_prereleases&label=beta">
+  <a href="https://github.com/kalilistic/kapture/releases"><img src="https://img.shields.io/github/v/release/kalilistic/kapture?include_prereleases&label=beta"></a>  
   <a href="https://ci.appveyor.com/project/kalilistic/kapture/branch/master"><img src="https://img.shields.io/appveyor/ci/kalilistic/kapture"></a>
   <a href="https://github.com/kalilistic/kapture/blob/master/LICENSE"><img src="https://img.shields.io/github/license/kalilistic/kapture?color=lightgrey"></a>
   <a href="https://discord.gg/ftn4k7x"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg"></a>

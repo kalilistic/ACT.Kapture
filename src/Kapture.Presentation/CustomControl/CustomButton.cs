@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace ACT_FFXIV_Kapture.Presentation.CustomControl
+namespace ACT_FFXIV_Kapture.Presentation
 {
-	public class CustomButton : Button
+	public sealed class CustomButton : Button
 	{
 		public CustomButton()
 		{
@@ -13,11 +13,8 @@ namespace ACT_FFXIV_Kapture.Presentation.CustomControl
 			FlatAppearance.BorderSize = 1;
 			FlatAppearance.BorderColor = SystemColors.ControlDarkDark;
 			SetStyle(ControlStyles.Selectable, false);
-			Size = new Size
-			{
-				Height = 23,
-				Width = 85
-			};
+			AutoSize = true;
+			AutoSizeMode = AutoSizeMode.GrowAndShrink;
 		}
 
 		protected override void OnMouseLeave(EventArgs e)

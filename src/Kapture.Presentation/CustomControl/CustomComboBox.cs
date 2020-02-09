@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace ACT_FFXIV_Kapture.Presentation.CustomControl
+namespace ACT_FFXIV_Kapture.Presentation
 {
 	internal class CustomComboBox : ComboBox
 	{

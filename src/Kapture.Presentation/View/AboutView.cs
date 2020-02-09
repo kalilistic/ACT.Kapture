@@ -11,9 +11,6 @@ namespace ACT_FFXIV_Kapture.Presentation
 			InitializeComponent();
 
 			about_TitleLabel.Text = Strings.KaptureLootTracker;
-			about_UpdateButton.Text = Strings.CheckForUpdates;
-			about_ViewLogsButton.Text = Strings.ViewPluginLog;
-
 			about_VersionKeyLabel.Text = Strings.Version;
 
 			about_AuthorKeyLabel.Text = Strings.Author;
@@ -36,9 +33,6 @@ namespace ACT_FFXIV_Kapture.Presentation
 			about_SupportValueLabel.Click += Link_Click;
 			about_SourceValueLabel.Click += Link_Click;
 			about_LicenseValueLabel.Click += Link_Click;
-
-			about_UpdateButton.Click += UpdateBtn_Click;
-			about_ViewLogsButton.Click += ViewLogsBtn_Click;
 		}
 
 		public string Version
@@ -48,22 +42,10 @@ namespace ACT_FFXIV_Kapture.Presentation
 		}
 
 		public event EventHandler<string> LinkClicked;
-		public event EventHandler<bool> UpdateClicked;
-		public event EventHandler<bool> ViewLogsClicked;
 
 		private void Link_Click(object sender, EventArgs e)
 		{
 			LinkClicked?.Invoke(this, ((Label) sender).Tag.ToString());
-		}
-
-		private void UpdateBtn_Click(object sender, EventArgs e)
-		{
-			UpdateClicked?.Invoke(this, true);
-		}
-
-		private void ViewLogsBtn_Click(object sender, EventArgs e)
-		{
-			ViewLogsClicked?.Invoke(this, true);
 		}
 	}
 }

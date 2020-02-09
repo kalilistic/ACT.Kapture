@@ -13,7 +13,6 @@ using ACT_FFXIV_Kapture.Presentation;
 using ACT_FFXIV_Kapture.Service;
 using Advanced_Combat_Tracker;
 using Manatee.Json.Serialization;
-using StarkLogger;
 using Configuration = ACT_FFXIV_Kapture.Config.Config;
 
 // ReSharper disable ConvertIfStatementToSwitchStatement
@@ -25,118 +24,36 @@ namespace ACT_FFXIV_Kapture.Plugin
 	{
 		private static readonly object Lock = new object();
 		private Aetherbridge _aetherbridge;
+		private BasePresenter _basePresenter;
+		private Configuration _configuration;
 		private HttpClient _httpClient;
-		private ILogger _logger;
-
+		private KaptureConfig _kaptureConfig;
+		private string _kaptureVersion;
+		private Language _language;
+		private Logger _logger;
 		private Label _pluginStatus;
 		private JsonSerializer _serializer;
 		private TabPage _tabPage;
-
-		public Configuration Configuration;
-		public KaptureConfig KaptureConfig;
-
-		public string KaptureVersion;
 
 		public void InitPlugin(TabPage pluginScreenSpace, Label pluginStatusText)
 		{
 			try
 			{
-				// setup tab space
-				_tabPage = pluginScreenSpace;
-				_pluginStatus = pluginStatusText;
-				_tabPage.Text = PluginConstants.TabLabel;
-
-				// setup aetherbridge
-				_aetherbridge = Aetherbridge.GetInstance();
-
-				// setup logger
-				Logger.Initialize(_aetherbridge.GetAppDirectory(), PluginConstants.LogFileName);
-				var logPath = Path.Combine(_aetherbridge.GetAppDirectory(), PluginConstants.LogFileName);
-				_logger = Logger.GetInstance();
-				if (!File.Exists(logPath)) _logger.Info("Log file initialized.");
-
-				// setup serializer for json logs/rest calls
-				_serializer = new JsonSerializer
-				{
-					Options = new JsonSerializerOptions
-					{
-						TypeNameSerializationBehavior = TypeNameSerializationBehavior.Never
-					}
-				};
-
-				// setup config
-				KaptureConfig.Initialize(_aetherbridge.GetAppDirectory());
-				KaptureConfig = KaptureConfig.GetInstance();
-				Configuration = (Configuration) KaptureConfig.ConfigManager.Config;
-
-				// set language
-				var language = _aetherbridge.LanguageService.GetCurrentLanguage();
-				SetLanguage(language);
-
-				// load settings
-				if (language.Id == Configuration.XIVPlugin.LanguageId)
-				{
-					KaptureConfig.ConfigManager.LoadSettings();
-				}
-				else
-				{
-					var newConfig = new Configuration
-					{
-						General = Configuration.General,
-						Events = Configuration.Events,
-						Items = new Items(),
-						Zones = new Zones(),
-						Logging = new Logging(),
-						Discord = new Discord(),
-						HTTP = new HTTP(),
-						XIVPlugin = new XIVPlugin()
-					};
-					newConfig.XIVPlugin.LanguageId = language.Id;
-					KaptureConfig.GetInstance().Config = newConfig;
-					Configuration = newConfig;
-				}
-
-				// setup plugin service
-				_httpClient = new HttpClient();
-				KaptureVersion = Assembly.GetExecutingAssembly()
-					.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
-				PluginService.Initialize(_httpClient, KaptureVersion,
-					ActGlobals.oFormActMain.PluginGetSelfData(this).pluginFile.DirectoryName, language.Abbreviation);
-				PluginService.GetInstance().KaptureLog =
-					Path.Combine(_aetherbridge.GetAppDirectory(), PluginConstants.LogFileName);
-
-				// create log dir if empty
-				if (Configuration.Logging.LogLocation == null)
-				{
-					var path = Path.Combine(_aetherbridge.GetAppDirectory(), "KaptureLogs");
-					Directory.CreateDirectory(path);
-					Configuration.Logging.LogLocation = path;
-					KaptureConfig.ConfigManager.Config = Configuration;
-					KaptureConfig.ConfigManager.SaveSettings();
-				}
-
-				// setup loot parser event handler
-				_aetherbridge.EnableLogLineParser();
-				_aetherbridge.LogLineCaptured += ParseLootEvents;
-
-				// setup user interface
-				var mainView = new MainView {Dock = DockStyle.Fill};
-				_tabPage.Controls.Add(mainView);
-				_ = new MainPresenter(mainView, _aetherbridge);
-
-				// update plugin status
-				_pluginStatus.Text = PluginConstants.PluginStatusEnabled;
-
-				// add data based on language (async)
-				Task.Run(() => _aetherbridge.AddLanguage(Configuration.XIVPlugin.LanguageId));
-
-				// kick off update check (async)
-				Task.Run(() =>
-					PluginService.GetInstance().UpdatePlugin(Configuration.General.CheckForBetaEnabled, false));
+				InitAetherbridge();
+				SetupLogger();
+				SetupJsonSerializer();
+				SetLanguage();
+				LoadSettings();
+				SetupKaptureService();
+				CreateLogDirectory();
+				SubscribeToLogLineEvents();
+				SetupUI(pluginScreenSpace, pluginStatusText);
+				LoadLocalizedData();
+				CheckForUpdates();
 			}
 			catch (Exception ex)
 			{
-				_logger?.Error(ex);
+				_logger?.Error("Failed to initialize plugin.", ex);
 				MessageBox.Show(PluginConstants.CriticalFailureMsg + Environment.NewLine +
 				                PluginConstants.ErrorPrefix + ex.StackTrace);
 				_pluginStatus.Text = PluginConstants.PluginStatusDisabledFailure;
@@ -146,22 +63,56 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 		public void DeInitPlugin()
 		{
-			KaptureConfig.ConfigManager.SaveSettings();
+			_kaptureConfig.ConfigManager.SaveSettings();
 			_aetherbridge.LogLineCaptured -= ParseLootEvents;
 			_aetherbridge.DeInit();
-			KaptureConfig?.DeInit();
-			_logger.DeInit();
-			PluginService.GetInstance().DeInit();
+			_kaptureConfig?.DeInit();
+			UpdateService.GetInstance().DeInit();
 			_httpClient.Dispose();
 			_pluginStatus.Text = PluginConstants.PluginStatusDisabled;
+			_basePresenter.DeInit();
 		}
 
-		public void SetLanguage(Language language)
+		private void SetupUI(TabPage pluginScreenSpace, Label pluginStatusText)
 		{
-			var cultureInfo = new CultureInfo(language.Abbreviation);
+			_tabPage = pluginScreenSpace;
+			_pluginStatus = pluginStatusText;
+			_tabPage.Text = PluginConstants.TabLabel;
+			var baseView = new BaseView {Dock = DockStyle.Fill};
+			_tabPage.Controls.Add(baseView);
+			_basePresenter = new BasePresenter(baseView, _aetherbridge, _logger);
+			_pluginStatus.Text = PluginConstants.PluginStatusEnabled;
+		}
+
+		private void InitAetherbridge()
+		{
+			_aetherbridge = Aetherbridge.GetInstance();
+		}
+
+		private void SetupLogger()
+		{
+			_logger = Logger.GetInstance(_aetherbridge.GetAppDirectory());
+		}
+
+		private void SetupJsonSerializer()
+		{
+			_serializer = new JsonSerializer
+			{
+				Options = new JsonSerializerOptions
+				{
+					TypeNameSerializationBehavior = TypeNameSerializationBehavior.Never
+				}
+			};
+		}
+
+		private void SetLanguage()
+		{
+			_language = _aetherbridge.LanguageService.GetCurrentLanguage();
+			var cultureInfo = new CultureInfo(_language.Abbreviation);
 			Thread.CurrentThread.CurrentUICulture = cultureInfo;
 			Thread.CurrentThread.CurrentCulture = cultureInfo;
-			typeof(PluginService).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
+			LogFormat.LogFormats.Clear();
+			typeof(UpdateService).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
 				?.Invoke(null, null);
 			typeof(ItemPreset).GetConstructor(BindingFlags.Static | BindingFlags.NonPublic, null, new Type[0], null)
 				?.Invoke(null, null);
@@ -171,127 +122,187 @@ namespace ACT_FFXIV_Kapture.Plugin
 				?.Invoke(null, null);
 		}
 
+		private void LoadSettings()
+		{
+			KaptureConfig.Initialize(_aetherbridge.GetAppDirectory());
+			_kaptureConfig = KaptureConfig.GetInstance();
+			_configuration = (Configuration) _kaptureConfig.ConfigManager.Config;
+			if (_language.Id == _configuration.XIVPlugin.LanguageId)
+			{
+				_kaptureConfig.ConfigManager.LoadSettings();
+			}
+			else
+			{
+				var newConfig = new Configuration
+				{
+					General = _configuration.General,
+					Filters = _configuration.Filters,
+					Items = new Items(),
+					Zones = new Zones(),
+					Logging = new Logging(),
+					Discord = new Discord(),
+					HTTP = new HTTP(),
+					XIVPlugin = new XIVPlugin()
+				};
+				newConfig.XIVPlugin.LanguageId = _language.Id;
+				KaptureConfig.GetInstance().Config = newConfig;
+				_configuration = newConfig;
+			}
+		}
+
+		private void SetupKaptureService()
+		{
+			_httpClient = new HttpClient();
+			_kaptureVersion = Assembly.GetExecutingAssembly()
+				.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
+			UpdateService.Initialize(_httpClient, _kaptureVersion,
+				ActGlobals.oFormActMain.PluginGetSelfData(this).pluginFile.DirectoryName, _language.Abbreviation,
+				_logger);
+			UpdateService.GetInstance().KaptureLog =
+				Path.Combine(_aetherbridge.GetAppDirectory(), PluginConstants.LogFileName);
+		}
+
+		private void CreateLogDirectory()
+		{
+			if (_configuration.Logging.LogLocation != null) return;
+			var path = Path.Combine(_aetherbridge.GetAppDirectory(), "KaptureLogs");
+			Directory.CreateDirectory(path);
+			_configuration.Logging.LogLocation = path;
+			_kaptureConfig.ConfigManager.Config = _configuration;
+			_kaptureConfig.ConfigManager.SaveSettings();
+		}
+
+		private void SubscribeToLogLineEvents()
+		{
+			_aetherbridge.EnableLogLineParser();
+			_aetherbridge.LogLineCaptured += ParseLootEvents;
+		}
+
+		private void LoadLocalizedData()
+		{
+			Task.Run(() => _aetherbridge.AddLanguage(_configuration.XIVPlugin.LanguageId));
+		}
+
+		private void CheckForUpdates()
+		{
+			Task.Run(() => UpdateService.GetInstance().UpdatePlugin(_configuration.General.CheckForBetaEnabled, false));
+		}
+
+		private static bool IsNonLootEvent(LogLineEvent logLineEvent)
+		{
+			if (logLineEvent?.XIVEvent == null) return true;
+			return logLineEvent.XIVEvent.XIVEventType != XIVEventTypeEnum.Loot;
+		}
+
+		private bool IsPluginDisabled()
+		{
+			return !_configuration.General.PluginEnabled;
+		}
+
+		private bool IsImportWithImportsDisabled(LogLineEvent logLineEvent)
+		{
+			return logLineEvent.ACTLogLineEvent.IsImport && !_configuration.General.LogImportsEnabled;
+		}
+
+		private bool IsExcludedLootEvent(XIVEvent lootEvent)
+		{
+			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.AddLoot) return !_configuration.Filters.ItemAdded;
+
+			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.ObtainLoot)
+				return !_configuration.Filters.ItemObtained;
+
+			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.NeedLoot ||
+			    lootEvent.XIVEventSubType == XIVEventSubTypeEnum.GreedLoot)
+				return !_configuration.Filters.ItemRolledOn;
+
+			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.LostLoot) return !_configuration.Filters.ItemLost;
+
+			return false;
+		}
+
+		private bool IsExcludedPlayerType(LogLineEvent logLineEvent, XIVEvent lootEvent)
+		{
+			if (logLineEvent.ACTLogLineEvent.IsImport) return false;
+			if (logLineEvent.XIVEvent.Actor == null) return false;
+			if (lootEvent.Actor.IsReporter) return !_configuration.Filters.Self;
+			if (lootEvent.Actor.PartyType == PartyTypeEnum.Party) return !_configuration.Filters.Party;
+			if (lootEvent.Actor.PartyType == PartyTypeEnum.Alliance) return !_configuration.Filters.Alliance;
+			return false;
+		}
+
+		private bool IsExcludedItem(XIVEvent lootEvent)
+		{
+			if (!_configuration.Items.FilterByItems) return false;
+			if (_configuration.Items.IncludeItems)
+				return !_configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName);
+			return _configuration.Items.ExcludeItems &&
+			       _configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName);
+		}
+
+		private bool IsExcludedZone(LogLineEvent logLineEvent, XIVEvent lootEvent)
+		{
+			if (!_configuration.Zones.FilterByZones || logLineEvent.ACTLogLineEvent.IsImport) return false;
+			if (_configuration.Zones.IncludeZones)
+				return !_configuration.Zones.ZonesList.Contains(lootEvent.Location.Zone.Name);
+			return _configuration.Zones.ExcludeZones &&
+			       _configuration.Zones.ZonesList.Contains(lootEvent.Location.Zone.Name);
+		}
+
+		private bool IsExcludedEvent(LogLineEvent logLineEvent, XIVEvent lootEvent)
+		{
+			return
+				IsNonLootEvent(logLineEvent) ||
+				IsPluginDisabled() ||
+				IsImportWithImportsDisabled(logLineEvent) ||
+				IsExcludedLootEvent(lootEvent) ||
+				IsExcludedPlayerType(logLineEvent, lootEvent) ||
+				IsExcludedItem(lootEvent) ||
+				IsExcludedZone(logLineEvent, lootEvent);
+		}
+
 		private void ParseLootEvents(object sender, LogLineEvent logLineEvent)
 		{
 			try
 			{
-				// loot filter
-				if (logLineEvent?.XIVEvent == null) return;
-				if (logLineEvent.XIVEvent.XIVEventType != XIVEventTypeEnum.Loot) return;
-
-				// set vars
 				var lootEvent = logLineEvent.XIVEvent;
-				Configuration = (Configuration) KaptureConfig.ConfigManager.Config;
-
-				// general filter
-				if (!Configuration.General.PluginEnabled) return;
-				if (logLineEvent.ACTLogLineEvent.IsImport && !Configuration.General.LogImportsEnabled) return;
-
-				// events filter
-				if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.AddLoot)
-				{
-					if (!Configuration.Events.ItemAddedEnabled) return;
-				}
-				else if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.LostLoot)
-				{
-					if (!Configuration.Events.ItemDroppedEnabled) return;
-				}
-				else if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.ObtainLoot)
-				{
-					if (lootEvent.Actor.IsReporter)
-					{
-						if (!Configuration.Events.YouObtainedEnabled) return;
-					}
-					else if (!lootEvent.Actor.IsReporter)
-					{
-						if (!Configuration.Events.TheyObtainedEnabled) return;
-					}
-					else
-					{
-						return;
-					}
-				}
-				else if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.NeedLoot ||
-				         lootEvent.XIVEventSubType == XIVEventSubTypeEnum.GreedLoot)
-				{
-					if (lootEvent.Actor.IsReporter)
-					{
-						if (!Configuration.Events.YouRolledEnabled) return;
-					}
-					else if (!lootEvent.Actor.IsReporter)
-					{
-						if (!Configuration.Events.TheyRolledEnabled) return;
-					}
-					else
-					{
-						return;
-					}
-				}
-
-				// items filter
-				if (Configuration.Items.FilterByItems)
-				{
-					if (Configuration.Items.IncludeItems)
-					{
-						if (!Configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName)) return;
-					}
-					else if (Configuration.Items.ExcludeItems)
-					{
-						if (Configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName)) return;
-					}
-				}
-
-				// zones filter
-				if (Configuration.Zones.FilterByZones && !logLineEvent.ACTLogLineEvent.IsImport)
-				{
-					if (Configuration.Zones.IncludeZones)
-					{
-						if (!Configuration.Zones.ZonesList.Contains(lootEvent.Location.Zone.Name)) return;
-					}
-					else if (Configuration.Zones.ExcludeZones)
-					{
-						if (Configuration.Zones.ZonesList.Contains(lootEvent.Location.Zone.Name)) return;
-					}
-				}
-
-				// log messages
-				if (Configuration.Logging.LoggingEnabled)
-				{
-					if (Configuration.Logging.LogFormat.ToString().Equals(LogFormat.LogFile.ToString()))
-						LogSimpleFormat(logLineEvent);
-					else if (Configuration.Logging.LogFormat.ToString().Equals(LogFormat.CSV.ToString()))
-						LogCsvFormat(logLineEvent);
-					else if (Configuration.Logging.LogFormat.ToString().Equals(LogFormat.JSON.ToString()))
-						LogJsonFormat(logLineEvent);
-				}
-
-				// send message to discord
-				if (Configuration.Discord.DiscordEnabled) SendToDiscordWebHook(logLineEvent);
-
-				// send message to rest endpoint
-				if (Configuration.HTTP.HTTPEnabled) SendRestCall(logLineEvent);
+				_configuration = (Configuration) KaptureConfig.GetInstance().ConfigManager.Config;
+				if (IsExcludedEvent(logLineEvent, lootEvent)) return;
+				_logger.Info(logLineEvent.LogMessage);
+				LogMessage(logLineEvent);
+				SendToDiscord(logLineEvent);
+				SendToHTTP(logLineEvent);
 			}
 			catch (Exception ex)
 			{
-				_logger.Info("Failed on log line: " + logLineEvent?.LogMessage);
-				_logger.Error(ex);
+				_logger.Error(logLineEvent?.LogMessage + "." + Environment.NewLine, ex);
 			}
 		}
 
-		private void LogSimpleFormat(LogLineEvent logLineEvent)
+		private void LogMessage(LogLineEvent logLineEvent)
 		{
-			var filePath = Path.Combine(Configuration.Logging.LogLocation,
-				"Kapture_" + KaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".log");
+			if (!_configuration.Logging.LoggingEnabled) return;
+			if (_configuration.Logging.LogFormat.ToString().Equals(LogFormat.BattleLog.ToString()))
+				LogBattleFormat(logLineEvent);
+			else if (_configuration.Logging.LogFormat.ToString().Equals(LogFormat.CSV.ToString()))
+				LogCsvFormat(logLineEvent);
+			else if (_configuration.Logging.LogFormat.ToString().Equals(LogFormat.JSON.ToString()))
+				LogJsonFormat(logLineEvent);
+		}
+
+		private void LogBattleFormat(LogLineEvent logLineEvent)
+		{
+			var filePath = Path.Combine(_configuration.Logging.LogLocation,
+				"Kapture_" + _kaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".log");
 			lock (Lock)
 			{
-				File.AppendAllText(filePath, logLineEvent.LogMessage + Environment.NewLine);
+				File.AppendAllText(filePath, logLineEvent.GetMessageWithTimestamp() + Environment.NewLine);
 			}
 		}
 
 		private void LogCsvFormat(LogLineEvent logLineEvent)
 		{
-			var filePath = Path.Combine(Configuration.Logging.LogLocation,
-				"Kapture_" + KaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv");
+			var filePath = Path.Combine(_configuration.Logging.LogLocation,
+				"Kapture_" + _kaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".csv");
 			lock (Lock)
 			{
 				var csvMsg = logLineEvent.Id + PluginConstants.CsvSep +
@@ -308,8 +319,8 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 		private void LogJsonFormat(LogLineEvent logLineEvent)
 		{
-			var filePath = Path.Combine(Configuration.Logging.LogLocation,
-				"Kapture_" + KaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".json");
+			var filePath = Path.Combine(_configuration.Logging.LogLocation,
+				"Kapture_" + _kaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".json");
 			var json = _serializer.Serialize(logLineEvent);
 			lock (Lock)
 			{
@@ -317,33 +328,36 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private async Task SendToDiscordWebHook(LogLineEvent logLineEvent)
+		private async Task SendToDiscord(LogLineEvent logLineEvent)
 		{
-			if (Configuration.Discord.Endpoint == null) return;
-			var json = "{\"content\": \"" + logLineEvent.LogMessage + "\"}";
+			if (!_configuration.Discord.DiscordEnabled) return;
+			if (_configuration.Discord.Endpoint == null) return;
+			var json = "{\"content\": \"" + logLineEvent.GetMessageWithTimestamp() + "\"}";
 			try
 			{
-				await _httpClient.PostAsync(new Uri(Configuration.Discord.Endpoint),
+				await _httpClient.PostAsync(new Uri(_configuration.Discord.Endpoint),
 					new StringContent(json, Encoding.UTF8, "application/json"));
 			}
 			catch (Exception ex)
 			{
-				_logger.Error(ex);
+				_logger.Error(nameof(SendToDiscord) + ": " + logLineEvent?.LogMessage + "." + Environment.NewLine, ex);
 			}
 		}
 
-		private async Task SendRestCall(LogLineEvent logLineEvent)
+		private async Task SendToHTTP(LogLineEvent logLineEvent)
 		{
-			if (Configuration.HTTP.Endpoint == null) return;
-			var json = _serializer.Serialize(new object[] {logLineEvent, Configuration.HTTP.CustomJson});
+			if (!_configuration.HTTP.HTTPEnabled) return;
+			if (_configuration.HTTP.Endpoint == null) return;
+			var json = _serializer.Serialize(new object[] {logLineEvent, _configuration.HTTP.CustomJson});
 			try
 			{
-				await _httpClient.PostAsync(new Uri(Configuration.HTTP.Endpoint),
+				await _httpClient.PostAsync(new Uri(_configuration.HTTP.Endpoint),
 					new StringContent(json.ToString(), Encoding.UTF8, "application/json"));
 			}
 			catch (Exception ex)
 			{
-				Logger.GetInstance().Error(ex);
+				_logger.Error(nameof(SendToHTTP) + ": " + logLineEvent?.LogMessage + "." + Environment.NewLine,
+					ex);
 			}
 		}
 	}

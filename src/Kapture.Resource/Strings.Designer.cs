@@ -88,11 +88,38 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced Filters.
+        /// </summary>
+        public static string AdvancedFilters {
+            get {
+                return ResourceManager.GetString("AdvancedFilters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alliance.
+        /// </summary>
+        public static string Alliance {
+            get {
+                return ResourceManager.GetString("Alliance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Author.
         /// </summary>
         public static string Author {
             get {
                 return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battle Log.
+        /// </summary>
+        public static string BattleLog {
+            get {
+                return ResourceManager.GetString("BattleLog", resourceCulture);
             }
         }
         
@@ -178,6 +205,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enabled.
+        /// </summary>
+        public static string Enabled {
+            get {
+                return ResourceManager.GetString("Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Endpoint.
         /// </summary>
         public static string Endpoint {
@@ -192,6 +228,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string Events {
             get {
                 return ResourceManager.GetString("Events", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exclude Common Items.
+        /// </summary>
+        public static string ExcludeCommonItems {
+            get {
+                return ResourceManager.GetString("ExcludeCommonItems", resourceCulture);
             }
         }
         
@@ -232,6 +277,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filters.
+        /// </summary>
+        public static string Filters {
+            get {
+                return ResourceManager.GetString("Filters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to General.
         /// </summary>
         public static string General {
@@ -255,6 +309,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string HighEndDuty {
             get {
                 return ResourceManager.GetString("HighEndDuty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High-End Duty Only.
+        /// </summary>
+        public static string HighEndDutyOnly {
+            get {
+                return ResourceManager.GetString("HighEndDutyOnly", resourceCulture);
             }
         }
         
@@ -295,7 +358,7 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Item added to loot list.
+        ///   Looks up a localized string similar to Item added.
         /// </summary>
         public static string ItemAdded {
             get {
@@ -304,11 +367,29 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Item dropped to floor.
+        ///   Looks up a localized string similar to Item lost.
         /// </summary>
         public static string ItemLost {
             get {
                 return ResourceManager.GetString("ItemLost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item obtained.
+        /// </summary>
+        public static string ItemObtained {
+            get {
+                return ResourceManager.GetString("ItemObtained", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item rolled on.
+        /// </summary>
+        public static string ItemRolled {
+            get {
+                return ResourceManager.GetString("ItemRolled", resourceCulture);
             }
         }
         
@@ -354,6 +435,24 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string License {
             get {
                 return ResourceManager.GetString("License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log.
+        /// </summary>
+        public static string Log {
+            get {
+                return ResourceManager.GetString("Log", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log file cleared..
+        /// </summary>
+        public static string LogCleared {
+            get {
+                return ResourceManager.GetString("LogCleared", resourceCulture);
             }
         }
         
@@ -412,11 +511,56 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main.
+        /// </summary>
+        public static string Main {
+            get {
+                return ResourceManager.GetString("Main", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message Log.
+        /// </summary>
+        public static string MessageLog {
+            get {
+                return ResourceManager.GetString("MessageLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MIT.
         /// </summary>
         public static string MIT {
             get {
                 return ResourceManager.GetString("MIT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mode.
+        /// </summary>
+        public static string Mode {
+            get {
+                return ResourceManager.GetString("Mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Party.
+        /// </summary>
+        public static string Party {
+            get {
+                return ResourceManager.GetString("Party", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string Players {
+            get {
+                return ResourceManager.GetString("Players", resourceCulture);
             }
         }
         
@@ -435,6 +579,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string PluginHaveLatest {
             get {
                 return ResourceManager.GetString("PluginHaveLatest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plugin Initialized..
+        /// </summary>
+        public static string PluginInitialized {
+            get {
+                return ResourceManager.GetString("PluginInitialized", resourceCulture);
             }
         }
         
@@ -471,6 +624,24 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string Preset {
             get {
                 return ResourceManager.GetString("Preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Self.
+        /// </summary>
+        public static string Self {
+            get {
+                return ResourceManager.GetString("Self", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send To.
+        /// </summary>
+        public static string SendTo {
+            get {
+                return ResourceManager.GetString("SendTo", resourceCulture);
             }
         }
         

@@ -288,4 +288,55 @@
 	<data name="PluginUpdateAvailable" xml:space="preserve">
 		<value>Mise à jour du plugin Kapture disponible. Voulez-vous le télécharger maintenant?</value>
 	</data>
+	<data name="AdvancedFilters" xml:space="preserve">
+		<value>Filtres avancés</value>
+	</data>
+	<data name="Alliance" xml:space="preserve">
+		<value>Alliance</value>
+	</data>
+	<data name="BattleLog" xml:space="preserve">
+		<value>Journal de bataille</value>
+	</data>
+	<data name="Enabled" xml:space="preserve">
+		<value>Activée</value>
+	</data>
+	<data name="ExcludeCommonItems" xml:space="preserve">
+		<value>Exclure les éléments communs</value>
+	</data>
+	<data name="Filters" xml:space="preserve">
+		<value>Filtres</value>
+	</data>
+	<data name="HighEndDutyOnly" xml:space="preserve">
+		<value>Service haut de gamme uniquement</value>
+	</data>
+	<data name="ItemObtained" xml:space="preserve">
+		<value>Objet obtenu</value>
+	</data>
+	<data name="ItemRolled" xml:space="preserve">
+		<value>Article roulé</value>
+	</data>
+	<data name="Log" xml:space="preserve">
+		<value>Journal</value>
+	</data>
+	<data name="LogCleared" xml:space="preserve">
+		<value>Fichier journal effacé.</value>
+	</data>
+	<data name="Main" xml:space="preserve">
+		<value>Principale</value>
+	</data>
+	<data name="MessageLog" xml:space="preserve">
+		<value>Journal des messages</value>
+	</data>
+	<data name="Mode" xml:space="preserve">
+		<value>Mode</value>
+	</data>
+	<data name="Party" xml:space="preserve">
+		<value>Fête</value>
+	</data>
+	<data name="Players" xml:space="preserve">
+		<value>Joueurs</value>
+	</data>
+	<data name="Self" xml:space="preserve">
+		<value>Soi</value>
+	</data>
 </root>

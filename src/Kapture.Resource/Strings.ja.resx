@@ -288,4 +288,55 @@
 	<data name="PluginUpdateAvailable" xml:space="preserve">
 		<value>Kaptureプラグインの更新が利用可能です。今すぐダウンロードしますか？</value>
 	</data>
+	<data name="AdvancedFilters" xml:space="preserve">
+		<value>高度なフィルター</value>
+	</data>
+	<data name="Alliance" xml:space="preserve">
+		<value>アライアンス</value>
+	</data>
+	<data name="BattleLog" xml:space="preserve">
+		<value>バトルログ</value>
+	</data>
+	<data name="Enabled" xml:space="preserve">
+		<value>有効化</value>
+	</data>
+	<data name="ExcludeCommonItems" xml:space="preserve">
+		<value>共通アイテムを除外する</value>
+	</data>
+	<data name="Filters" xml:space="preserve">
+		<value>フィルター</value>
+	</data>
+	<data name="HighEndDutyOnly" xml:space="preserve">
+		<value>ハイエンドの義務のみ</value>
+	</data>
+	<data name="ItemObtained" xml:space="preserve">
+		<value>入手したアイテム</value>
+	</data>
+	<data name="ItemRolled" xml:space="preserve">
+		<value>ロールオンされたアイテム</value>
+	</data>
+	<data name="Log" xml:space="preserve">
+		<value>ログ</value>
+	</data>
+	<data name="LogCleared" xml:space="preserve">
+		<value>ログファイルがクリアされました。</value>
+	</data>
+	<data name="Main" xml:space="preserve">
+		<value>メイン</value>
+	</data>
+	<data name="MessageLog" xml:space="preserve">
+		<value>メッセージログ</value>
+	</data>
+	<data name="Mode" xml:space="preserve">
+		<value>モード</value>
+	</data>
+	<data name="Party" xml:space="preserve">
+		<value>パーティー</value>
+	</data>
+	<data name="Players" xml:space="preserve">
+		<value>プレイヤー</value>
+	</data>
+	<data name="Self" xml:space="preserve">
+		<value>自己</value>
+	</data>
 </root>

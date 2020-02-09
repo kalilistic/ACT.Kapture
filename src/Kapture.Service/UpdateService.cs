@@ -8,18 +8,20 @@ using GitHub.ReleaseDownloader;
 
 namespace ACT_FFXIV_Kapture.Service
 {
-	public class PluginService : IPluginService
+	public class UpdateService
 	{
-		private static volatile PluginService _pluginService;
+		private static volatile UpdateService _updateService;
 		private static readonly object Lock = new object();
 		private static ReleaseDownloader _betaDownloader;
 		private static ReleaseDownloader _downloader;
 		private static CultureInfo _cultureInfo;
+		private static Logger _logger;
 
 
-		private PluginService(HttpClient httpClient, string version, string pluginPath, string lang)
+		private UpdateService(HttpClient httpClient, string version, string pluginPath, string lang, Logger logger)
 		{
 			_cultureInfo = new CultureInfo(lang);
+			_logger = logger;
 			Version = version;
 			_betaDownloader =
 				new ReleaseDownloader(new ReleaseDownloaderSettings(httpClient, AuthorName, RepoName, true,
@@ -63,8 +65,9 @@ namespace ACT_FFXIV_Kapture.Service
 							MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				_logger.Error(Strings.PluginUpdateFailed, ex);
 				MessageBox.Show(Strings.PluginUpdateFailed, AppName,
 					MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
@@ -74,21 +77,22 @@ namespace ACT_FFXIV_Kapture.Service
 		{
 			_betaDownloader.DeInit();
 			_downloader.DeInit();
-			_pluginService = null;
+			_updateService = null;
 		}
 
-		public static IPluginService GetInstance()
+		public static UpdateService GetInstance()
 		{
-			return _pluginService;
+			return _updateService;
 		}
 
-		public static void Initialize(HttpClient httpClient, string version, string pluginPath, string lang)
+		public static void Initialize(HttpClient httpClient, string version, string pluginPath, string lang,
+			Logger logger)
 		{
-			if (_pluginService != null) return;
+			if (_updateService != null) return;
 			lock (Lock)
 			{
-				if (_pluginService == null)
-					_pluginService = new PluginService(httpClient, version, pluginPath, lang);
+				if (_updateService == null)
+					_updateService = new UpdateService(httpClient, version, pluginPath, lang, logger);
 			}
 		}
 	}
