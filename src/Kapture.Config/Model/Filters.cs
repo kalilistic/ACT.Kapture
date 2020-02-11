@@ -11,6 +11,5 @@
 		public bool Alliance { get; set; } = false;
 		public bool ExcludeCommonItems { get; set; } = true;
 		public bool HighEndDutyOnly { get; set; } = false;
-		public bool FilterByZones { get; set; } = false;
 	}
 }

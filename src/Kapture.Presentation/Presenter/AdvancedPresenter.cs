@@ -30,7 +30,6 @@ namespace ACT_FFXIV_Kapture.Presentation
 		{
 			AdvancedView.FilterByItems = Configuration.Items.FilterByItems;
 			AdvancedView.AddItem = _itemService.GetItemNames();
-			AdvancedView.FilterByItems = Configuration.Items.FilterByItems;
 			AdvancedView.ItemsList = Configuration.Items.ItemsList;
 			AdvancedView.ExcludeItemsEnabled = Configuration.Items.ExcludeItems;
 			AdvancedView.IncludeItemsEnabled = Configuration.Items.IncludeItems;
@@ -81,6 +80,7 @@ namespace ACT_FFXIV_Kapture.Presentation
 		private void IncludeItemsEnabledChanged(object sender, bool e)
 		{
 			Configuration.Items.IncludeItems = e;
+			Configuration.Items.ExcludeItems = !e;
 			SetItemFilterToCustomPreset();
 			KaptureConfig.ConfigManager.SaveSettings();
 		}
@@ -88,6 +88,7 @@ namespace ACT_FFXIV_Kapture.Presentation
 		private void ExcludeItemsEnabledChanged(object sender, bool e)
 		{
 			Configuration.Items.ExcludeItems = e;
+			Configuration.Items.IncludeItems = !e;
 			SetItemFilterToCustomPreset();
 			KaptureConfig.ConfigManager.SaveSettings();
 		}
@@ -128,6 +129,7 @@ namespace ACT_FFXIV_Kapture.Presentation
 		private void IncludeZonesEnabledChanged(object sender, bool e)
 		{
 			Configuration.Zones.IncludeZones = e;
+			Configuration.Zones.ExcludeZones = !e;
 			SetZoneFilterToCustomPreset();
 			KaptureConfig.ConfigManager.SaveSettings();
 		}
@@ -135,6 +137,7 @@ namespace ACT_FFXIV_Kapture.Presentation
 		private void ExcludeZonesEnabledChanged(object sender, bool e)
 		{
 			Configuration.Zones.ExcludeZones = e;
+			Configuration.Zones.IncludeZones = !e;
 			SetZoneFilterToCustomPreset();
 			KaptureConfig.ConfigManager.SaveSettings();
 		}
