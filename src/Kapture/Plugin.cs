@@ -239,7 +239,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			       _configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName);
 		}
 
-		private bool IsExcludedZone(LogLineEvent logLineEvent, XIVEvent lootEvent)
+		private bool IsExcludedZone(LogLineEvent logLineEvent)
 		{
 			if (!_configuration.Zones.FilterByZones || logLineEvent.ACTLogLineEvent.IsImport) return false;
 			var territoryTypeId = _aetherbridge.LocationService.GetCurrentLocation().TerritoryTypeId;
@@ -261,7 +261,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				IsExcludedLootEvent(lootEvent) ||
 				IsExcludedPlayerType(logLineEvent, lootEvent) ||
 				IsExcludedItem(lootEvent) ||
-				IsExcludedZone(logLineEvent, lootEvent);
+				IsExcludedZone(logLineEvent);
 		}
 
 		private void ParseLootEvents(object sender, LogLineEvent logLineEvent)
@@ -344,7 +344,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 			catch (Exception ex)
 			{
-				_logger.Error(nameof(SendToDiscord) + ": " + logLineEvent?.LogMessage + "." + Environment.NewLine, ex);
+				_logger.Error(nameof(SendToDiscord) + ": " + logLineEvent.LogMessage + "." + Environment.NewLine, ex);
 			}
 		}
 
