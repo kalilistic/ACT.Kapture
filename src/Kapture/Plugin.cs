@@ -242,10 +242,14 @@ namespace ACT_FFXIV_Kapture.Plugin
 		private bool IsExcludedZone(LogLineEvent logLineEvent, XIVEvent lootEvent)
 		{
 			if (!_configuration.Zones.FilterByZones || logLineEvent.ACTLogLineEvent.IsImport) return false;
+			var territoryTypeId = _aetherbridge.LocationService.GetCurrentLocation().TerritoryTypeId;
+			var contentName = _aetherbridge.ContentService.GetContentByTerritoryTypeId(territoryTypeId).Name;
+			if (contentName == null || contentName.Equals(string.Empty)) return false;
 			if (_configuration.Zones.IncludeZones)
-				return !_configuration.Zones.ZonesList.Contains(lootEvent.Location.Zone.Name);
-			return _configuration.Zones.ExcludeZones &&
-			       _configuration.Zones.ZonesList.Contains(lootEvent.Location.Zone.Name);
+			{
+				return !_configuration.Zones.ZonesList.Contains(contentName);
+			}
+			return _configuration.Zones.ExcludeZones && _configuration.Zones.ZonesList.Contains(contentName);
 		}
 
 		private bool IsExcludedEvent(LogLineEvent logLineEvent, XIVEvent lootEvent)
