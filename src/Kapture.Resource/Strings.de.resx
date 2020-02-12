@@ -121,7 +121,7 @@
     <value>Über</value>
   </data>
 	<data name="AddItem" xml:space="preserve">
-    <value>Gegenstände hinzufügen</value>
+    <value>Gegenstand hinzufügen</value>
   </data>
 	<data name="AddZone" xml:space="preserve">
     <value>Zone hinzufügen</value>
@@ -133,7 +133,7 @@
     <value>Durchsuchen</value>
   </data>
 	<data name="CheckForBeta" xml:space="preserve">
-    <value>Suchen Sie nach Beta-Versionen</value>
+    <value>Nach Beta-Versionen suchen</value>
   </data>
 	<data name="CheckForUpdates" xml:space="preserve">
     <value>Auf Updates prüfen</value>
@@ -157,10 +157,10 @@
     <value>Zonen ausschließen</value>
   </data>
 	<data name="FilterByItems" xml:space="preserve">
-    <value>Nach Gegenstände filtern</value>
+    <value>Nach Gegenständen filtern</value>
   </data>
 	<data name="FilterByZones" xml:space="preserve">
-    <value>Nach Zone filtern</value>
+    <value>Nach Zonen filtern</value>
   </data>
 	<data name="General" xml:space="preserve">
     <value>Allgemein</value>
@@ -172,13 +172,13 @@
     <value>HTTP aktiviert</value>
   </data>
 	<data name="IncludeItems" xml:space="preserve">
-    <value>Gegenstände einschließen</value>
+    <value>Gegenstände einbeziehen</value>
   </data>
 	<data name="IncludeZones" xml:space="preserve">
-    <value>Zone einbeziehen</value>
+    <value>Zonen einbeziehen</value>
   </data>
 	<data name="ItemLost" xml:space="preserve">
-    <value>Gegenstand fiel</value>
+    <value>Gegenstand verloren</value>
   </data>
 	<data name="Items" xml:space="preserve">
     <value>Gegenstände</value>
@@ -247,7 +247,7 @@
     <value>Missionen</value>
   </data>
 	<data name="CommonItems" xml:space="preserve">
-		<value>Gemeinsame Gegenstände</value>
+		<value>Häufige Gegenstände</value>
 	</data>
 	<data name="Custom" xml:space="preserve">
 		<value>Benutzerdefiniert</value>
@@ -256,7 +256,7 @@
 		<value>Standard</value>
 	</data>
 	<data name="HighEndDuty" xml:space="preserve">
-		<value>High-End-Missionen</value>
+		<value>High-End-Inhalte</value>
 	</data>
 	<data name="LogFile" xml:space="preserve">
 		<value>Protokolldatei</value>
@@ -301,13 +301,13 @@
 		<value>Aktiviert</value>
 	</data>
 	<data name="ExcludeCommonItems" xml:space="preserve">
-		<value>Allgemeine Elemente ausschließen</value>
+		<value>Häufige Gegenstände ignorieren</value>
 	</data>
 	<data name="Filters" xml:space="preserve">
 		<value>Filter</value>
 	</data>
 	<data name="HighEndDutyOnly" xml:space="preserve">
-		<value>High-End-Missionen Nur</value>
+		<value>Nur High-End-Inhalte</value>
 	</data>
 	<data name="ItemObtained" xml:space="preserve">
 		<value>Gegenstand erhalten</value>
