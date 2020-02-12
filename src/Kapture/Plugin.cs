@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
@@ -6,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using ACT_FFXIV_Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
@@ -14,6 +16,7 @@ using ACT_FFXIV_Kapture.Service;
 using Advanced_Combat_Tracker;
 using Manatee.Json.Serialization;
 using Configuration = ACT_FFXIV_Kapture.Config.Config;
+using Timer = System.Timers.Timer;
 
 // ReSharper disable ConvertIfStatementToSwitchStatement
 #pragma warning disable 4014
@@ -23,9 +26,12 @@ namespace ACT_FFXIV_Kapture.Plugin
 	public class Plugin : IActPluginV1
 	{
 		private static readonly object Lock = new object();
+		private static readonly object DiscordLock = new object();
 		private Aetherbridge _aetherbridge;
 		private BasePresenter _basePresenter;
 		private Configuration _configuration;
+		private Queue<string> _discordQueue;
+		private Timer _discordTimer;
 		private HttpClient _httpClient;
 		private KaptureConfig _kaptureConfig;
 		private string _kaptureVersion;
@@ -46,6 +52,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				LoadSettings();
 				SetupKaptureService();
 				CreateLogDirectory();
+				SetupDiscord();
 				SubscribeToLogLineEvents();
 				SetupUI(pluginScreenSpace, pluginStatusText);
 				LoadLocalizedData();
@@ -63,6 +70,8 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 		public void DeInitPlugin()
 		{
+			_discordTimer.Close();
+			_discordQueue.Clear();
 			_kaptureConfig.ConfigManager.SaveSettings();
 			_aetherbridge.LogLineCaptured -= ParseLootEvents;
 			_aetherbridge.DeInit();
@@ -172,6 +181,18 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_kaptureConfig.ConfigManager.SaveSettings();
 		}
 
+		private void SetupDiscord()
+		{
+			lock (DiscordLock)
+			{
+				_discordQueue = new Queue<string>();
+			}
+
+			_discordTimer = new Timer {Interval = 1000};
+			_discordTimer.Elapsed += SendToDiscord;
+			_discordTimer.Start();
+		}
+
 		private void SubscribeToLogLineEvents()
 		{
 			_aetherbridge.EnableLogLineParser();
@@ -245,10 +266,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			var territoryTypeId = _aetherbridge.LocationService.GetCurrentLocation().TerritoryTypeId;
 			var contentName = _aetherbridge.ContentService.GetContentByTerritoryTypeId(territoryTypeId).Name;
 			if (contentName == null || contentName.Equals(string.Empty)) return false;
-			if (_configuration.Zones.IncludeZones)
-			{
-				return !_configuration.Zones.ZonesList.Contains(contentName);
-			}
+			if (_configuration.Zones.IncludeZones) return !_configuration.Zones.ZonesList.Contains(contentName);
 			return _configuration.Zones.ExcludeZones && _configuration.Zones.ZonesList.Contains(contentName);
 		}
 
@@ -273,7 +291,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				if (IsExcludedEvent(logLineEvent, lootEvent)) return;
 				_logger.Info(logLineEvent.LogMessage);
 				LogMessage(logLineEvent);
-				SendToDiscord(logLineEvent);
+				SendToDiscordQueue(logLineEvent);
 				SendToHTTP(logLineEvent);
 			}
 			catch (Exception ex)
@@ -332,20 +350,23 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private async Task SendToDiscord(LogLineEvent logLineEvent)
+		private void SendToDiscordQueue(LogLineEvent logLineEvent)
 		{
 			if (!_configuration.Discord.DiscordEnabled) return;
 			if (_configuration.Discord.Endpoint == null) return;
-			var json = "{\"content\": \"" + logLineEvent.GetMessageWithTimestamp() + "\"}";
-			try
+			lock (DiscordLock)
 			{
-				await _httpClient.PostAsync(new Uri(_configuration.Discord.Endpoint),
-					new StringContent(json, Encoding.UTF8, "application/json"));
+				var json = "{\"content\": \"" + logLineEvent.GetMessageWithTimestamp() + "\"}";
+				_discordQueue.Enqueue(json);
 			}
-			catch (Exception ex)
-			{
-				_logger.Error(nameof(SendToDiscord) + ": " + logLineEvent.LogMessage + "." + Environment.NewLine, ex);
-			}
+		}
+
+		private async void SendToDiscord(object source, ElapsedEventArgs e)
+		{
+			if (_discordQueue == null || _discordQueue.Count == 0) return;
+			var result = await _httpClient.PostAsync(new Uri(_configuration.Discord.Endpoint),
+				new StringContent(_discordQueue.Peek(), Encoding.UTF8, "application/json"));
+			if (result.IsSuccessStatusCode) _discordQueue.Dequeue();
 		}
 
 		private async Task SendToHTTP(LogLineEvent logLineEvent)
