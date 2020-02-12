@@ -72,6 +72,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 		{
 			_discordTimer.Close();
 			_discordQueue.Clear();
+			_discordTimer.Elapsed -= SendToDiscord;
 			_kaptureConfig.ConfigManager.SaveSettings();
 			_aetherbridge.LogLineCaptured -= ParseLootEvents;
 			_aetherbridge.DeInit();
