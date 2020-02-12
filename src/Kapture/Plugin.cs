@@ -265,8 +265,11 @@ namespace ACT_FFXIV_Kapture.Plugin
 		{
 			if (!_configuration.Zones.FilterByZones || logLineEvent.ACTLogLineEvent.IsImport) return false;
 			var territoryTypeId = _aetherbridge.LocationService.GetCurrentLocation().TerritoryTypeId;
-			var contentName = _aetherbridge.ContentService.GetContentByTerritoryTypeId(territoryTypeId).Name;
-			if (contentName == null || contentName.Equals(string.Empty)) return false;
+			var contentName = _aetherbridge.ContentService.GetContentByTerritoryTypeId(territoryTypeId)?.Name;
+			if (contentName == null || contentName.Equals(string.Empty))
+			{
+				return _configuration.Zones.IncludeZones;
+			}
 			if (_configuration.Zones.IncludeZones) return !_configuration.Zones.ZonesList.Contains(contentName);
 			return _configuration.Zones.ExcludeZones && _configuration.Zones.ZonesList.Contains(contentName);
 		}
