@@ -368,9 +368,17 @@ namespace ACT_FFXIV_Kapture.Plugin
 		private async void SendToDiscord(object source, ElapsedEventArgs e)
 		{
 			if (_discordQueue == null || _discordQueue.Count == 0) return;
-			var result = await _httpClient.PostAsync(new Uri(_configuration.Discord.Endpoint),
-				new StringContent(_discordQueue.Peek(), Encoding.UTF8, "application/json"));
-			if (result.IsSuccessStatusCode) _discordQueue.Dequeue();
+			try
+			{
+				var result = await _httpClient.PostAsync(new Uri(_configuration.Discord.Endpoint),
+					new StringContent(_discordQueue.Peek(), Encoding.UTF8, "application/json"));
+				if (result.IsSuccessStatusCode) _discordQueue.Dequeue();
+			}
+			catch (Exception)
+			{
+				_logger.Info("Discord failed but will retry.");
+			}
+
 		}
 
 		private async Task SendToHTTP(LogLineEvent logLineEvent)
