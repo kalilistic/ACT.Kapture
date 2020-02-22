@@ -14,7 +14,7 @@
 
 ## Background
 
-Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send loot messages to discord, log them to your desktop, and more.
+Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send loot messages to discord, log them to your desktop, and more. Support for English, Japanese, German, and French.
 
 ## Demo
 
@@ -56,4 +56,4 @@ Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send lo
 
 ## How To Contribute
 
-Feel free to open an issue or submit a PR.
+Feel free to open an issue, submit a PR, or join the discord server.
