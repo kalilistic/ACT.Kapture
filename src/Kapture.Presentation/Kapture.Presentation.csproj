@@ -135,7 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aetherbridge">
-      <Version>0.1.8</Version>
+      <Version>0.1.9</Version>
     </PackageReference>
     <PackageReference Include="StarkUserConfig">
       <Version>0.1.2</Version>
