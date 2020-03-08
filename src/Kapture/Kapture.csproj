@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aetherbridge">
-      <Version>0.1.8</Version>
+      <Version>0.1.9</Version>
     </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>4.1.0</Version>
@@ -76,7 +76,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Manatee.Json">
-      <Version>12.3.0</Version>
+      <Version>12.3.1</Version>
     </PackageReference>
     <PackageReference Include="StarkUserConfig">
       <Version>0.1.2</Version>
