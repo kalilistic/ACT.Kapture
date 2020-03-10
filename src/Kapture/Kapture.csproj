@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aetherbridge">
-      <Version>0.1.9</Version>
+      <Version>0.1.10</Version>
     </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>4.1.0</Version>
