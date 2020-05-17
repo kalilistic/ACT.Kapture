@@ -118,19 +118,19 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
 	<data name="About" xml:space="preserve">
-    <value>Sur</value>
+    <value>A propos</value>
   </data>
 	<data name="AddItem" xml:space="preserve">
     <value>Ajouter un objet</value>
   </data>
 	<data name="AddZone" xml:space="preserve">
-    <value>Ajouter une Mission</value>
+    <value>Ajouter une zone</value>
   </data>
 	<data name="Author" xml:space="preserve">
     <value>Auteur</value>
   </data>
 	<data name="Browse" xml:space="preserve">
-    <value>Feuilleter</value>
+    <value>Parcourir</value>
   </data>
 	<data name="CheckForBeta" xml:space="preserve">
     <value>Vérifier les versions bêta</value>
@@ -151,7 +151,7 @@
     <value>Événements</value>
   </data>
 	<data name="ExcludeItems" xml:space="preserve">
-    <value>Exclure des éléments</value>
+    <value>Exclure des objets</value>
   </data>
 	<data name="ExcludeZones" xml:space="preserve">
     <value>Exclure des zones</value>
@@ -175,10 +175,10 @@
     <value>Inclure des objets</value>
   </data>
 	<data name="IncludeZones" xml:space="preserve">
-    <value>Inclure des missions</value>
+    <value>Inclure des zones</value>
   </data>
 	<data name="ItemLost" xml:space="preserve">
-    <value>Objet tombé au sol</value>
+    <value>Objet non ramassé</value>
   </data>
 	<data name="Items" xml:space="preserve">
     <value>Objets</value>
@@ -196,7 +196,7 @@
     <value>Fichier journal</value>
   </data>
 	<data name="LogFormat" xml:space="preserve">
-    <value>Format d’enregistrement</value>
+    <value>Format de log</value>
   </data>
 	<data name="Logging" xml:space="preserve">
     <value>Enregistrement</value>
@@ -226,7 +226,7 @@
     <value>Ils ont obtenu un objet</value>
   </data>
 	<data name="TheyRoll" xml:space="preserve">
-    <value>Ils ont roulé sur un objet</value>
+    <value>Ils ont lancés les dés sur un objet</value>
   </data>
 	<data name="Update" xml:space="preserve">
     <value>Mise à jour</value>
@@ -241,25 +241,25 @@
     <value>URL du Webhook</value>
   </data>
 	<data name="YouObtain" xml:space="preserve">
-    <value>Vous avez obtenu un objet</value>
+    <value>Vous avez gagné un objet</value>
   </data>
 	<data name="YouRoll" xml:space="preserve">
-    <value>Vous avez roulé sur un élément</value>
+    <value>Vous avez lancé les dés sur un objet</value>
   </data>
 	<data name="Zones" xml:space="preserve">
-    <value>Missions</value>
+    <value>Zones</value>
   </data>
 	<data name="CommonItems" xml:space="preserve">
-		<value>Éléments communs</value>
+		<value>Objets communs</value>
 	</data>
 	<data name="Custom" xml:space="preserve">
-		<value>Douane</value>
+		<value>Personnaliser</value>
 	</data>
 	<data name="Default" xml:space="preserve">
 		<value>Défaut</value>
 	</data>
 	<data name="HighEndDuty" xml:space="preserve">
-		<value>High-End Missions</value>
+		<value>Missions HL</value>
 	</data>
 	<data name="Discord" xml:space="preserve">
 		<value>Discord</value>
@@ -274,7 +274,7 @@
 		<value>MIT</value>
 	</data>
 	<data name="ItemAdded" xml:space="preserve">
-		<value>Objet ajouté à la liste de butin</value>
+		<value>Objet ajouté au butin</value>
 	</data>
 	<data name="PluginHaveLatest" xml:space="preserve">
 		<value>Vous disposez déjà de la dernière version du plugin Kapture.</value>
@@ -286,7 +286,7 @@
 		<value>Le plugin Kapture a été mis à jour avec succès. Veuillez redémarrer ACT maintenant.</value>
 	</data>
 	<data name="PluginUpdateAvailable" xml:space="preserve">
-		<value>Mise à jour du plugin Kapture disponible. Voulez-vous le télécharger maintenant?</value>
+		<value>Mise à jour du plugin Kapture disponible. Voulez-vous la télécharger maintenant?</value>
 	</data>
 	<data name="AdvancedFilters" xml:space="preserve">
 		<value>Filtres avancés</value>
@@ -295,28 +295,28 @@
 		<value>Alliance</value>
 	</data>
 	<data name="BattleLog" xml:space="preserve">
-		<value>Journal de bataille</value>
+		<value>Log de combat</value>
 	</data>
 	<data name="Enabled" xml:space="preserve">
-		<value>Activée</value>
+		<value>Activé</value>
 	</data>
 	<data name="ExcludeCommonItems" xml:space="preserve">
-		<value>Exclure les éléments communs</value>
+		<value>Exclure les objets communs</value>
 	</data>
 	<data name="Filters" xml:space="preserve">
 		<value>Filtres</value>
 	</data>
 	<data name="HighEndDutyOnly" xml:space="preserve">
-		<value>Service haut de gamme uniquement</value>
+		<value>Objets HL uniquement</value>
 	</data>
 	<data name="ItemObtained" xml:space="preserve">
 		<value>Objet obtenu</value>
 	</data>
 	<data name="ItemRolled" xml:space="preserve">
-		<value>Article roulé</value>
+		<value>Objet lancé aux dés</value>
 	</data>
 	<data name="Log" xml:space="preserve">
-		<value>Journal</value>
+		<value>Log</value>
 	</data>
 	<data name="LogCleared" xml:space="preserve">
 		<value>Fichier journal effacé.</value>
@@ -331,7 +331,7 @@
 		<value>Mode</value>
 	</data>
 	<data name="Party" xml:space="preserve">
-		<value>Fête</value>
+		<value>Groupe</value>
 	</data>
 	<data name="Players" xml:space="preserve">
 		<value>Joueurs</value>
