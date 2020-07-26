@@ -9,13 +9,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using ACT_FFXIV_Aetherbridge;
+using ACT_FFXIV_Kapture.Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
-using ACT_FFXIV_Kapture.Presentation;
-using ACT_FFXIV_Kapture.Service;
+using ACT_FFXIV_Kapture.Model;
+using ACT_FFXIV_Kapture.Resource;
 using Advanced_Combat_Tracker;
-using Manatee.Json.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using RainbowMage.OverlayPlugin;
 using Configuration = ACT_FFXIV_Kapture.Config.Config;
+using EventHandler = ACT_FFXIV_Kapture.Aetherbridge.EventHandler;
 using Timer = System.Timers.Timer;
 
 // ReSharper disable ConvertIfStatementToSwitchStatement
@@ -23,36 +26,38 @@ using Timer = System.Timers.Timer;
 
 namespace ACT_FFXIV_Kapture.Plugin
 {
-	public class Plugin : IActPluginV1
+	// ReSharper disable once UnusedMember.Global
+	public class Plugin : IActPluginV1, IOverlayAddonV2
 	{
 		private static readonly object Lock = new object();
 		private static readonly object DiscordLock = new object();
-		private Aetherbridge _aetherbridge;
 		private BasePresenter _basePresenter;
 		private Configuration _configuration;
 		private Queue<string> _discordQueue;
 		private Timer _discordTimer;
 		private HttpClient _httpClient;
+		private JsonSerializerSettings _jsonSerializerSettings;
 		private KaptureConfig _kaptureConfig;
+		private KaptureData _kaptureData;
+		private KaptureGUILogger _kaptureGuiLogger;
 		private string _kaptureVersion;
 		private Language _language;
-		private Logger _logger;
 		private Label _pluginStatus;
-		private JsonSerializer _serializer;
 		private TabPage _tabPage;
+		private PluginUpdaterSettings _updaterSettings;
 
 		public void InitPlugin(TabPage pluginScreenSpace, Label pluginStatusText)
 		{
 			try
 			{
-				InitAetherbridge();
+				InitKaptureBridge();
 				SetupLogger();
-				SetupJsonSerializer();
 				SetLanguage();
 				LoadSettings();
 				SetupKaptureService();
 				CreateLogDirectory();
 				SetupDiscord();
+				SetupJsonSerializer();
 				SubscribeToLogLineEvents();
 				SetupUI(pluginScreenSpace, pluginStatusText);
 				LoadLocalizedData();
@@ -60,7 +65,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 			catch (Exception ex)
 			{
-				_logger?.Error("Failed to initialize plugin.", ex);
+				_kaptureGuiLogger?.Error("Failed to initialize plugin.", ex);
 				MessageBox.Show(PluginConstants.CriticalFailureMsg + Environment.NewLine +
 				                PluginConstants.ErrorPrefix + ex.StackTrace);
 				_pluginStatus.Text = PluginConstants.PluginStatusDisabledFailure;
@@ -74,13 +79,17 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_discordQueue.Clear();
 			_discordTimer.Elapsed -= SendToDiscord;
 			_kaptureConfig.ConfigManager.SaveSettings();
-			_aetherbridge.LogLineCaptured -= ParseLootEvents;
-			_aetherbridge.DeInit();
+			_kaptureData.LogLineCaptured -= HandleLootEvent;
+			_kaptureData.DeInit();
 			_kaptureConfig?.DeInit();
-			UpdateService.GetInstance().DeInit();
 			_httpClient.Dispose();
 			_pluginStatus.Text = PluginConstants.PluginStatusDisabled;
 			_basePresenter.DeInit();
+		}
+
+		public void Init()
+		{
+			SetupEventSource();
 		}
 
 		private void SetupUI(TabPage pluginScreenSpace, Label pluginStatusText)
@@ -90,34 +99,23 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_tabPage.Text = PluginConstants.TabLabel;
 			var baseView = new BaseView {Dock = DockStyle.Fill};
 			_tabPage.Controls.Add(baseView);
-			_basePresenter = new BasePresenter(baseView, _aetherbridge, _logger);
+			_basePresenter = new BasePresenter(baseView, _kaptureData, _kaptureGuiLogger);
 			_pluginStatus.Text = PluginConstants.PluginStatusEnabled;
 		}
 
-		private void InitAetherbridge()
+		private void InitKaptureBridge()
 		{
-			_aetherbridge = Aetherbridge.GetInstance();
+			_kaptureData = KaptureData.GetInstance();
 		}
 
 		private void SetupLogger()
 		{
-			_logger = Logger.GetInstance(_aetherbridge.GetAppDirectory());
-		}
-
-		private void SetupJsonSerializer()
-		{
-			_serializer = new JsonSerializer
-			{
-				Options = new JsonSerializerOptions
-				{
-					TypeNameSerializationBehavior = TypeNameSerializationBehavior.Never
-				}
-			};
+			_kaptureGuiLogger = KaptureGUILogger.GetInstance(_kaptureData.GetAppDirectory());
 		}
 
 		private void SetLanguage()
 		{
-			_language = _aetherbridge.LanguageService.GetCurrentLanguage();
+			_language = _kaptureData.LanguageService.GetCurrentLanguage();
 			var cultureInfo = new CultureInfo(_language.Abbreviation);
 			Thread.CurrentThread.CurrentUICulture = cultureInfo;
 			Thread.CurrentThread.CurrentCulture = cultureInfo;
@@ -134,7 +132,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 		private void LoadSettings()
 		{
-			KaptureConfig.Initialize(_aetherbridge.GetAppDirectory());
+			KaptureConfig.Initialize(_kaptureData.GetAppDirectory());
 			_kaptureConfig = KaptureConfig.GetInstance();
 			_configuration = (Configuration) _kaptureConfig.ConfigManager.Config;
 			if (_language.Id == _configuration.XIVPlugin.LanguageId)
@@ -165,17 +163,27 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_httpClient = new HttpClient();
 			_kaptureVersion = Assembly.GetExecutingAssembly()
 				.GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
-			UpdateService.Initialize(_httpClient, _kaptureVersion,
-				ActGlobals.oFormActMain.PluginGetSelfData(this).pluginFile.DirectoryName, _language.Abbreviation,
-				_logger);
-			UpdateService.GetInstance().KaptureLog =
-				Path.Combine(_aetherbridge.GetAppDirectory(), PluginConstants.LogFileName);
+
+			_updaterSettings = new PluginUpdaterSettings
+			{
+				AuthorName = "kalilistic",
+				RepoName = "Kapture",
+				IncludePreRelease = _configuration.General.CheckForBetaEnabled,
+				PluginPath = ActGlobals.oFormActMain.PluginGetSelfData(this).pluginFile.DirectoryName,
+				HTTPClient = _httpClient,
+				Version = _kaptureVersion,
+				UpdateMessage = Strings.PluginUpdateAvailable,
+				RestartMessage = Strings.PluginNeedRestart,
+				FailureMessage = Strings.PluginUpdateFailed
+			};
+
+			UniversalisWrapper.Initialize(_httpClient);
 		}
 
 		private void CreateLogDirectory()
 		{
 			if (_configuration.Logging.LogLocation != null) return;
-			var path = Path.Combine(_aetherbridge.GetAppDirectory(), "KaptureLogs");
+			var path = Path.Combine(_kaptureData.GetAppDirectory(), "KaptureLogs");
 			Directory.CreateDirectory(path);
 			_configuration.Logging.LogLocation = path;
 			_kaptureConfig.ConfigManager.Config = _configuration;
@@ -194,113 +202,86 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_discordTimer.Start();
 		}
 
+		private void SetupJsonSerializer()
+		{
+			var contractResolver = new DefaultContractResolver
+			{
+				NamingStrategy = new CamelCaseNamingStrategy()
+			};
+			_jsonSerializerSettings = new JsonSerializerSettings
+			{
+				ContractResolver = contractResolver,
+				Formatting = Formatting.Indented
+			};
+		}
+
+		private static void SetupEventSource()
+		{
+			EventSource.Register(new EventSourceContext
+			{
+				Name = "Kapture",
+				EventTypes = new List<string>
+				{
+					"LootData"
+				},
+				EventHandlers = new List<EventHandler>
+				{
+					new EventHandler
+					{
+						Name = "kaptureHandler",
+						Handler = msg => null
+					}
+				},
+				OverlayPresets = new List<OverlayPreset>
+				{
+					new OverlayPreset
+					{
+						Name = "Log",
+						Url = @"https://kalilistic.github.io/kapture-log-overlay/",
+						Size = new[] {400, 250}
+					},
+					new OverlayPreset
+					{
+						Name = "Price",
+						Url = @"https://kalilistic.github.io/kapture-price-overlay/",
+						Size = new[] {400, 250}
+					}
+				}
+			});
+			Registry.RegisterEventSource<EventSource>();
+		}
+
 		private void SubscribeToLogLineEvents()
 		{
-			_aetherbridge.EnableLogLineParser();
-			_aetherbridge.LogLineCaptured += ParseLootEvents;
+			_kaptureData.EnableLogLineParser();
+			_kaptureData.LogLineCaptured += HandleLootEvent;
 		}
 
 		private void LoadLocalizedData()
 		{
-			Task.Run(() => _aetherbridge.AddLanguage(_configuration.XIVPlugin.LanguageId));
+			Task.Run(() => _kaptureData.Initialize(_configuration.XIVPlugin.LanguageId));
 		}
 
 		private void CheckForUpdates()
 		{
-			Task.Run(() => UpdateService.GetInstance().UpdatePlugin(_configuration.General.CheckForBetaEnabled, false));
+			Task.Run(() => UpdateService.UpdatePlugin(_updaterSettings));
 		}
 
-		private static bool IsNonLootEvent(LogLineEvent logLineEvent)
-		{
-			if (logLineEvent?.XIVEvent == null) return true;
-			return logLineEvent.XIVEvent.XIVEventType != XIVEventTypeEnum.Loot;
-		}
-
-		private bool IsPluginDisabled()
-		{
-			return !_configuration.General.PluginEnabled;
-		}
-
-		private bool IsImportWithImportsDisabled(LogLineEvent logLineEvent)
-		{
-			return logLineEvent.ACTLogLineEvent.IsImport && !_configuration.General.LogImportsEnabled;
-		}
-
-		private bool IsExcludedLootEvent(XIVEvent lootEvent)
-		{
-			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.AddLoot) return !_configuration.Filters.ItemAdded;
-
-			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.ObtainLoot)
-				return !_configuration.Filters.ItemObtained;
-
-			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.NeedLoot ||
-			    lootEvent.XIVEventSubType == XIVEventSubTypeEnum.GreedLoot)
-				return !_configuration.Filters.ItemRolledOn;
-
-			if (lootEvent.XIVEventSubType == XIVEventSubTypeEnum.LostLoot) return !_configuration.Filters.ItemLost;
-
-			return false;
-		}
-
-		private bool IsExcludedPlayerType(LogLineEvent logLineEvent, XIVEvent lootEvent)
-		{
-			if (logLineEvent.ACTLogLineEvent.IsImport) return false;
-			if (logLineEvent.XIVEvent.Actor == null) return false;
-			if (lootEvent.Actor.IsReporter) return !_configuration.Filters.Self;
-			if (lootEvent.Actor.PartyType == PartyTypeEnum.Party) return !_configuration.Filters.Party;
-			if (lootEvent.Actor.PartyType == PartyTypeEnum.Alliance) return !_configuration.Filters.Alliance;
-			return false;
-		}
-
-		private bool IsExcludedItem(XIVEvent lootEvent)
-		{
-			if (!_configuration.Items.FilterByItems) return false;
-			if (_configuration.Items.IncludeItems)
-				return !_configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName);
-			return _configuration.Items.ExcludeItems &&
-			       _configuration.Items.ItemsList.Contains(lootEvent.Item.ProperName);
-		}
-
-		private bool IsExcludedZone(LogLineEvent logLineEvent)
-		{
-			if (!_configuration.Zones.FilterByZones || logLineEvent.ACTLogLineEvent.IsImport) return false;
-			var territoryTypeId = _aetherbridge.LocationService.GetCurrentLocation().TerritoryTypeId;
-			var contentName = _aetherbridge.ContentService.GetContentByTerritoryTypeId(territoryTypeId)?.Name;
-			if (contentName == null || contentName.Equals(string.Empty))
-			{
-				return _configuration.Zones.IncludeZones;
-			}
-			if (_configuration.Zones.IncludeZones) return !_configuration.Zones.ZonesList.Contains(contentName);
-			return _configuration.Zones.ExcludeZones && _configuration.Zones.ZonesList.Contains(contentName);
-		}
-
-		private bool IsExcludedEvent(LogLineEvent logLineEvent, XIVEvent lootEvent)
-		{
-			return
-				IsNonLootEvent(logLineEvent) ||
-				IsPluginDisabled() ||
-				IsImportWithImportsDisabled(logLineEvent) ||
-				IsExcludedLootEvent(lootEvent) ||
-				IsExcludedPlayerType(logLineEvent, lootEvent) ||
-				IsExcludedItem(lootEvent) ||
-				IsExcludedZone(logLineEvent);
-		}
-
-		private void ParseLootEvents(object sender, LogLineEvent logLineEvent)
+		private void HandleLootEvent(object sender, LogLineEvent logLineEvent)
 		{
 			try
 			{
-				var lootEvent = logLineEvent.XIVEvent;
+				if (logLineEvent == null) return;
 				_configuration = (Configuration) KaptureConfig.GetInstance().ConfigManager.Config;
-				if (IsExcludedEvent(logLineEvent, lootEvent)) return;
-				_logger.Info(logLineEvent.LogMessage);
+				_kaptureGuiLogger.Info(logLineEvent.LogMessage);
 				LogMessage(logLineEvent);
 				SendToDiscordQueue(logLineEvent);
 				SendToHTTP(logLineEvent);
+				EventSource.SendEvent("LootData", logLineEvent);
 			}
 			catch (Exception ex)
 			{
-				_logger.Error(logLineEvent?.LogMessage + "." + Environment.NewLine, ex);
+				_kaptureGuiLogger.Error(logLineEvent?.LogMessage + "." + Environment.NewLine, ex);
 			}
 		}
 
@@ -333,12 +314,11 @@ namespace ACT_FFXIV_Kapture.Plugin
 			{
 				var csvMsg = logLineEvent.Id + PluginConstants.CsvSep +
 				             logLineEvent.ACTLogLineEvent.DetectedTime + PluginConstants.CsvSep +
-				             logLineEvent.XIVEvent?.XIVEventType + PluginConstants.CsvSep +
-				             logLineEvent.XIVEvent?.XIVEventSubType + PluginConstants.CsvSep +
-				             logLineEvent.XIVEvent?.Actor?.Name + PluginConstants.CsvSep +
-				             logLineEvent.XIVEvent?.Item?.ProperName + PluginConstants.CsvSep +
-				             logLineEvent.XIVEvent?.Item?.Quantity + PluginConstants.CsvSep +
-				             logLineEvent.XIVEvent?.Roll;
+				             logLineEvent.KaptureEvent?.EventType + PluginConstants.CsvSep +
+				             logLineEvent.KaptureEvent?.Actor?.Name + PluginConstants.CsvSep +
+				             logLineEvent.KaptureEvent?.Item?.ProperName + PluginConstants.CsvSep +
+				             logLineEvent.KaptureEvent?.Item?.Quantity + PluginConstants.CsvSep +
+				             logLineEvent.KaptureEvent?.Roll;
 				File.AppendAllText(filePath, csvMsg + Environment.NewLine);
 			}
 		}
@@ -347,7 +327,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 		{
 			var filePath = Path.Combine(_configuration.Logging.LogLocation,
 				"Kapture_" + _kaptureVersion + "_" + DateTime.Now.ToString("yyyyMMdd") + ".json");
-			var json = _serializer.Serialize(logLineEvent);
+			var json = JsonConvert.SerializeObject(logLineEvent, _jsonSerializerSettings);
 			lock (Lock)
 			{
 				File.AppendAllText(filePath, json + Environment.NewLine);
@@ -360,7 +340,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			if (_configuration.Discord.Endpoint == null) return;
 			lock (DiscordLock)
 			{
-				var json = "{\"content\": \"" + logLineEvent.GetMessageWithTimestamp() + "\"}";
+				var json = "{\"content\": \"" + logLineEvent.GetShorthand() + "\"}";
 				_discordQueue.Enqueue(json);
 			}
 		}
@@ -376,24 +356,25 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 			catch (Exception)
 			{
-				_logger.Info("Discord failed but will retry.");
+				_kaptureGuiLogger.Info("Discord failed but will retry.");
 			}
-
 		}
 
 		private async Task SendToHTTP(LogLineEvent logLineEvent)
 		{
 			if (!_configuration.HTTP.HTTPEnabled) return;
 			if (_configuration.HTTP.Endpoint == null) return;
-			var json = _serializer.Serialize(new object[] {logLineEvent, _configuration.HTTP.CustomJson});
+			var json = JsonConvert.SerializeObject(new object[] {logLineEvent, _configuration.HTTP.CustomJson},
+				_jsonSerializerSettings);
 			try
 			{
 				await _httpClient.PostAsync(new Uri(_configuration.HTTP.Endpoint),
-					new StringContent(json.ToString(), Encoding.UTF8, "application/json"));
+					new StringContent(json, Encoding.UTF8, "application/json"));
 			}
 			catch (Exception ex)
 			{
-				_logger.Error(nameof(SendToHTTP) + ": " + logLineEvent?.LogMessage + "." + Environment.NewLine,
+				_kaptureGuiLogger.Error(
+					nameof(SendToHTTP) + ": " + logLineEvent?.LogMessage + "." + Environment.NewLine,
 					ex);
 			}
 		}

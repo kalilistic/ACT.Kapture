@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Kapture.Config")]
 [assembly: AssemblyCompany("kalilistic")]
 [assembly: AssemblyProduct("Kapture.Config")]
-[assembly: AssemblyCopyright("Copyright ©  2019 kalilistic")]
+[assembly: AssemblyCopyright("Copyright ©  2020 kalilistic")]
 [assembly: AssemblyTrademark("kalilistic")]
 [assembly: ComVisible(false)]
 [assembly: AssemblyVersion("1.0.0.0")]

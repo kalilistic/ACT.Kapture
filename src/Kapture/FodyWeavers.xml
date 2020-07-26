@@ -1,3 +1,11 @@
 ﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
-  <Costura ExcludeAssemblies='Advanced Combat Tracker'/>
+  <Costura>
+	<ExcludeAssemblies>
+		Advanced Combat Tracker
+		FFXIV_ACT_Plugin.Common
+		Newtonsoft.Json
+		OverlayPlugin.Core
+		OverlayPlugin.Common
+	</ExcludeAssemblies>
+  </Costura>
 </Weavers>

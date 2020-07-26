@@ -9,6 +9,7 @@ namespace ACT_FFXIV_Kapture.Config
 		private static readonly List<ItemPreset> ItemPresetList = new List<ItemPreset>();
 
 		public static readonly ItemPreset ExcludeCommonItems = new ItemPreset(Strings.CommonItems);
+		public static readonly ItemPreset IncludeMountsOnly = new ItemPreset(Strings.IncludeMounts);
 		public static readonly ItemPreset Custom = new ItemPreset(Strings.Custom);
 
 		public ItemPreset()

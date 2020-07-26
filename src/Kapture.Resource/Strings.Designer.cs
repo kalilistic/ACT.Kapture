@@ -295,6 +295,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get market board data.
+        /// </summary>
+        public static string GetMarketBoardData {
+            get {
+                return ResourceManager.GetString("GetMarketBoardData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Github.
         /// </summary>
         public static string Github {
@@ -349,6 +358,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Include Mounts Only.
+        /// </summary>
+        public static string IncludeMounts {
+            get {
+                return ResourceManager.GetString("IncludeMounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Include zones.
         /// </summary>
         public static string IncludeZones {
@@ -363,6 +381,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string ItemAdded {
             get {
                 return ResourceManager.GetString("ItemAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item cast lot.
+        /// </summary>
+        public static string ItemCastLot {
+            get {
+                return ResourceManager.GetString("ItemCastLot", resourceCulture);
             }
         }
         
@@ -399,6 +426,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string Items {
             get {
                 return ResourceManager.GetString("Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item searched.
+        /// </summary>
+        public static string ItemSearched {
+            get {
+                return ResourceManager.GetString("ItemSearched", resourceCulture);
             }
         }
         
@@ -583,15 +619,6 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plugin Initialized..
-        /// </summary>
-        public static string PluginInitialized {
-            get {
-                return ResourceManager.GetString("PluginInitialized", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Kapture plugin updated successfully. Please restart ACT now..
         /// </summary>
         public static string PluginNeedRestart {
@@ -633,15 +660,6 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string Self {
             get {
                 return ResourceManager.GetString("Self", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Send To.
-        /// </summary>
-        public static string SendTo {
-            get {
-                return ResourceManager.GetString("SendTo", resourceCulture);
             }
         }
         
