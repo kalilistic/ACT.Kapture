@@ -38,15 +38,74 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Advanced Combat Tracker.exe</HintPath>
     </Reference>
+    <Reference Include="Kapture.Aetherbridge">
+      <HintPath>..\..\lib\Kapture.Aetherbridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="OverlayPlugin.Common">
+      <HintPath>..\..\lib\OverlayPlugin.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="OverlayPlugin.Core">
+      <HintPath>..\..\lib\OverlayPlugin.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LootParser\LogLineParserContext\DELogLineParserContext.cs" />
+    <Compile Include="LootParser\LogLineParserContext\ENLogLineParserContext.cs" />
+    <Compile Include="LootParser\LogLineParserContext\FRLogLineParserContext.cs" />
+    <Compile Include="LootParser\LogLineParserContext\ILogLineParserContext.cs" />
+    <Compile Include="LootParser\LogLineParserContext\JALogLineParserContext.cs" />
+    <Compile Include="LootParser\LogLineParserContext\LogLineParserContextBase.cs" />
+    <Compile Include="LootParser\LogLineParserFactory\DELogLineParserFactory.cs" />
+    <Compile Include="LootParser\LogLineParserFactory\ENLogLineParserFactory.cs" />
+    <Compile Include="LootParser\LogLineParserFactory\FRLogLineParserFactory.cs" />
+    <Compile Include="LootParser\LogLineParserFactory\ILogLineParserFactory.cs" />
+    <Compile Include="LootParser\LogLineParserFactory\JALogLineParserFactory.cs" />
+    <Compile Include="LootParser\LogLineParser\DELogLineParser.cs" />
+    <Compile Include="LootParser\LogLineParser\ENLogLineParser.cs" />
+    <Compile Include="LootParser\LogLineParser\FRLogLineParser.cs" />
+    <Compile Include="LootParser\LogLineParser\ILogLineParser.cs" />
+    <Compile Include="LootParser\LogLineParser\JALogLineParser.cs" />
+    <Compile Include="LootParser\LogLineParser\LogLineParserBase.cs" />
+    <Compile Include="Data\IKaptureData.cs" />
+    <Compile Include="Data\KaptureData.cs" />
     <Compile Include="PluginConstants.cs" />
     <Compile Include="Plugin.cs" />
+    <Compile Include="Presenter\KaptureGUILogger.cs" />
+    <Compile Include="Presenter\AboutPresenter.cs" />
+    <Compile Include="Presenter\AdvancedPresenter.cs" />
+    <Compile Include="Presenter\BasePresenter.cs" />
+    <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="View\AboutView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AboutView.Designer.cs">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdvancedView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AdvancedView.Designer.cs">
+      <DependentUpon>AdvancedView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BaseView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BaseView.Designer.cs">
+      <DependentUpon>BaseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,33 +113,42 @@
       <Project>{f7947f66-24c0-4873-b35b-7fad71ef8010}</Project>
       <Name>Kapture.Config</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Kapture.Presentation\Kapture.Presentation.csproj">
-      <Project>{5fbae274-6a5c-46cd-b2e8-ac6c8720287e}</Project>
-      <Name>Kapture.Presentation</Name>
+    <ProjectReference Include="..\Kapture.Model\Kapture.Model.csproj">
+      <Project>{C13EF5E4-A2C5-4B1E-9458-8AC711505D41}</Project>
+      <Name>Kapture.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Kapture.Service\Kapture.Service.csproj">
-      <Project>{FDE3F178-0406-4885-B469-15CE9478BCEF}</Project>
-      <Name>Kapture.Service</Name>
+    <ProjectReference Include="..\Kapture.Resource\Kapture.Resource.csproj">
+      <Project>{91DFD900-0B26-4964-9DC7-3B522423159E}</Project>
+      <Name>Kapture.Resource</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Aetherbridge">
-      <Version>0.1.11</Version>
-    </PackageReference>
     <PackageReference Include="Costura.Fody">
       <Version>4.1.0</Version>
+      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Fody">
-      <Version>6.1.1</Version>
+      <Version>6.2.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Manatee.Json">
-      <Version>13.0.1</Version>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
-    <PackageReference Include="StarkUserConfig">
-      <Version>0.1.2</Version>
-    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="View\AboutView.resx">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdvancedView.resx">
+      <DependentUpon>AdvancedView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BaseView.resx">
+      <DependentUpon>BaseView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

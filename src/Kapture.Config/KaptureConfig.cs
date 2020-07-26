@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
-using StarkLogger;
-using StarkUserConfig;
+using ACT_FFXIV_Kapture.Aetherbridge;
 
 namespace ACT_FFXIV_Kapture.Config
 {
@@ -25,7 +24,7 @@ namespace ACT_FFXIV_Kapture.Config
 			}
 			catch (Exception ex)
 			{
-				Logger.GetInstance().Error(ex);
+				PluginLogger.GetInstance().Error(ex);
 			}
 		}
 

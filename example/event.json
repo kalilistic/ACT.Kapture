@@ -1,0 +1,72 @@
+ "id": "b4c11dbd-5a2d-5cc1-a647-958c11111e63",
+  "actLogLineEvent": {
+    "detectedTime": "2020-07-25T17:28:13-04:00",
+    "detectedZone": "Dun Scaith",
+    "inCombat": false,
+    "isImport": false,
+    "logLine": "[17:28:13.000] 00:0039:A pair of diabolic gauntlets of maiming has been added to the loot list."
+  },
+  "kaptureEvent": {
+    "eventType": "AddLoot",
+    "item": {
+      "id": 17351,
+      "properName": "Diabolic Gauntlets of Maiming",
+      "singularName": "pair of diabolic gauntlets of maiming",
+      "pluralName": "pairs of diabolic gauntlets of maiming",
+      "isUntradable": true,
+      "isMarketable": false,
+      "vendorBuyPrice": 1140,
+      "quantity": 1,
+      "isHQ": false,
+      "isCommon": false,
+      "size": null,
+      "marketBoard": null
+    },
+    "reporter": {
+      "id": 123456789,
+      "classJob": {
+        "abbreviation": "WAR",
+        "id": 21,
+        "name": "warrior"
+      },
+      "level": 60,
+      "name": "Wyatt Earp",
+      "currentWorld": {
+        "id": 63,
+        "name": "Gilgamesh"
+      },
+      "homeWorld": {
+        "id": 63,
+        "name": "Gilgamesh"
+      },
+      "partyType": "Party",
+      "order": 0,
+      "isReporter": true
+    },
+    "actor": null,
+    "roll": 0,
+    "location": {
+      "territoryTypeId": 627,
+      "region": {
+        "id": 497,
+        "name": "Abalathia's Spine"
+      },
+      "zone": {
+        "id": 510,
+        "name": "Abalathia's Spine"
+      },
+      "territory": {
+        "id": 1868,
+        "name": "Dun Scaith"
+      },
+      "map": {
+        "id": 1869,
+        "name": "The Lady Radlia"
+      }
+    }
+  },
+  "timestamp": "17:28:13",
+  "logCode": "00",
+  "gameLogCode": "0039",
+  "logMessage": "A pair of diabolic gauntlets of maiming has been added to the loot list."
+}

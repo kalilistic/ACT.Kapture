@@ -1,4 +1,4 @@
-﻿using StarkUserConfig;
+﻿using ACT_FFXIV_Kapture.Aetherbridge;
 
 namespace ACT_FFXIV_Kapture.Config
 {

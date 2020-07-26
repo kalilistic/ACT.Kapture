@@ -1,0 +1,24 @@
+﻿<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+      html {
+        height: 100%;
+        background-color: blue;
+        color: white;
+        margin: 0;
+      }
+    </style>
+    <script src="https://ngld.github.io/OverlayPlugin/assets/shared/common.min.js"></script>
+    <script>
+      addOverlayListener("LootData", (e) => {
+        document.getElementById('lootData').innerText = JSON.stringify(e, null, 4);
+      });
+      startOverlayEvents();
+    </script>
+  </head>
+  <body>
+    <div id="lootData">waiting for lootData</div>
+  </body>
+</html>
