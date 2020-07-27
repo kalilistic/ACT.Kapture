@@ -1,3 +1,4 @@
 tools/* linguist-vendored
 build.ps1 linguist-vendored
 build.sh linguist-vendored
+example/* linguist-vendored
