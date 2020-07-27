@@ -79,9 +79,9 @@ namespace ACT_FFXIV_Kapture.Plugin
 				if (Configuration?.Items?.FilterByItems != null && Configuration.Items.FilterByItems)
 				{
 					if (Configuration.Items.IncludeItems &&
-					    !Configuration.Items.ItemsList.Contains(LogLineEvent.KaptureEvent.Item.PluralName)) return true;
-					if (Configuration.Items.ExcludeItems &&
 					    !Configuration.Items.ItemsList.Contains(LogLineEvent.KaptureEvent.Item.ProperName)) return true;
+					if (Configuration.Items.ExcludeItems &&
+					    Configuration.Items.ItemsList.Contains(LogLineEvent.KaptureEvent.Item.ProperName)) return true;
 				}
 
 				LogLineEvent.KaptureEvent.Location = Context.KaptureData.LocationService.GetCurrentLocation();
