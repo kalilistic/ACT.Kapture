@@ -26,6 +26,7 @@ namespace ACT_FFXIV_Kapture.Test.LootParser
 			_configuration.Filters.ItemRolledOn = true;
 			_configuration.Filters.ItemLost = true;
 			_configuration.Filters.ItemCastLot = true;
+			_configuration.Filters.ItemAdded = true;
 			_parser = new DELogLineParser(new DELogLineParserContext(_kaptureData));
 		}
 
