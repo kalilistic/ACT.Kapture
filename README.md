@@ -45,10 +45,11 @@ Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send lo
 6. Select "Add/Enable Plugin".
 7. Select "Kapture".
 8. Select apply.
-9. You're good! Now check out the Kapture tab in ACT to customize your settings.
+9. Restart ACT.
+10. You're good! Now check out the Kapture tab in ACT to customize your settings.
 
 ## How to Use an Overlay
-
+*Ensure you've restarted ACT since installing/updating for the presets to show up.*
 1. Open Overlay plugin tab.
 2. Select "New" button.
 3. Select "Preset" dropdown list.
@@ -88,6 +89,9 @@ Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send lo
   
 * **The overlay text is too small / big.**<br>
   In your overlay plugin tab, select the overlay, and then Advanced. You'll find a "Zoom" slider you can adjust to fit your preference.
+
+* **I don't see any Kapture overlays in the Overlay Plugin presets.**<br>
+  Restart ACT and try again.
   
 * **My problem isn't listed here.**<br>
   Reach out on discord or raise a github issue.
