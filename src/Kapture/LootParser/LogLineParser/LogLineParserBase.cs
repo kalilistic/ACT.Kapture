@@ -98,6 +98,10 @@ namespace ACT_FFXIV_Kapture.Plugin
 						if (Configuration.Zones.ExcludeZones &&
 						    Configuration.Zones.ZonesList.Contains(contentName)) return true;
 					}
+					else
+					{
+						return Configuration.Zones.IncludeZones;
+					}
 				}
 
 				if (LogLineEvent.KaptureEvent.Actor != null && Configuration != null)
