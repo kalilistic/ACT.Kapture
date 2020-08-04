@@ -619,11 +619,11 @@ namespace ACT_FFXIV_Kapture.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kapture plugin updated successfully. Please restart ACT now..
+        ///   Looks up a localized string similar to Kapture plugin successfully installed. Please restart ACT now..
         /// </summary>
-        public static string PluginNeedRestart {
+        public static string PluginInstalled {
             get {
-                return ResourceManager.GetString("PluginNeedRestart", resourceCulture);
+                return ResourceManager.GetString("PluginInstalled", resourceCulture);
             }
         }
         
@@ -642,6 +642,15 @@ namespace ACT_FFXIV_Kapture.Resource {
         public static string PluginUpdateFailed {
             get {
                 return ResourceManager.GetString("PluginUpdateFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kapture plugin updated successfully. Please restart ACT now..
+        /// </summary>
+        public static string PluginUpdateSuccess {
+            get {
+                return ResourceManager.GetString("PluginUpdateSuccess", resourceCulture);
             }
         }
         

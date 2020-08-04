@@ -54,6 +54,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				SetupLogger();
 				SetLanguage();
 				LoadSettings();
+				CheckForFreshInstall();
 				SetupKaptureService();
 				CreateLogDirectory();
 				SetupDiscord();
@@ -138,6 +139,8 @@ namespace ACT_FFXIV_Kapture.Plugin
 			if (_language.Id == _configuration.XIVPlugin.LanguageId)
 			{
 				_kaptureConfig.ConfigManager.LoadSettings();
+				_configuration.XIVPlugin.FreshInstall = false;
+				_kaptureConfig.ConfigManager.SaveSettings();
 			}
 			else
 			{
@@ -158,6 +161,14 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
+		private void CheckForFreshInstall()
+		{
+			if (!_configuration.XIVPlugin.FreshInstall) return;
+			_configuration.XIVPlugin.FreshInstall = false;
+			_kaptureConfig.ConfigManager.SaveSettings();
+			ACTWrapper.GetInstance().Restart(Strings.PluginInstalled);
+		}
+
 		private void SetupKaptureService()
 		{
 			_httpClient = new HttpClient();
@@ -173,7 +184,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				HTTPClient = _httpClient,
 				Version = _kaptureVersion,
 				UpdateMessage = Strings.PluginUpdateAvailable,
-				RestartMessage = Strings.PluginNeedRestart,
+				RestartMessage = Strings.PluginUpdateSuccess,
 				FailureMessage = Strings.PluginUpdateFailed
 			};
 

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
+	<!-- 
     Microsoft ResX Schema 
     
     Version 2.0
@@ -59,296 +59,299 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <resheader name="resmimetype">
-    <value>text/microsoft-resx</value>
-  </resheader>
-  <resheader name="version">
-    <value>2.0</value>
-  </resheader>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
-  <data name="About" xml:space="preserve">
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="metadata">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" />
+							</xsd:sequence>
+							<xsd:attribute name="name" use="required" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="assembly">
+						<xsd:complexType>
+							<xsd:attribute name="alias" type="xsd:string" />
+							<xsd:attribute name="name" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+							<xsd:attribute ref="xml:space" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>2.0</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="About" xml:space="preserve">
     <value>A propos</value>
   </data>
-  <data name="AddItem" xml:space="preserve">
+	<data name="AddItem" xml:space="preserve">
     <value>Ajouter un objet</value>
   </data>
-  <data name="AddZone" xml:space="preserve">
+	<data name="AddZone" xml:space="preserve">
     <value>Ajouter une zone</value>
   </data>
-  <data name="Author" xml:space="preserve">
+	<data name="Author" xml:space="preserve">
     <value>Auteur</value>
   </data>
-  <data name="Browse" xml:space="preserve">
+	<data name="Browse" xml:space="preserve">
     <value>Parcourir</value>
   </data>
-  <data name="CheckForBeta" xml:space="preserve">
+	<data name="CheckForBeta" xml:space="preserve">
     <value>Vérifier les versions bêta</value>
   </data>
-  <data name="CheckForUpdates" xml:space="preserve">
+	<data name="CheckForUpdates" xml:space="preserve">
     <value>Vérifier les mises à jour</value>
   </data>
-  <data name="CustomJSON" xml:space="preserve">
+	<data name="CustomJSON" xml:space="preserve">
     <value>JSON personnalisé</value>
   </data>
-  <data name="DiscordEnabled" xml:space="preserve">
+	<data name="DiscordEnabled" xml:space="preserve">
     <value>Discord activé</value>
   </data>
-  <data name="Endpoint" xml:space="preserve">
+	<data name="Endpoint" xml:space="preserve">
     <value>Endpoint</value>
   </data>
-  <data name="Events" xml:space="preserve">
+	<data name="Events" xml:space="preserve">
     <value>Événements</value>
   </data>
-  <data name="ExcludeItems" xml:space="preserve">
+	<data name="ExcludeItems" xml:space="preserve">
     <value>Exclure des objets</value>
   </data>
-  <data name="ExcludeZones" xml:space="preserve">
+	<data name="ExcludeZones" xml:space="preserve">
     <value>Exclure des zones</value>
   </data>
-  <data name="FilterByItems" xml:space="preserve">
+	<data name="FilterByItems" xml:space="preserve">
     <value>Filtrer par Objets</value>
   </data>
-  <data name="FilterByZones" xml:space="preserve">
+	<data name="FilterByZones" xml:space="preserve">
     <value>Filtrer par Mission</value>
   </data>
-  <data name="General" xml:space="preserve">
+	<data name="General" xml:space="preserve">
     <value>Général</value>
   </data>
-  <data name="HTTP" xml:space="preserve">
+	<data name="HTTP" xml:space="preserve">
     <value>HTTP</value>
   </data>
-  <data name="HTTPEnabled" xml:space="preserve">
+	<data name="HTTPEnabled" xml:space="preserve">
     <value>HTTP activé</value>
   </data>
-  <data name="IncludeItems" xml:space="preserve">
+	<data name="IncludeItems" xml:space="preserve">
     <value>Inclure des objets</value>
   </data>
-  <data name="IncludeZones" xml:space="preserve">
+	<data name="IncludeZones" xml:space="preserve">
     <value>Inclure des zones</value>
   </data>
-  <data name="ItemLost" xml:space="preserve">
+	<data name="ItemLost" xml:space="preserve">
     <value>Objet non ramassé</value>
   </data>
-  <data name="Items" xml:space="preserve">
+	<data name="Items" xml:space="preserve">
     <value>Objets</value>
   </data>
-  <data name="KaptureLootTracker" xml:space="preserve">
+	<data name="KaptureLootTracker" xml:space="preserve">
     <value>Kapture Butin Tracker</value>
   </data>
-  <data name="Language" xml:space="preserve">
+	<data name="Language" xml:space="preserve">
     <value>Langue</value>
   </data>
-  <data name="License" xml:space="preserve">
+	<data name="License" xml:space="preserve">
     <value>Licence</value>
   </data>
-  <data name="LogFile" xml:space="preserve">
+	<data name="LogFile" xml:space="preserve">
     <value>Fichier journal</value>
   </data>
-  <data name="LogFormat" xml:space="preserve">
+	<data name="LogFormat" xml:space="preserve">
     <value>Format de log</value>
   </data>
-  <data name="Logging" xml:space="preserve">
+	<data name="Logging" xml:space="preserve">
     <value>Enregistrement</value>
   </data>
-  <data name="LoggingEnabled" xml:space="preserve">
+	<data name="LoggingEnabled" xml:space="preserve">
     <value>Journal activé</value>
   </data>
-  <data name="LogImportsEnabled" xml:space="preserve">
+	<data name="LogImportsEnabled" xml:space="preserve">
     <value>Importation de journaux activée</value>
   </data>
-  <data name="LogLocation" xml:space="preserve">
+	<data name="LogLocation" xml:space="preserve">
     <value>Chemin d'accès au journal</value>
   </data>
-  <data name="PluginEnabled" xml:space="preserve">
+	<data name="PluginEnabled" xml:space="preserve">
     <value>Plugin activé</value>
   </data>
-  <data name="Preset" xml:space="preserve">
+	<data name="Preset" xml:space="preserve">
     <value>Prédéfinir</value>
   </data>
-  <data name="Source" xml:space="preserve">
+	<data name="Source" xml:space="preserve">
     <value>Source</value>
   </data>
-  <data name="Support" xml:space="preserve">
+	<data name="Support" xml:space="preserve">
     <value>Support</value>
   </data>
-  <data name="TheyObtain" xml:space="preserve">
+	<data name="TheyObtain" xml:space="preserve">
     <value>Ils ont obtenu un objet</value>
   </data>
-  <data name="TheyRoll" xml:space="preserve">
+	<data name="TheyRoll" xml:space="preserve">
     <value>Ils ont lancés les dés sur un objet</value>
   </data>
-  <data name="Update" xml:space="preserve">
+	<data name="Update" xml:space="preserve">
     <value>Mise à jour</value>
   </data>
-  <data name="Version" xml:space="preserve">
+	<data name="Version" xml:space="preserve">
     <value>Version</value>
   </data>
-  <data name="ViewPluginLog" xml:space="preserve">
+	<data name="ViewPluginLog" xml:space="preserve">
     <value>Afficher le journal du plugin</value>
   </data>
-  <data name="WebhookURL" xml:space="preserve">
+	<data name="WebhookURL" xml:space="preserve">
     <value>URL du Webhook</value>
   </data>
-  <data name="YouObtain" xml:space="preserve">
+	<data name="YouObtain" xml:space="preserve">
     <value>Vous avez gagné un objet</value>
   </data>
-  <data name="YouRoll" xml:space="preserve">
+	<data name="YouRoll" xml:space="preserve">
     <value>Vous avez lancé les dés sur un objet</value>
   </data>
-  <data name="Zones" xml:space="preserve">
+	<data name="Zones" xml:space="preserve">
     <value>Zones</value>
   </data>
-  <data name="CommonItems" xml:space="preserve">
+	<data name="CommonItems" xml:space="preserve">
     <value>Objets communs</value>
   </data>
-  <data name="Custom" xml:space="preserve">
+	<data name="Custom" xml:space="preserve">
     <value>Personnaliser</value>
   </data>
-  <data name="Default" xml:space="preserve">
+	<data name="Default" xml:space="preserve">
     <value>Défaut</value>
   </data>
-  <data name="HighEndDuty" xml:space="preserve">
+	<data name="HighEndDuty" xml:space="preserve">
     <value>Missions HL</value>
   </data>
-  <data name="Discord" xml:space="preserve">
+	<data name="Discord" xml:space="preserve">
     <value>Discord</value>
   </data>
-  <data name="Github" xml:space="preserve">
+	<data name="Github" xml:space="preserve">
     <value>Github</value>
   </data>
-  <data name="Kalilistic" xml:space="preserve">
+	<data name="Kalilistic" xml:space="preserve">
     <value>Kalilistic</value>
   </data>
-  <data name="MIT" xml:space="preserve">
+	<data name="MIT" xml:space="preserve">
     <value>MIT</value>
   </data>
-  <data name="ItemAdded" xml:space="preserve">
+	<data name="ItemAdded" xml:space="preserve">
     <value>Objet ajouté au butin</value>
   </data>
-  <data name="PluginHaveLatest" xml:space="preserve">
+	<data name="PluginHaveLatest" xml:space="preserve">
     <value>Vous disposez déjà de la dernière version du plugin Kapture.</value>
   </data>
-  <data name="PluginUpdateFailed" xml:space="preserve">
+	<data name="PluginUpdateFailed" xml:space="preserve">
     <value>Impossible de télécharger la mise à jour. Veuillez réessayer plus tard ou consultez GitHub.</value>
   </data>
-  <data name="PluginNeedRestart" xml:space="preserve">
+	<data name="PluginUpdateSuccess" xml:space="preserve">
     <value>Le plugin Kapture a été mis à jour avec succès. Veuillez redémarrer ACT maintenant.</value>
   </data>
-  <data name="PluginUpdateAvailable" xml:space="preserve">
+	<data name="PluginUpdateAvailable" xml:space="preserve">
     <value>Mise à jour du plugin Kapture disponible. Voulez-vous la télécharger maintenant?</value>
   </data>
-  <data name="AdvancedFilters" xml:space="preserve">
+	<data name="AdvancedFilters" xml:space="preserve">
     <value>Filtres avancés</value>
   </data>
-  <data name="Alliance" xml:space="preserve">
+	<data name="Alliance" xml:space="preserve">
     <value>Alliance</value>
   </data>
-  <data name="BattleLog" xml:space="preserve">
+	<data name="BattleLog" xml:space="preserve">
     <value>Log de combat</value>
   </data>
-  <data name="Enabled" xml:space="preserve">
+	<data name="Enabled" xml:space="preserve">
     <value>Activé</value>
   </data>
-  <data name="ExcludeCommonItems" xml:space="preserve">
+	<data name="ExcludeCommonItems" xml:space="preserve">
     <value>Exclure les objets communs</value>
   </data>
-  <data name="Filters" xml:space="preserve">
+	<data name="Filters" xml:space="preserve">
     <value>Filtres</value>
   </data>
-  <data name="HighEndDutyOnly" xml:space="preserve">
+	<data name="HighEndDutyOnly" xml:space="preserve">
     <value>Objets HL uniquement</value>
   </data>
-  <data name="ItemObtained" xml:space="preserve">
+	<data name="ItemObtained" xml:space="preserve">
     <value>Objet obtenu</value>
   </data>
-  <data name="ItemRolled" xml:space="preserve">
+	<data name="ItemRolled" xml:space="preserve">
     <value>Objet lancé aux dés</value>
   </data>
-  <data name="Log" xml:space="preserve">
+	<data name="Log" xml:space="preserve">
     <value>Log</value>
   </data>
-  <data name="LogCleared" xml:space="preserve">
+	<data name="LogCleared" xml:space="preserve">
     <value>Fichier journal effacé.</value>
   </data>
-  <data name="Main" xml:space="preserve">
+	<data name="Main" xml:space="preserve">
     <value>Principale</value>
   </data>
-  <data name="MessageLog" xml:space="preserve">
+	<data name="MessageLog" xml:space="preserve">
     <value>Journal des messages</value>
   </data>
-  <data name="Mode" xml:space="preserve">
+	<data name="Mode" xml:space="preserve">
     <value>Mode</value>
   </data>
-  <data name="Party" xml:space="preserve">
+	<data name="Party" xml:space="preserve">
     <value>Groupe</value>
   </data>
-  <data name="Players" xml:space="preserve">
+	<data name="Players" xml:space="preserve">
     <value>Joueurs</value>
   </data>
-  <data name="Self" xml:space="preserve">
+	<data name="Self" xml:space="preserve">
     <value>Soi</value>
   </data>
-  <data name="IncludeMounts" xml:space="preserve">
+	<data name="IncludeMounts" xml:space="preserve">
     <value>Inclure les montures uniquement</value>
   </data>
-  <data name="ItemCastLot" xml:space="preserve">
+	<data name="ItemCastLot" xml:space="preserve">
     <value>Objet lot</value>
   </data>
-  <data name="GetMarketBoardData" xml:space="preserve">
+	<data name="GetMarketBoardData" xml:space="preserve">
     <value>Obtenez les données du MB</value>
   </data>
-  <data name="ItemSearched" xml:space="preserve">
+	<data name="ItemSearched" xml:space="preserve">
     <value>Objet recherché</value>
+  </data>
+	<data name="PluginInstalled" xml:space="preserve">
+    <value>Le plugin Kapture a été installé avec succès. Veuillez redémarrer ACT maintenant.</value>
   </data>
 </root>
