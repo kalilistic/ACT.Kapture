@@ -55,23 +55,19 @@ Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send lo
 3. Select "Preset" dropdown list.
 4. Select your desired Kapture overlay.
 5. Click OK.
-<br><br>
 
 **Important notes**
 * Restart ACT after installing/updating before trying to use an Overlay.
 * Ensure the data you want in the overlay is enabled in the Kapture plugin tab.
-<br><br>
 
-** Overlays **
+**Overlays**
 * <a href="https://github.com/kalilistic/kapture-log-overlay">Log Overlay</a>
 * <a href="https://github.com/kalilistic/kapture-price-overlay">Price Check</a>
-<br><br>
 
-** Build your Own **
+**Build your Own**
 * Read <a href="https://ngld.github.io/OverlayPlugin/devs/">ngld's overlay development guide</a>.
 * Check out the example directory to see the JSON data and a minimal overlay example.
 * When it's done, reach out and we can add it to the Preset list.
-<br><br>
 
 ## Software Used
 
