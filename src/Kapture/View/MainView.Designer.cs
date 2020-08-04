@@ -53,6 +53,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.filtersItemCastLotCheckBox = new System.Windows.Forms.CheckBox();
 			this.filtersIncludeMountsOnlyCheckBox = new System.Windows.Forms.CheckBox();
 			this.filtersHighEndDutyOnlyCheckBox = new System.Windows.Forms.CheckBox();
+			this.filtersItemSearchedCheckBox = new System.Windows.Forms.CheckBox();
 			this.httpGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
@@ -80,7 +81,6 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.discordUpdateButton = new ACT_FFXIV_Kapture.Aetherbridge.CustomButton();
 			this.discordWebhookLabel = new System.Windows.Forms.Label();
-			this.filtersItemSearchedCheckBox = new System.Windows.Forms.CheckBox();
 			this.generalGroupBox.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.messageLogGroupBox.SuspendLayout();
@@ -224,7 +224,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.tableLayoutPanel10.Name = "tableLayoutPanel10";
 			this.tableLayoutPanel10.RowCount = 1;
 			this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel10.Size = new System.Drawing.Size(592, 121);
+			this.tableLayoutPanel10.Size = new System.Drawing.Size(591, 121);
 			this.tableLayoutPanel10.TabIndex = 27;
 			// 
 			// filtersGroupBox
@@ -235,7 +235,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.filtersGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.filtersGroupBox.Location = new System.Drawing.Point(159, 3);
 			this.filtersGroupBox.Name = "filtersGroupBox";
-			this.filtersGroupBox.Size = new System.Drawing.Size(430, 115);
+			this.filtersGroupBox.Size = new System.Drawing.Size(429, 115);
 			this.filtersGroupBox.TabIndex = 25;
 			this.filtersGroupBox.TabStop = false;
 			this.filtersGroupBox.Text = "Filters";
@@ -249,18 +249,18 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.filtersItemObtainedCheckBox, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.filtersItemAddedCheckBox, 0, 0);
 			this.tableLayoutPanel2.Controls.Add(this.filtersExcludeCommonItemsCheckBox, 3, 0);
 			this.tableLayoutPanel2.Controls.Add(this.filtersSelfCheckBox, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.filtersPartyCheckBox, 2, 1);
-			this.tableLayoutPanel2.Controls.Add(this.filtersItemRolledOnCheckBox, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.filtersItemLostCheckBox, 0, 2);
 			this.tableLayoutPanel2.Controls.Add(this.filtersAllianceCheckBox, 2, 2);
-			this.tableLayoutPanel2.Controls.Add(this.filtersItemCastLotCheckBox, 1, 1);
 			this.tableLayoutPanel2.Controls.Add(this.filtersIncludeMountsOnlyCheckBox, 3, 2);
 			this.tableLayoutPanel2.Controls.Add(this.filtersHighEndDutyOnlyCheckBox, 3, 1);
-			this.tableLayoutPanel2.Controls.Add(this.filtersItemSearchedCheckBox, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.filtersItemSearchedCheckBox, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.filtersItemObtainedCheckBox, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.filtersItemLostCheckBox, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.filtersItemAddedCheckBox, 0, 2);
+			this.tableLayoutPanel2.Controls.Add(this.filtersItemRolledOnCheckBox, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.filtersItemCastLotCheckBox, 1, 0);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
 			this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -269,7 +269,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(424, 69);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(423, 69);
 			this.tableLayoutPanel2.TabIndex = 25;
 			// 
 			// filtersItemObtainedCheckBox
@@ -286,7 +286,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersItemAddedCheckBox
 			// 
 			this.filtersItemAddedCheckBox.AutoSize = true;
-			this.filtersItemAddedCheckBox.Location = new System.Drawing.Point(9, 3);
+			this.filtersItemAddedCheckBox.Location = new System.Drawing.Point(9, 49);
 			this.filtersItemAddedCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersItemAddedCheckBox.Name = "filtersItemAddedCheckBox";
 			this.filtersItemAddedCheckBox.Size = new System.Drawing.Size(79, 17);
@@ -297,7 +297,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersExcludeCommonItemsCheckBox
 			// 
 			this.filtersExcludeCommonItemsCheckBox.AutoSize = true;
-			this.filtersExcludeCommonItemsCheckBox.Location = new System.Drawing.Point(285, 3);
+			this.filtersExcludeCommonItemsCheckBox.Location = new System.Drawing.Point(284, 3);
 			this.filtersExcludeCommonItemsCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersExcludeCommonItemsCheckBox.Name = "filtersExcludeCommonItemsCheckBox";
 			this.filtersExcludeCommonItemsCheckBox.Size = new System.Drawing.Size(136, 17);
@@ -308,7 +308,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersSelfCheckBox
 			// 
 			this.filtersSelfCheckBox.AutoSize = true;
-			this.filtersSelfCheckBox.Location = new System.Drawing.Point(210, 3);
+			this.filtersSelfCheckBox.Location = new System.Drawing.Point(209, 3);
 			this.filtersSelfCheckBox.Name = "filtersSelfCheckBox";
 			this.filtersSelfCheckBox.Size = new System.Drawing.Size(44, 17);
 			this.filtersSelfCheckBox.TabIndex = 15;
@@ -318,7 +318,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersPartyCheckBox
 			// 
 			this.filtersPartyCheckBox.AutoSize = true;
-			this.filtersPartyCheckBox.Location = new System.Drawing.Point(210, 26);
+			this.filtersPartyCheckBox.Location = new System.Drawing.Point(209, 26);
 			this.filtersPartyCheckBox.Name = "filtersPartyCheckBox";
 			this.filtersPartyCheckBox.Size = new System.Drawing.Size(50, 17);
 			this.filtersPartyCheckBox.TabIndex = 16;
@@ -328,7 +328,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersItemRolledOnCheckBox
 			// 
 			this.filtersItemRolledOnCheckBox.AutoSize = true;
-			this.filtersItemRolledOnCheckBox.Location = new System.Drawing.Point(111, 3);
+			this.filtersItemRolledOnCheckBox.Location = new System.Drawing.Point(114, 26);
 			this.filtersItemRolledOnCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersItemRolledOnCheckBox.Name = "filtersItemRolledOnCheckBox";
 			this.filtersItemRolledOnCheckBox.Size = new System.Drawing.Size(89, 17);
@@ -339,7 +339,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersItemLostCheckBox
 			// 
 			this.filtersItemLostCheckBox.AutoSize = true;
-			this.filtersItemLostCheckBox.Location = new System.Drawing.Point(9, 49);
+			this.filtersItemLostCheckBox.Location = new System.Drawing.Point(114, 49);
 			this.filtersItemLostCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersItemLostCheckBox.Name = "filtersItemLostCheckBox";
 			this.filtersItemLostCheckBox.Size = new System.Drawing.Size(65, 17);
@@ -350,7 +350,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersAllianceCheckBox
 			// 
 			this.filtersAllianceCheckBox.AutoSize = true;
-			this.filtersAllianceCheckBox.Location = new System.Drawing.Point(210, 49);
+			this.filtersAllianceCheckBox.Location = new System.Drawing.Point(209, 49);
 			this.filtersAllianceCheckBox.Name = "filtersAllianceCheckBox";
 			this.filtersAllianceCheckBox.Size = new System.Drawing.Size(63, 17);
 			this.filtersAllianceCheckBox.TabIndex = 18;
@@ -360,7 +360,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersItemCastLotCheckBox
 			// 
 			this.filtersItemCastLotCheckBox.AutoSize = true;
-			this.filtersItemCastLotCheckBox.Location = new System.Drawing.Point(111, 26);
+			this.filtersItemCastLotCheckBox.Location = new System.Drawing.Point(114, 3);
 			this.filtersItemCastLotCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersItemCastLotCheckBox.Name = "filtersItemCastLotCheckBox";
 			this.filtersItemCastLotCheckBox.Size = new System.Drawing.Size(83, 17);
@@ -371,7 +371,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersIncludeMountsOnlyCheckBox
 			// 
 			this.filtersIncludeMountsOnlyCheckBox.AutoSize = true;
-			this.filtersIncludeMountsOnlyCheckBox.Location = new System.Drawing.Point(285, 49);
+			this.filtersIncludeMountsOnlyCheckBox.Location = new System.Drawing.Point(284, 49);
 			this.filtersIncludeMountsOnlyCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersIncludeMountsOnlyCheckBox.Name = "filtersIncludeMountsOnlyCheckBox";
 			this.filtersIncludeMountsOnlyCheckBox.Size = new System.Drawing.Size(123, 17);
@@ -382,13 +382,24 @@ namespace ACT_FFXIV_Kapture.Plugin
 			// filtersHighEndDutyOnlyCheckBox
 			// 
 			this.filtersHighEndDutyOnlyCheckBox.AutoSize = true;
-			this.filtersHighEndDutyOnlyCheckBox.Location = new System.Drawing.Point(285, 26);
+			this.filtersHighEndDutyOnlyCheckBox.Location = new System.Drawing.Point(284, 26);
 			this.filtersHighEndDutyOnlyCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
 			this.filtersHighEndDutyOnlyCheckBox.Name = "filtersHighEndDutyOnlyCheckBox";
 			this.filtersHighEndDutyOnlyCheckBox.Size = new System.Drawing.Size(119, 17);
 			this.filtersHighEndDutyOnlyCheckBox.TabIndex = 15;
 			this.filtersHighEndDutyOnlyCheckBox.Text = "High-End Duty Only";
 			this.filtersHighEndDutyOnlyCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// filtersItemSearchedCheckBox
+			// 
+			this.filtersItemSearchedCheckBox.AutoSize = true;
+			this.filtersItemSearchedCheckBox.Location = new System.Drawing.Point(9, 3);
+			this.filtersItemSearchedCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
+			this.filtersItemSearchedCheckBox.Name = "filtersItemSearchedCheckBox";
+			this.filtersItemSearchedCheckBox.Size = new System.Drawing.Size(93, 17);
+			this.filtersItemSearchedCheckBox.TabIndex = 22;
+			this.filtersItemSearchedCheckBox.Text = "Item searched";
+			this.filtersItemSearchedCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// httpGroupBox
 			// 
@@ -762,17 +773,6 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.discordWebhookLabel.TabIndex = 29;
 			this.discordWebhookLabel.Text = "Webhook URL";
 			this.discordWebhookLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// filtersItemSearchedCheckBox
-			// 
-			this.filtersItemSearchedCheckBox.AutoSize = true;
-			this.filtersItemSearchedCheckBox.Location = new System.Drawing.Point(111, 49);
-			this.filtersItemSearchedCheckBox.Margin = new System.Windows.Forms.Padding(9, 3, 3, 3);
-			this.filtersItemSearchedCheckBox.Name = "filtersItemSearchedCheckBox";
-			this.filtersItemSearchedCheckBox.Size = new System.Drawing.Size(93, 17);
-			this.filtersItemSearchedCheckBox.TabIndex = 22;
-			this.filtersItemSearchedCheckBox.Text = "Item searched";
-			this.filtersItemSearchedCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// MainView
 			// 
