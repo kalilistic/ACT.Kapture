@@ -5,6 +5,6 @@
 		public bool PluginEnabled { get; set; } = true;
 		public bool LogImportsEnabled { get; set; } = false;
 		public bool CheckForBetaEnabled { get; set; } = false;
-		public bool GetMarketBoardData { get; set; } = true;
+		public bool GetMarketBoardData { get; set; } = false;
 	}
 }
