@@ -19,7 +19,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 			about_SupportKeyLabel.Text = Strings.Support;
 			about_SupportValueLabel.Text = Strings.Discord;
-			about_SupportValueLabel.Tag = "https://discord.gg/ftn4k7x";
+			about_SupportValueLabel.Tag = "https://discord.gg/ahFKcmx";
 
 			about_SourceKeyLabel.Text = Strings.Source;
 			about_SourceValueLabel.Text = Strings.Github;
