@@ -8,7 +8,6 @@
   <a href="https://github.com/kalilistic/kapture/releases/latest"><img src="https://img.shields.io/github/v/release/kalilistic/kapture"></a>
   <a href="https://github.com/kalilistic/kapture/releases"><img src="https://img.shields.io/github/v/release/kalilistic/kapture?include_prereleases&label=beta"></a>  
   <a href="https://github.com/kalilistic/kapture/blob/master/LICENSE"><img src="https://img.shields.io/github/license/kalilistic/kapture?color=lightgrey"></a>
-  <a href="https://discord.gg/ftn4k7x"><img src="https://img.shields.io/badge/chat-on%20discord-7289da.svg"></a>
 </p>
 
 ## Background
@@ -98,4 +97,5 @@ Kapture is an ACT FFXIV Loot Tracker plugin to record your loot. You can send lo
   Restart ACT and try again.
   
 * **My problem isn't listed here.**<br>
-  Reach out on discord or raise a github issue.
+  Reach out on the <a href="https://discord.gg/ahFKcmx">ACT Discord</a> or <a href="https://github.com/kalilistic/Kapture/issues">open an issue</a>.
+  
