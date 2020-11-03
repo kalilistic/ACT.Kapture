@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
-using Configuration = ACT_FFXIV_Kapture.Config.Config;
+using Configuration = ACT_FFXIV_Kapture.Config.Model.Config;
 
 namespace ACT_FFXIV_Kapture.Plugin
 {

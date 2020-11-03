@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{550DF022-9185-434E-A4D1-BE6FCE07E0C2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ACT_FFXIV.Aetherbridge.Mocks</RootNamespace>
+    <AssemblyName>Aetherbridge.Mocks</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FFXIV_ACT_Plugin.Common">
+      <HintPath>..\lib\FFXIV_ACT_Plugin.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Costura.Fody">
+      <Version>4.1.0</Version>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Fody">
+      <Version>6.2.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Semver">
+      <Version>2.0.6</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ACTPluginMock.cs" />
+    <Compile Include="ACTWrapperMock.cs" />
+    <Compile Include="DataRepositoryMock.cs" />
+    <Compile Include="FFXIVACTPluginWrapperMock.cs" />
+    <Compile Include="MockDataUtil.cs" />
+    <Compile Include="ConfigMock.cs" />
+    <Compile Include="GameDataLocalizedMock.cs" />
+    <Compile Include="GameDataMock.cs" />
+    <Compile Include="HttpMessageHandlerUpdaterMock.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aetherbridge\Aetherbridge.csproj">
+      <Project>{b42b3b2b-017d-48b6-a2b5-4ec44c19fa50}</Project>
+      <Name>Aetherbridge</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\GameDataMock.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Stubs\assets_headers_200.txt" />
+    <Content Include="Stubs\assets_response_200.txt" />
+    <Content Include="Stubs\empty_headers_200.txt" />
+    <Content Include="Stubs\empty_response_200.txt" />
+    <Content Include="Stubs\get-latest_headers_200.txt" />
+    <Content Include="Stubs\get-latest_response_200.txt" />
+    <Content Include="Stubs\page1_headers_200.txt" />
+    <Content Include="Stubs\page1_response_200.txt" />
+    <Content Include="Stubs\page2_headers_200.txt" />
+    <Content Include="Stubs\page2_response_200.txt" />
+    <Content Include="Stubs\page3_headers_200.txt" />
+    <Content Include="Stubs\page3_response_200.txt" />
+    <Content Include="Stubs\page4_headers_200.txt" />
+    <Content Include="Stubs\page4_response_200.txt" />
+    <Content Include="Stubs\page5_headers_200.txt" />
+    <Content Include="Stubs\page5_response_200.txt" />
+    <Content Include="Stubs\rate-limit_headers_403.txt" />
+    <Content Include="Stubs\rate-limit_response_403.txt" />
+    <Content Include="Stubs\repo-not-found_headers_404.txt" />
+    <Content Include="Stubs\repo-not-found_response_404.txt" />
+    <Content Include="Stubs\universalis_response_bad_request.txt" />
+    <Content Include="Stubs\universalis_response_success.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

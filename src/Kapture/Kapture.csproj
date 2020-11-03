@@ -38,9 +38,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Advanced Combat Tracker.exe</HintPath>
     </Reference>
-    <Reference Include="Kapture.Aetherbridge">
-      <HintPath>..\..\lib\Kapture.Aetherbridge.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="OverlayPlugin.Common">
       <HintPath>..\..\lib\OverlayPlugin.Common.dll</HintPath>
@@ -109,6 +106,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aetherbridge\Aetherbridge.csproj">
+      <Project>{b42b3b2b-017d-48b6-a2b5-4ec44c19fa50}</Project>
+      <Name>Aetherbridge</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kapture.Config\Kapture.Config.csproj">
       <Project>{f7947f66-24c0-4873-b35b-7fad71ef8010}</Project>
       <Name>Kapture.Config</Name>

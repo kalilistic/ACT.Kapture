@@ -1,4 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Aetherbridge;
+﻿using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Model;
 
 namespace ACT_FFXIV_Kapture.Plugin

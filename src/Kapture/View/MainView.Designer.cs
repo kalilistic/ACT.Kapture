@@ -1,4 +1,4 @@
-﻿using ACT_FFXIV_Kapture.Aetherbridge;
+﻿using ACT_FFXIV.Aetherbridge;
 
 namespace ACT_FFXIV_Kapture.Plugin
 {
@@ -57,29 +57,29 @@ namespace ACT_FFXIV_Kapture.Plugin
 			this.httpGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-			this.httpUpdateButton = new ACT_FFXIV_Kapture.Aetherbridge.CustomButton();
+			this.httpUpdateButton = new ACT_FFXIV.Aetherbridge.CustomButton();
 			this.httpEnabledCheckBox = new System.Windows.Forms.CheckBox();
-			this.httpEndpointTextBox = new ACT_FFXIV_Kapture.Aetherbridge.CustomTextBox();
+			this.httpEndpointTextBox = new ACT_FFXIV.Aetherbridge.CustomTextBox();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
 			this.httpEndpointLabel = new System.Windows.Forms.Label();
 			this.httpCustomJsonLabel = new System.Windows.Forms.Label();
-			this.httpCustomJsonTextBox = new ACT_FFXIV_Kapture.Aetherbridge.CustomTextBox();
+			this.httpCustomJsonTextBox = new ACT_FFXIV.Aetherbridge.CustomTextBox();
 			this.loggingGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.loggingEnabledCheckBox = new System.Windows.Forms.CheckBox();
-			this.loggingLocationTextBox = new ACT_FFXIV_Kapture.Aetherbridge.CustomTextBox();
+			this.loggingLocationTextBox = new ACT_FFXIV.Aetherbridge.CustomTextBox();
 			this.loggingFormatLabel = new System.Windows.Forms.Label();
 			this.loggingLocationLabel = new System.Windows.Forms.Label();
-			this.loggingFormatComboBox = new ACT_FFXIV_Kapture.Aetherbridge.CustomComboBox();
+			this.loggingFormatComboBox = new ACT_FFXIV.Aetherbridge.CustomComboBox();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-			this.loggingBrowseButton = new ACT_FFXIV_Kapture.Aetherbridge.CustomButton();
-			this.loggingUpdateButton = new ACT_FFXIV_Kapture.Aetherbridge.CustomButton();
+			this.loggingBrowseButton = new ACT_FFXIV.Aetherbridge.CustomButton();
+			this.loggingUpdateButton = new ACT_FFXIV.Aetherbridge.CustomButton();
 			this.discordGroupBox = new System.Windows.Forms.GroupBox();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.discordEnabledCheckBox = new System.Windows.Forms.CheckBox();
-			this.discordWebhookTextBox = new ACT_FFXIV_Kapture.Aetherbridge.CustomTextBox();
+			this.discordWebhookTextBox = new ACT_FFXIV.Aetherbridge.CustomTextBox();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-			this.discordUpdateButton = new ACT_FFXIV_Kapture.Aetherbridge.CustomButton();
+			this.discordUpdateButton = new ACT_FFXIV.Aetherbridge.CustomButton();
 			this.discordWebhookLabel = new System.Windows.Forms.Label();
 			this.generalGroupBox.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();

@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
 using ACT_FFXIV_Kapture.Model;
 using ACT_FFXIV_Kapture.Resource;
-using Configuration = ACT_FFXIV_Kapture.Config.Config;
+using Configuration = ACT_FFXIV_Kapture.Config.Model.Config;
 
 // ReSharper disable UseObjectOrCollectionInitializer
 

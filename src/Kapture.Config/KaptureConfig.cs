@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 
 namespace ACT_FFXIV_Kapture.Config
 {
@@ -16,7 +16,7 @@ namespace ACT_FFXIV_Kapture.Config
 		{
 			try
 			{
-				Config = new Config();
+				Config = new Model.Config();
 				var configFilePath = Path.Combine(appDataFolder, KaptureConfigConstants.ConfigDirName);
 				ConfigManager.Initialize(configFilePath, KaptureConfigConstants.ConfigFileName, Config);
 				ConfigManager = (ConfigManager) ConfigManager.GetInstance();

@@ -1,15 +1,14 @@
 ﻿using System;
-using ACT_FFXIV_Kapture.Aetherbridge;
-using ACT_FFXIV_Kapture.Aetherbridge.Mocks;
-using ACT_FFXIV_Kapture.Aetherbridge.XIVData;
-using ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model;
+using ACT_FFXIV.Aetherbridge;
+using ACT_FFXIV.Aetherbridge.Mocks;
+using ACT_FFXIV.Aetherbridge.XIVData;
+using ACT_FFXIV.Aetherbridge.XIVData.Model;
 using ACT_FFXIV_Kapture.Model;
 using ACT_FFXIV_Kapture.Plugin;
-using ACTConfig = ACT_FFXIV_Kapture.Model.ACTConfig;
-using ClassJob = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.ClassJob;
-using Item = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.Item;
-using Language = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.Language;
-using World = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.World;
+using ClassJob = ACT_FFXIV.Aetherbridge.XIVData.Model.ClassJob;
+using Item =ACT_FFXIV.Aetherbridge.XIVData.Model.Item;
+using Language = ACT_FFXIV.Aetherbridge.XIVData.Model.Language;
+using World = ACT_FFXIV.Aetherbridge.XIVData.Model.World;
 
 namespace ACT_FFXIV_Kapture.Test
 {
@@ -23,7 +22,7 @@ namespace ACT_FFXIV_Kapture.Test
 
 		private KaptureDataMock()
 		{
-			ACTConfig = new Aetherbridge.ACTConfig();
+			ACTConfig = new ACTConfig();
 			InitWrappers();
 			InitGameData();
 		}
@@ -37,7 +36,7 @@ namespace ACT_FFXIV_Kapture.Test
 		public ItemService ItemService { get; set; }
 		public LanguageService LanguageService { get; set; }
 		public PlayerService PlayerService { get; set; }
-		public Aetherbridge.ACTConfig ACTConfig { get; set; }
+		public ACTConfig ACTConfig { get; set; }
 #pragma warning disable 67
 		public event EventHandler<LogLineEvent> LogLineCaptured;
 #pragma warning restore 67

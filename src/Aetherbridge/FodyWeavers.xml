@@ -1,0 +1,18 @@
+﻿<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+  <Costura>
+	<IncludeAssemblies>
+		Semver
+		Microsoft.Extensions.Caching.Abstractions
+		Microsoft.Extensions.Caching.Memory
+		Microsoft.Extensions.DependencyInjection.Abstractions
+		Microsoft.Extensions.Logging.Abstractions
+		Microsoft.Extensions.Options
+		Microsoft.Extensions.Primitives
+		System.Buffers
+		System.ComponentModel.Annotations
+		System.Memory
+		System.Numerics.Vectors
+		System.Runtime.CompilerServices.Unsafe
+	</IncludeAssemblies>
+  </Costura>
+</Weavers>

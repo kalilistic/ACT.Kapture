@@ -1,5 +1,5 @@
 ﻿using System;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
 using ACT_FFXIV_Kapture.Plugin;
 using NUnit.Framework;
@@ -9,7 +9,7 @@ namespace ACT_FFXIV_Kapture.Test.LootParser
 	[TestFixture]
 	public class DELogLineParserTest
 	{
-		private Config.Config _configuration;
+		private Config.Model.Config _configuration;
 		private IKaptureData _kaptureData;
 		private ILogLineParser _parser;
 
@@ -21,7 +21,7 @@ namespace ACT_FFXIV_Kapture.Test.LootParser
 			_kaptureData.ACTConfig.GameLanguageId = language.Id;
 			_kaptureData.Initialize(language.Id);
 			KaptureConfig.Initialize(AppDomain.CurrentDomain.BaseDirectory);
-			_configuration = (Config.Config) KaptureConfig.GetInstance().ConfigManager.Config;
+			_configuration = (Config.Model.Config) KaptureConfig.GetInstance().ConfigManager.Config;
 			_configuration.General.PluginEnabled = true;
 			_configuration.Filters.ItemRolledOn = true;
 			_configuration.Filters.ItemLost = true;

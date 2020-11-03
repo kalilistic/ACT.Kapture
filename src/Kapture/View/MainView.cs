@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Config;
+using ACT_FFXIV_Kapture.Config.Enum;
 using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Plugin

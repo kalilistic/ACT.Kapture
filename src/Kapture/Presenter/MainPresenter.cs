@@ -4,7 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using ACT_FFXIV_Kapture.Config;
-using Configuration = ACT_FFXIV_Kapture.Config.Config;
+using ACT_FFXIV_Kapture.Config.Enum;
+using Configuration = ACT_FFXIV_Kapture.Config.Model.Config;
 
 namespace ACT_FFXIV_Kapture.Plugin
 {

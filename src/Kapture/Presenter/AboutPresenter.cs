@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using ACT_FFXIV_Kapture.Config;
-using Configuration = ACT_FFXIV_Kapture.Config.Config;
+using Configuration = ACT_FFXIV_Kapture.Config.Model.Config;
 
 namespace ACT_FFXIV_Kapture.Plugin
 {

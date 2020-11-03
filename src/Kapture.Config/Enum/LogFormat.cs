@@ -2,7 +2,7 @@
 using System.Linq;
 using ACT_FFXIV_Kapture.Resource;
 
-namespace ACT_FFXIV_Kapture.Config
+namespace ACT_FFXIV_Kapture.Config.Enum
 {
 	public class LogFormat
 	{

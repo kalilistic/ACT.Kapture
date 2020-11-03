@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using ACT_FFXIV_Kapture.Config.Enum;
 
-namespace ACT_FFXIV_Kapture.Config
+namespace ACT_FFXIV_Kapture.Config.Model
 {
 	public class Zones
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Resource;
 
 namespace ACT_FFXIV_Kapture.Plugin

@@ -1,4 +1,4 @@
-﻿namespace ACT_FFXIV_Kapture.Config
+﻿namespace ACT_FFXIV_Kapture.Config.Model
 {
 	public class XIVPlugin
 	{

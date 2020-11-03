@@ -1,4 +1,6 @@
-﻿namespace ACT_FFXIV_Kapture.Config
+﻿using ACT_FFXIV_Kapture.Config.Enum;
+
+namespace ACT_FFXIV_Kapture.Config.Model
 {
 	public class Logging
 	{

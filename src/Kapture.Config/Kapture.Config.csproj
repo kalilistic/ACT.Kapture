@@ -34,10 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Kapture.Aetherbridge, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Kapture.Aetherbridge.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -63,6 +59,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aetherbridge\Aetherbridge.csproj">
+      <Project>{b42b3b2b-017d-48b6-a2b5-4ec44c19fa50}</Project>
+      <Name>Aetherbridge</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kapture.Resource\Kapture.Resource.csproj">
       <Project>{91dfd900-0b26-4964-9dc7-3b522423159e}</Project>
       <Name>Kapture.Resource</Name>

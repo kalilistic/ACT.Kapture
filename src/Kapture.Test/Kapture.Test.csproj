@@ -43,13 +43,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\FFXIV_ACT_Plugin.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Kapture.Aetherbridge, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\Kapture.Aetherbridge.dll</HintPath>
-    </Reference>
-    <Reference Include="Kapture.Aetherbridge.Mocks">
-      <HintPath>..\..\lib\Kapture.Aetherbridge.Mocks.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -73,6 +66,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Aetherbridge.Mocks\Aetherbridge.Mocks.csproj">
+      <Project>{550df022-9185-434e-a4d1-be6fce07e0c2}</Project>
+      <Name>Aetherbridge.Mocks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aetherbridge\Aetherbridge.csproj">
+      <Project>{b42b3b2b-017d-48b6-a2b5-4ec44c19fa50}</Project>
+      <Name>Aetherbridge</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kapture.Config\Kapture.Config.csproj">
       <Project>{F7947F66-24C0-4873-B35B-7FAD71EF8010}</Project>
       <Name>Kapture.Config</Name>

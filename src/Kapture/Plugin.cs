@@ -9,16 +9,19 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
+using ACT_FFXIV.Aetherbridge.Updater;
 using ACT_FFXIV_Kapture.Config;
+using ACT_FFXIV_Kapture.Config.Enum;
+using ACT_FFXIV_Kapture.Config.Model;
 using ACT_FFXIV_Kapture.Model;
 using ACT_FFXIV_Kapture.Resource;
 using Advanced_Combat_Tracker;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RainbowMage.OverlayPlugin;
-using Configuration = ACT_FFXIV_Kapture.Config.Config;
-using EventHandler = ACT_FFXIV_Kapture.Aetherbridge.EventHandler;
+using Configuration = ACT_FFXIV_Kapture.Config.Model.Config;
+using EventHandler = ACT_FFXIV.Aetherbridge.EventHandler;
 using Timer = System.Timers.Timer;
 
 // ReSharper disable ConvertIfStatementToSwitchStatement

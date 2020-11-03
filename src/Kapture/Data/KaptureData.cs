@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Net.Http;
-using ACT_FFXIV_Kapture.Aetherbridge;
-using ACT_FFXIV_Kapture.Aetherbridge.XIVData;
-using ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model;
+using ACT_FFXIV.Aetherbridge;
+using ACT_FFXIV.Aetherbridge.XIVData;
+using ACT_FFXIV.Aetherbridge.XIVData.Model;
 using ACT_FFXIV_Kapture.Model;
-using ACTConfig = ACT_FFXIV_Kapture.Aetherbridge.ACTConfig;
-using ClassJob = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.ClassJob;
-using Configuration = ACT_FFXIV_Kapture.Config.Config;
-using Item = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.Item;
-using Language = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.Language;
-using World = ACT_FFXIV_Kapture.Aetherbridge.XIVData.Model.World;
+using ACTConfig = ACT_FFXIV.Aetherbridge.ACTConfig;
+using ClassJob = ACT_FFXIV.Aetherbridge.XIVData.Model.ClassJob;
+using Configuration = ACT_FFXIV_Kapture.Config.Model.Config;
+using Item = ACT_FFXIV.Aetherbridge.XIVData.Model.Item;
+using Language = ACT_FFXIV.Aetherbridge.XIVData.Model.Language;
+using World = ACT_FFXIV.Aetherbridge.XIVData.Model.World;
 
 // ReSharper disable ConvertIfStatementToSwitchStatement
 

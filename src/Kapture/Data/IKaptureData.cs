@@ -1,7 +1,6 @@
 ﻿using System;
-using ACT_FFXIV_Kapture.Aetherbridge;
+using ACT_FFXIV.Aetherbridge;
 using ACT_FFXIV_Kapture.Model;
-using ACTConfig = ACT_FFXIV_Kapture.Aetherbridge.ACTConfig;
 
 namespace ACT_FFXIV_Kapture.Plugin
 {

@@ -7,6 +7,8 @@
 test-result/
 tools/**
 !tools/packages.config
+SaintCoinach/
+SaintCoinachExtracts/
 
 # User-specific files
 *.rsuser

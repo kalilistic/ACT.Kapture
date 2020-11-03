@@ -1,6 +1,6 @@
-﻿using ACT_FFXIV_Kapture.Aetherbridge;
+﻿using ACT_FFXIV.Aetherbridge;
 
-namespace ACT_FFXIV_Kapture.Config
+namespace ACT_FFXIV_Kapture.Config.Model
 {
 	public class Config : IConfig
 	{
