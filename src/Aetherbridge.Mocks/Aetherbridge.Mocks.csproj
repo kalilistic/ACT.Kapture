@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FFXIV_ACT_Plugin.Common">
-      <HintPath>..\lib\FFXIV_ACT_Plugin.Common.dll</HintPath>
+      <HintPath>..\..\lib\FFXIV_ACT_Plugin.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

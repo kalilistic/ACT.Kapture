@@ -33,19 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Advanced Combat Tracker, Version=3.4.7.268, Culture=neutral, PublicKeyToken=a946b61e93d97868, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\lib\Advanced Combat Tracker.exe</HintPath>
+    <Reference Include="Advanced Combat Tracker">
+      <HintPath>..\..\lib\Advanced Combat Tracker.exe</HintPath>
     </Reference>
     <Reference Include="FFXIV_ACT_Plugin.Common">
-      <HintPath>..\lib\FFXIV_ACT_Plugin.Common.dll</HintPath>
+      <HintPath>..\..\lib\FFXIV_ACT_Plugin.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="OverlayPlugin.Common">
-      <HintPath>..\lib\OverlayPlugin.Common.dll</HintPath>
+      <HintPath>..\..\lib\OverlayPlugin.Common.dll</HintPath>
     </Reference>
     <Reference Include="OverlayPlugin.Core">
-      <HintPath>..\lib\OverlayPlugin.Core.dll</HintPath>
+      <HintPath>..\..\lib\OverlayPlugin.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
