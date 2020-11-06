@@ -403,7 +403,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 		{
 			return url != null &&
 			       !url.Equals("") &&
-			       Uri.IsWellFormedUriString(url, UriKind.Absolute) && url.Contains(@"discordapp");
+			       Uri.IsWellFormedUriString(url, UriKind.Absolute) && url.Contains(@"discord");
 		}
 	}
 }
