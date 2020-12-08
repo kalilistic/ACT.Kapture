@@ -76,8 +76,8 @@
 76366FalseBattle on the Big BridgeAffrontement sur le grand pontDuell auf der großen Brückeギルガメッシュ討伐戦
 77374Falsethe Striking Tree (Hard)l'Arbre du jugement (brutal)Götterdämmerung - Ramuh真ラムウ討滅戦
 78375Falsethe Striking Tree (Extreme)l'Arbre du jugement (extrême)Zenit der Götter - Ramuh極ラムウ討滅戦
-79377FalseAkh Afah Amphitheatre (Hard)l'Amphithéâtre d'Akh Afah (brutal)Götterdämmerung - Shiva真シヴァ討滅戦
-80378FalseAkh Afah Amphitheatre (Extreme)l'Amphithéâtre d'Akh Afah (extrême)Zenit der Götter - Shiva極シヴァ討滅戦
+79377Falsethe Akh Afah Amphitheatre (Hard)l'Amphithéâtre d'Akh Afah (brutal)Götterdämmerung - Shiva真シヴァ討滅戦
+80378Falsethe Akh Afah Amphitheatre (Extreme)l'Amphithéâtre d'Akh Afah (extrême)Zenit der Götter - Shiva極シヴァ討滅戦
 81142Falsethe Dragon's Neckle Col du dragonDas Drachenhals-Kolosseumアマジナ杯闘技会決勝戦
 82394FalseUrth's Fountla Fontaine d'UrthJenseits Urths Quelle闘神オーディン討滅戦
 83143Falsethe Steps of Faithle Siège de la sainte Cité d'IshgardDer Schicksalsweg皇都イシュガルド防衛戦
@@ -443,13 +443,13 @@
 640832FalseAir Force OneAs de l'airLuftwaffe, Feuer frei!出撃！ エアフォースパイロット
 641832FalseAir Force OneAs de l'airLuftwaffe, Feuer frei!出撃！ エアフォースパイロット
 642832FalseAir Force OneAs de l'airLuftwaffe, Feuer frei!出撃！ エアフォースパイロット
-643831FalseNovice Mahjong (Ranked)Mahjong domien: tous rangs (classé)Anfänger-Mahjong (gewertet)ドマ式麻雀：一般卓 (段位変動有り)
-644831FalseAdvanced Mahjong (Ranked)Mahjong domien: dan seulement (classé)Fortgeschrittenen-Mahjong (gewertet)ドマ式麻雀：有段卓 (段位変動有り)
-645831FalseFour-player Mahjong (Kuitan Enabled)Mahjong domien: 4 joueurs (avec kuitan)4-Spieler-Mahjong (Kuitan aktiviert)ドマ式麻雀：4人セット卓 (クイタン有り)
+643831FalseNovice Mahjong (Full Ranked Match)Mahjong domien: tous rangs (partie classée)Anfänger-Mahjong (komplette Partie, gewertet)ドマ式麻雀：半荘戦一般卓（段位変動有り）
+644831FalseAdvanced Mahjong (Full Ranked Match)Mahjong domien: dan seulement (partie classée)Fortgeschrittenen-Mahjong (komplette Partie, gewertet)ドマ式麻雀：半荘戦有段卓（段位変動有り）
+645831FalseFour-player Mahjong (Full Match, Kuitan Enabled)Mahjong domien: 4 joueurs (partie avec kuitan)4-Spieler-Mahjong (komplette Partie, Kuitan aktiviert)ドマ式麻雀：半荘戦4人セット卓（クイタン有り）
 646834FalseMessenger of the WindsLa Messagère du ventDurch den Sturm und zurück来訪せし風の御使
 648830Falsea Requiem for HeroesUn requiem pour les hérosRequiem der Helden英雄への鎮魂歌
 649821FalseDohn MhegDohn MhegDohn Mheg水妖幻園 ドォーヌ・メグ
-650831FalseFour-player Mahjong (Kuitan Disabled)Mahjong domien: 4 joueurs (sans kuitan)4-Spieler-Mahjong (Kuitan deaktiviert)ドマ式麻雀：4人セット卓 (クイタン無し)
+650831FalseFour-player Mahjong (Full Match, Kuitan Disabled)Mahjong domien: 4 joueurs (partie sans kuitan)4-Spieler-Mahjong (komplette Partie, Kuitan deaktiviert)ドマ式麻雀：半荘戦4人セット卓（クイタン無し）
 651823Falsethe Qitana RavelL'Enchevêtrement des QitariIrrungen der Qitari古跡探索 キタンナ神影洞
 652838FalseAmaurotAmauroteAmaurot終末幻想 アーモロート
 653849FalseEden's Gate: ResurrectionL'Éveil d'Éden - RésurrectionEdens Erwachen - Auferstehung希望の園エデン：覚醒編1
@@ -500,20 +500,20 @@
 713899FalseLeap of FaithHaute voltigeKaktor-Kletterwand挑戦！ ジャンピングアスレチック
 714898FalseAnamnesis AnyderAnamnesis AnydreAnamnesis Anyder黒風海底 アニドラス・アナムネーシス
 715902FalseEden's Verse: FulminationLes Accords d'Éden - FulminationEdens Resonanz - Entladung希望の園エデン：共鳴編1
-716906TrueEden's Verse: Fulmination (Savage)Les Accords d'Éden - Fulmination (sadique)Edens Resonanz - Entladung (episch)希望の園エデン零式：共鳴編1
+716906FalseEden's Verse: Fulmination (Savage)Les Accords d'Éden - Fulmination (sadique)Edens Resonanz - Entladung (episch)希望の園エデン零式：共鳴編1
 717897FalseCinder DriftLes Nuées de BrandonsRubinfeuer - Entfesselungルビーウェポン破壊作戦
 718912FalseCinder Drift (Extreme)Les Nuées de Brandons (extrême)Rubinfeuer - Trauma極ルビーウェポン破壊作戦
 719903FalseEden's Verse: FurorLes Accords d'Éden - FureurEdens Resonanz - Raserei希望の園エデン：共鳴編2
-720907TrueEden's Verse: Furor (Savage)Les Accords d'Éden - Fureur (sadique)Edens Resonanz - Raserei (episch)希望の園エデン零式：共鳴編2
+720907FalseEden's Verse: Furor (Savage)Les Accords d'Éden - Fureur (sadique)Edens Resonanz - Raserei (episch)希望の園エデン零式：共鳴編2
 721900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
 722901Falsethe DiademLe DiadèmeDas Diadem - Erschließung雲海採集 ディアデム諸島
 723911Falsethe Bozja IncidentPrélude à la catastropheDer Bozja-Vorfallシタデル・ボズヤ蒸発事変
 724914FalseA Sleep DisturbedL'épreuve ronkaVon schlafenden Helden汝、英雄の眠り妨げるは
 725913FalseMemoria Misera (Extreme)Memoria Misera (extrême)Memoria Misera (extrem)極シタデル・ボズヤ追憶戦
 726904FalseEden's Verse: IconoclasmLes Accords d'Éden - IconoclasmeEdens Resonanz - Bildersturm希望の園エデン：共鳴編3
-727908TrueEden's Verse: Iconoclasm (Savage)Les Accords d'Éden - Iconoclasme (sadique)Edens Resonanz - Bildersturm (episch)希望の園エデン零式：共鳴編3
+727908FalseEden's Verse: Iconoclasm (Savage)Les Accords d'Éden - Iconoclasme (sadique)Edens Resonanz - Bildersturm (episch)希望の園エデン零式：共鳴編3
 728905FalseEden's Verse: RefulgenceLes Accords d'Éden - ÉclatEdens Resonanz - Erstarrung希望の園エデン：共鳴編4
-729909TrueEden's Verse: Refulgence (Savage)Les Accords d'Éden - Éclat (sadique)Edens Resonanz - Erstarrung (episch)希望の園エデン零式：共鳴編4
+729909FalseEden's Verse: Refulgence (Savage)Les Accords d'Éden - Éclat (sadique)Edens Resonanz - Erstarrung (episch)希望の園エデン零式：共鳴編4
 730900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
 731900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
 732900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
@@ -523,9 +523,34 @@
 736917Falsethe Puppets' BunkerLa base militaire des PantinsDie Puppenfestung人形タチノ軍事基地
 737916Falsethe Heroes' GauntletLa Traversée de NorvrandtSchlacht um Norvrandt漆黒決戦 ノルヴラント
 738922Falsethe Seat of SacrificeLe Trône du SacrificeKrieger des Lichtsウォーリア・オブ・ライト討滅戦
-739923Truethe Seat of Sacrifice (Extreme)Le Trône du Sacrifice (extrême)Krieger des Lichts (extrem)極ウォーリア・オブ・ライト討滅戦
+739923Falsethe Seat of Sacrifice (Extreme)Le Trône du Sacrifice (extrême)Krieger des Lichts (extrem)極ウォーリア・オブ・ライト討滅戦
 740925FalseSleep Now in SapphireSur la mer de saphirLuftangriff auf Werlyt飛べ！ ウェルリトへ 
 741926FalseSleep Now in SapphireSur la mer de saphirLuftangriff auf Werlyt飛べ！ ウェルリトへ 
 742929Falsethe DiademLe DiadèmeDas Diadem - Erschließung雲海採集 ディアデム諸島
 743932FalseFaded MemoriesSouvenir périssableVerblasste Erinnerungen色あせた記憶
-744930Truethe Akh Afah Amphitheatre (Unreal)l'Amphithéâtre d'Akh Afah (irréel)Traumprüfung - Shiva幻シヴァ討滅戦
+745924Falsethe Shifting Oubliettes of Lyhe Ghiahle Jardin secret du Lyhe GhiahDas Karussell von Lyhe Ghiah宝物庫 リェー・ギア・ダンジョン祭殿
+746933FalseMatoya's Relictl'Atelier abandonné de MatoyaMatoyas Atelier魔術工房 マトーヤのアトリエ
+747943FalseEden's Promise: LitanyLa Promesse d'Éden - LitanieEdens Verheißung - Litanei希望の園エデン：再生編2
+748947TrueEden's Promise: Litany (Savage)La Promesse d'Éden - Litanie (sadique)Edens Verheißung - Litanei (episch)希望の園エデン零式：再生編2
+749942FalseEden's Promise: UmbraLa Promesse d'Éden - NuéeEdens Verheißung - Umbra希望の園エデン：再生編1
+750946TrueEden's Promise: Umbra (Savage)La Promesse d'Éden - Nuée (sadique)Edens Verheißung - Umbra (episch)希望の園エデン零式：再生編1
+751944FalseEden's Promise: AnamorphosisLa Promesse d'Éden - AnamorphoseEdens Verheißung - Anamorphose希望の園エデン：再生編3
+752948TrueEden's Promise: Anamorphosis (Savage)La Promesse d'Éden - Anamorphose (sadique)Edens Verheißung - Anamorphose (episch)希望の園エデン零式：再生編3
+755940FalseTriple Triad Open TournamentTournoi officiel de Triple TriadeTriple Triad: Manderville-Turnierトリプルトライアド：オフィシャルトーナメント
+756941FalseTriple Triad Invitational ParlorSalle de tournoi libre de Triple TriadeTriple Triad: Privatturnierトリプルトライアド：カスタムトーナメントルーム
+757953Truethe Navel (Unreal)Le Nombril (irréel)Traumprüfung - Titan幻タイタン討滅戦
+758945FalseEden's Promise: EternityLa Promesse d'Éden - ÉternitéEdens Verheißung - Ewigkeit希望の園エデン：再生編4
+759949TrueEden's Promise: Eternity (Savage)La Promesse d'Éden - Éternité (sadique)Edens Verheißung - Ewigkeit (episch)希望の園エデン零式：再生編4
+762934FalseCastrum MarinumCastrum MarinumSmaragdsturm - Entfesselungエメラルドウェポン破壊作戦
+763935TrueCastrum Marinum (Extreme)Castrum Marinum (extrême)Smaragdsturm - Trauma極エメラルドウェポン破壊作戦
+764954FalseThe Great Ship VylbrandUn navire nommé VylbrandGute Winde für Vylbrandバイルブランドの船出
+766831FalseNovice Mahjong (Quick Ranked Match)Mahjong domien: tous rangs (partie rapide classée)Anfänger-Mahjong (schnelle Partie, gewertet)ドマ式麻雀：東風戦一般卓（段位変動有り）
+767831FalseAdvanced Mahjong (Quick Ranked Match)Mahjong domien: dan seulement (partie rapide classée)Fortgeschrittenen-Mahjong (schnelle Partie, gewertet)ドマ式麻雀：東風戦有段卓（段位変動有り）
+768831FalseFour-player Mahjong (Quick Match, Kuitan Enabled)Mahjong domien: 4 joueurs (partie rapide avec kuitan)4-Spieler-Mahjong (schnelle Partie, Kuitan aktiviert)ドマ式麻雀：東風戦4人セット卓（クイタン有り）
+769831FalseFour-player Mahjong (Quick Match, Kuitan Disabled)Mahjong domien: 4 joueurs (partie rapide sans kuitan)4-Spieler-Mahjong (schnelle Partie, Kuitan deaktiviert)ドマ式麻雀：東風戦4人セット卓（クイタン無し）
+770900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
+771900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
+772900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
+773900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
+774900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
+775900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
