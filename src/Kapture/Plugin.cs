@@ -34,11 +34,14 @@ namespace ACT_FFXIV_Kapture.Plugin
 	{
 		private static readonly object Lock = new object();
 		private static readonly object DiscordLock = new object();
+		private static readonly object HTTPLock = new object();
 		private BasePresenter _basePresenter;
 		private Configuration _configuration;
 		private Queue<string> _discordQueue;
 		private Timer _discordTimer;
 		private HttpClient _httpClient;
+		private Queue<string> _httpQueue;
+		private Timer _httpTimer;
 		private JsonSerializerSettings _jsonSerializerSettings;
 		private KaptureConfig _kaptureConfig;
 		private KaptureData _kaptureData;
@@ -61,6 +64,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				SetupKaptureService();
 				CreateLogDirectory();
 				SetupDiscord();
+				SetupHTTP();
 				SetupJsonSerializer();
 				SubscribeToLogLineEvents();
 				SetupUI(pluginScreenSpace, pluginStatusText);
@@ -82,6 +86,9 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_discordTimer.Close();
 			_discordQueue.Clear();
 			_discordTimer.Elapsed -= SendToDiscord;
+			_httpTimer.Close();
+			_httpQueue.Clear();
+			_httpTimer.Elapsed -= SendToHTTP;
 			_kaptureConfig.ConfigManager.SaveSettings();
 			_kaptureData.LogLineCaptured -= HandleLootEvent;
 			_kaptureData.DeInit();
@@ -216,6 +223,18 @@ namespace ACT_FFXIV_Kapture.Plugin
 			_discordTimer.Start();
 		}
 
+		private void SetupHTTP()
+		{
+			lock (HTTPLock)
+			{
+				_httpQueue = new Queue<string>();
+			}
+
+			_httpTimer = new Timer {Interval = 1000};
+			_httpTimer.Elapsed += SendToHTTP;
+			_httpTimer.Start();
+		}
+
 		private void SetupJsonSerializer()
 		{
 			var contractResolver = new DefaultContractResolver
@@ -290,7 +309,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 				_kaptureGuiLogger.Info(logLineEvent.LogMessage);
 				LogMessage(logLineEvent);
 				SendToDiscordQueue(logLineEvent);
-				SendToHTTP(logLineEvent);
+				SendToHTTPQueue(logLineEvent);
 				EventSource.SendEvent("LootData", logLineEvent);
 			}
 			catch (Exception ex)
@@ -359,6 +378,18 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
+		private void SendToHTTPQueue(LogLineEvent logLineEvent)
+		{
+			if (!_configuration.HTTP.HTTPEnabled) return;
+			if (_configuration.HTTP.Endpoint == null) return;
+			lock (HTTPLock)
+			{
+				var json = JsonConvert.SerializeObject(new object[] {logLineEvent, _configuration.HTTP.CustomJson},
+					_jsonSerializerSettings);
+				_httpQueue.Enqueue(json);
+			}
+		}
+
 		private async void SendToDiscord(object source, ElapsedEventArgs e)
 		{
 			if (_discordQueue == null || _discordQueue.Count == 0) return;
@@ -374,22 +405,18 @@ namespace ACT_FFXIV_Kapture.Plugin
 			}
 		}
 
-		private async Task SendToHTTP(LogLineEvent logLineEvent)
+		private async void SendToHTTP(object source, ElapsedEventArgs e)
 		{
-			if (!_configuration.HTTP.HTTPEnabled) return;
-			if (_configuration.HTTP.Endpoint == null) return;
-			var json = JsonConvert.SerializeObject(new object[] {logLineEvent, _configuration.HTTP.CustomJson},
-				_jsonSerializerSettings);
+			if (_httpQueue == null || _httpQueue.Count == 0) return;
 			try
 			{
 				await _httpClient.PostAsync(new Uri(_configuration.HTTP.Endpoint),
-					new StringContent(json, Encoding.UTF8, "application/json"));
+					new StringContent(_httpQueue.Peek(), Encoding.UTF8, "application/json"));
+				_httpQueue.Dequeue();
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				_kaptureGuiLogger.Error(
-					nameof(SendToHTTP) + ": " + logLineEvent?.LogMessage + "." + Environment.NewLine,
-					ex);
+				_kaptureGuiLogger.Info("HTTP request failed.");
 			}
 		}
 	}
