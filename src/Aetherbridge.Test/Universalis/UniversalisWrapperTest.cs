@@ -25,7 +25,6 @@ namespace ACT_FFXIV.Aetherbridge.Test
 		private IUniversalisWrapper _wrapper;
 
 		[Test]
-		//[Ignore("Integration Test using real Universalis API")]
 		public void GetSummary_IT_ReturnsSummary()
 		{
 			var result = _wrapper.GetMarketBoard(63, 29436);
@@ -49,7 +48,6 @@ namespace ACT_FFXIV.Aetherbridge.Test
 		}
 
 		[Test]
-		//[Ignore("Integration Test using real Universalis API")]
 		public void GetSummaryWithCache_IT_ReturnsSummaryFromCache()
 		{
 			var result1 = _wrapper.GetMarketBoard(63, 29436);
@@ -58,7 +56,6 @@ namespace ACT_FFXIV.Aetherbridge.Test
 		}
 
 		[Test]
-		//[Ignore("Integration Test using real Universalis API")]
 		public void GetSummary_IT_ReturnsSummaryEmptyItem()
 		{
 			var result = _wrapper.GetMarketBoard(63, 6760);

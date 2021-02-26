@@ -14,7 +14,6 @@ namespace ACT_FFXIV_Kapture.Plugin
 			KaptureConfig = KaptureConfig.GetInstance();
 			Configuration = (Configuration) KaptureConfig.ConfigManager.Config;
 			AboutView = aboutView;
-			AboutView.Version = "1.0"; //UpdateService.GetInstance().Version;
 			AboutView.LinkClicked += OpenLink;
 		}
 

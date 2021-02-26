@@ -9,6 +9,7 @@ tools/**
 !tools/packages.config
 SaintCoinach/
 SaintCoinachExtracts/
+src/.idea/**
 
 # User-specific files
 *.rsuser

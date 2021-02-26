@@ -11,7 +11,6 @@ namespace ACT_FFXIV_Kapture.Plugin
 			InitializeComponent();
 
 			about_TitleLabel.Text = Strings.KaptureLootTracker;
-			about_VersionKeyLabel.Text = Strings.Version;
 
 			about_AuthorKeyLabel.Text = Strings.Author;
 			about_AuthorValueLabel.Text = Strings.Kalilistic;
@@ -23,7 +22,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 
 			about_SourceKeyLabel.Text = Strings.Source;
 			about_SourceValueLabel.Text = Strings.Github;
-			about_SourceValueLabel.Tag = "https://github.com/kalilistic/Kapture";
+			about_SourceValueLabel.Tag = "https://github.com/kalilistic/ACT.Kapture";
 
 			about_LicenseKeyLabel.Text = Strings.License;
 			about_LicenseValueLabel.Text = Strings.MIT;
@@ -34,13 +33,7 @@ namespace ACT_FFXIV_Kapture.Plugin
 			about_SourceValueLabel.Click += Link_Click;
 			about_LicenseValueLabel.Click += Link_Click;
 		}
-
-		public string Version
-		{
-			get => about_VersionValueLabel.Text;
-			set => about_VersionValueLabel.Text = value;
-		}
-
+		
 		public event EventHandler<string> LinkClicked;
 
 		private void Link_Click(object sender, EventArgs e)

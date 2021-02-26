@@ -3487,7 +3487,7 @@ Guilde des surineurs""Schwestern von Edelweiß
 3523Sleepless VigilGuet recruSchlaflose Wacht不寝の野営地
 3524The Luminous SanctuarySanctuaire de l'AuroreErleuchtetes Refugium光耀大聖堂跡
 3525FeatherfallTombeplumeFederfall-Quartierフェザーフォール商業区
-3526Skysteel WorkshopAnnexe de la manufacture de CielacierNebengebäude der Himmelsstahl-Werkstätteスカイスチール機工房分館
+3526Skysteel WorkshopAnnexe de la manufacture de CielacierZweigstelle der Himmelsstahl-Werkstätteスカイスチール機工房分館
 3527The AbacusL'AbaqueAllee des Abakusアバカス通り
 3528Hoarfrost HallRetraite de GivreglacéRaureif-Refugiumホアフロスト官舎
 3529Utya's AegisAvant-poste d'UtyaUtya-Gemarkungウトヤ前哨地
@@ -3558,6 +3558,29 @@ Guilde des surineurs""Schwestern von Edelweiß
 3594The Sorcerer's IntersticeRepaire de la sorcièreSchoß der Hexerei魔まわしの虚
 3595Bygone GaolPrison d'EulmoreVerlies von Eulmoreユールモア監獄棟
 3596Sphere of NaughtSphère de l'absenceNichtssphäre暗闇の領域
+3597Delubrum ReginaeDelubrum ReginaeDelubrum Reginaeグンヒルド・ディルーブラム
+3598Outer LocusRuines extérieuresObere Ebene遺跡浅層
+3599Inner LocusRuines intérieuresUntere Ebene遺跡中層
+3600Hidden LocusRuines cachéesVerborgene Ebene遺跡深層
+3601Suspended ApproachJardins royaux délaissésVerwilderter Vorhof取り残された前庭
+3602Abandoned BarracksCaserne déserteVerlassene Kaserne失われた兵舎
+3603Neglected GranaryGrenier abandonnéVergessener Kornspeicher捨てられた穀倉
+3604Dead Living QuartersVilla royale cachéeVerwaiste Kammern知られざる離宮
+3605Uninviting EntranceAvant-nef ineffableVerschlossener Eingang語られぬ拝廊
+3606Silent Prayer HallPrières silencieusesHalle des Schweigenden Gebets祈りなき拝殿
+3607Concealed StaircaseEscalier dérobéVersteckte Treppen隠された階段
+3608Undisturbed ShrineNef sacraleVerschwiegener Schrein触れ得ざる身廊
+3609Dormant AltarSanctuaire décatiRuhender Altar命なき神殿
+3610Still SanctumSaint des saintsStilles Sanktum満たされぬ聖所
+3611The Theater of OneAmphithéâtre en ruinesEinsame Arena円形劇場跡
+3612Pride of the LionessHall de la LionneSaal der Löwin雌獅子の広間
+3613The Hall of SupplicationGrande salle des prièresGroße Gebetshalle大祈祷所
+3614The Hall of HieromancySalle des oraclesHalle des Orakels託宣所
+3615Pride of the LionHall du LionSaal des Löwen雄獅子の広間
+3616The Vault of Singing CrystalChambre des cristaux chantantsOrt des Klingenden Kristalls響き合う水晶の間
+3617Seer's SolaceAlcove des méditationsZimmer der Abgeschiedenheit静かなる瞑想室
+3618The Path of Divine ClaritySalle des sagesSanktuarium des Lebens命の至聖所
+3619QueensheartChambre des prêtressesSaal der Dienerinnen巫女たちの広間
 3620Laxan LoftChâteau de GanlagBurg Selardラクサン城
 3621Cieldalaes MarginLarge des îles de CieldalaesCieldaläen - Hochseeシェルダレー諸島沖合
 3622Cieldalaes Spectral CurrentCourant spectral (large des îles de Cieldalaes)Cieldaläen - Phantomströmungシェルダレー諸島沖合：幻海流
@@ -3574,8 +3597,15 @@ Guilde des surineurs""Schwestern von Edelweiß
 3633East Longmirror LakeEst du lac PsychéGroßes Spiegelchen (Osten)姿見の湖東
 3634Deep Lake Tusi Mek'taProfondeurs du lac Tusi Mek'taTusi Mek'ta (Tiefen)トゥシ・メキタ湖底深部
 3635The Garden of NowhereJardin du désespoirNimmerwo-Garten絶望の園
+3636Ser Vaindreau's GraceMaison de repos RouchemandeKurhaus Rouchemandeルーシュマンド記念病院
+3637Quill's TraceVoie des PlumesFüllfederpfadクウィル通り
+3638Bright Ballad's PassagePorte des IndustrieuxBalladenpassage詩伯門
+3639Snowsoak SpringsLes Bains floconneuxThermalbad Winterwonneスノーソーク浴場
+3640The Risensong QuarterLe Nouveau RefrainHimmelsangリズンソング文化区
 3641The CieldalaesÎles de CieldalaesInseln der Cieldaläenシェルダレー諸島
 3642The Bloodbrine SeaMer PourpreSchwerblütiges Meer緋汐海
 3643The Rothlyt SoundGolfe de RothlytRothlyt-Meerbusenロズリト湾
 3644The Shifting Oubliettes of Lyhe GhiahJardin secret du Lyhe GhiahDas Karussell von Lyhe Ghiahリェー・ギア・ダンジョン祭殿
+3645Eastern Risensong QuarterEst du Nouveau RefrainÖstliches Himmelsangリズンソング文化区東
+3646Western Risensong QuarterOuest du Nouveau RefrainWestliches Himmelsangリズンソング文化区西
 2405？？？？
