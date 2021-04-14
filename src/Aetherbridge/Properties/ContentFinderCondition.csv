@@ -540,13 +540,12 @@
 754796FalseAnything Gogo'sGogo le mimeGogo der Mime黄金頭巾「ものまね士ゴゴ」
 755940FalseTriple Triad Open TournamentTournoi officiel de Triple TriadeTriple Triad: Manderville-Turnierトリプルトライアド：オフィシャルトーナメント
 756941FalseTriple Triad Invitational ParlorSalle de tournoi libre de Triple TriadeTriple Triad: Privatturnierトリプルトライアド：カスタムトーナメントルーム
-757953Truethe Navel (Unreal)Le Nombril (irréel)Traumprüfung - Titan幻タイタン討滅戦
 758945FalseEden's Promise: EternityLa Promesse d'Éden - ÉternitéEdens Verheißung - Ewigkeit希望の園エデン：再生編4
 759949TrueEden's Promise: Eternity (Savage)La Promesse d'Éden - Éternité (sadique)Edens Verheißung - Ewigkeit (episch)希望の園エデン零式：再生編4
 760936FalseDelubrum ReginaeDelubrum ReginaeDelubrum Reginaeグンヒルド・ディルーブラム
 761937FalseDelubrum Reginae (Savage)Delubrum Reginae (sadique)Delubrum Reginae (episch)グンヒルド・ディルーブラム零式
 762934FalseCastrum MarinumCastrum MarinumSmaragdsturm - Entfesselungエメラルドウェポン破壊作戦
-763935TrueCastrum Marinum (Extreme)Castrum Marinum (extrême)Smaragdsturm - Trauma極エメラルドウェポン破壊作戦
+763935FalseCastrum Marinum (Extreme)Castrum Marinum (extrême)Smaragdsturm - Trauma極エメラルドウェポン破壊作戦
 764954FalseThe Great Ship VylbrandUn navire nommé VylbrandGute Winde für Vylbrandバイルブランドの船出
 765955FalseFit for a QueenQue les Dieux gardent la ReineHinab in die Ruinenゴッド・セイブ・ザ・クイーン
 766831FalseNovice Mahjong (Quick Ranked Match)Mahjong domien: tous rangs (partie rapide classée)Anfänger-Mahjong (schnelle Partie, gewertet)ドマ式麻雀：東風戦一般卓（段位変動有り）
@@ -559,3 +558,8 @@
 773900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
 774900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
 775900FalseOcean FishingPêche en merAuf großer Fahrtオーシャンフィッシング
+776972TrueThe Whorleater (Unreal)le Briseur de marées (irréel)Traumprüfung - Leviathan幻リヴァイアサン討滅戦
+777938FalsePaglth'anLa grande prairie de Paglth'anDie Goldene Ebene von Paglth'an黄金平原 パガルザン
+779966FalseThe Tower at Paradigm's BreachLa tour de la ContingenceDer Turm, Paradigmenbrecher希望ノ砲台：「塔」
+781950FalseThe Cloud DeckLe Tillac des CirrusDiamantblitz - Entfesselungダイヤウェポン捕獲作戦
+782951TrueThe Cloud Deck (Extreme)Le Tillac des Cirrus (extrême)Diamantblitz - Trauma極ダイヤウェポン捕獲作戦
