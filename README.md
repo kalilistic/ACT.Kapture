@@ -1,3 +1,9 @@
+## DEPRECATION NOTICE
+
+ACT Kapture has been officially deprecated and will no longer be supported.
+A new version of Kapture has been released as an XIVLauncher plugin with more features and better performance!
+Check out the Quick Launcher here: https://github.com/goatcorp/FFXIVQuickLauncher. You can install Kapture through the in-game plugin installer.
+
 <h1 align="center">
   <br><a href="https://github.com/kalilistic/kapture"><img src="img/bannerIcon.png" alt="Kapture"></a>
   <br>Kapture<br>
